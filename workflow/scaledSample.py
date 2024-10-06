@@ -33,7 +33,7 @@ def scaledSample(
         在使用markdown时, 必须先用CSV序列化方案把规模降下来, 否则速度会非常慢
         """
         maxKey = list(scaledDict.keys())[0]
-        mdRoot = os.path.join(sampRoot, f'md{maxKey}')
+        mdRoot = os.path.join(sampRoot, f'csv{maxKey}')
         lp = scaledDict[maxKey][0] * 2
         rp = scaledDict[maxKey][1] * 2
         multiProcessSample(
