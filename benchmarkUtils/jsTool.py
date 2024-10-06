@@ -1,6 +1,5 @@
 import os
-import json
-from os.path import isfile
+import simplejson as json # simplejson主要是更兼容一点
 
 class JS:
     def __init__(self, jsPath):
@@ -8,7 +7,7 @@ class JS:
 
     def newJS(self, content):
         with open(self.jsPath, 'w') as js:
-            json.dump(content, js)
+            json.dump(content, js, indent=2)
         return content
 
     def loadJS(self):
@@ -19,7 +18,19 @@ class JS:
         return content
 
     def addJS(self, item):
-        saveList = [item]
-        if os.path.isfile(self.jsPath):
-            saveList = self.loadJS() + saveList
+        saveList = self.loadJS() + [item]
+        with open(self.jsPath, 'w') as js:
+            json.dump(saveList, js, indent=2)
         return saveList
+
+    def condAdd(self, item, conds):
+        """
+        条件添加, 在conds这一key中都不重复则视为可以添加
+        """
+        lst = self.loadJS()
+        for c in conds:
+            if item[c] in [it[c] for it in lst]:
+                return False
+        lst.append(item)
+        self.newJS(lst)
+        return True

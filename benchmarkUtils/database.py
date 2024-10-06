@@ -29,6 +29,21 @@ class DB:
         if initTables:
             self.tables = self.initDataFrame()
 
+    def defaultSerialization(self, markdown=False):
+        """
+        markdown: True则序列化为markdown的表格, False则序列化为CSV格式
+        默认的序列化方案, 可以选择是否使用markdown
+        """
+        tables = self.initDataFrame()
+
+        tableList = []
+        for k, v in tables.items():
+            if markdown:
+                tableList.append(f'## {k}\n\n{v.to_markdown(index=False)}')
+            else:
+                tableList.append(f'## {k}\n\n{v.to_csv(index=False)}')
+        return '\n\n'.join(tableList)
+
     def rowCount(self, tabName):
         # 获取行数
         self.curs.execute(f'SELECT COUNT(*) FROM [{tabName}];')
@@ -43,6 +58,8 @@ class DB:
         return '\n'.join(schemaList)
     
     def initDataFrame(self):
+        if len(self.tables) > 0:
+            return self.tables
         tablesName = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';", self.conn)
 
         dataframes = {}

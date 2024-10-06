@@ -48,6 +48,7 @@ def tokenBasedSample(
         # 在区间内则直接复制
         shutil.copy2(srcPath, dstDBPath)
         JS(dstJSPath).newJS({
+            'markdown': markdown,
             'token': originalTokenSize,
             'sample': -1 # -1代表没有做采样, 而是直接复制的
         })
@@ -67,6 +68,7 @@ def tokenBasedSample(
             rp *= 2
         elif tokenSize <= maxToken:
             JS(dstJSPath).newJS({
+                'markdown': markdown,
                 'token': tokenSize,
                 'sample': rp
             })
@@ -88,6 +90,7 @@ def tokenBasedSample(
             rp = cp - 1
         else:
             JS(dstJSPath).newJS({
+                'markdown': markdown,
                 'token': tokenSize,
                 'sample': cp
             })
@@ -133,9 +136,10 @@ def multiProcessSample(dbRoot, sampRoot, minToken, maxToken, initRow=32, markdow
 
     # 对于采样失败的, 需要将其目录移除
     for dbn in dbNames:
+        dbr = os.path.join(sampRoot, dbn)
         jsp = os.path.join(sampRoot, dbn, 'sampleInfo.json')
-        if not os.path.isfile(jsp) and os.path.isdir(os.path.join(sampRoot, dbn)):
-            shutil.rmtree(os.path.join(sampRoot, dbn))
+        if not os.path.isfile(jsp) and os.path.isdir(dbr):
+            shutil.rmtree(dbr)
 
 if __name__ == '__main__':
     dbRoot = 'dataset/workflowDB'
