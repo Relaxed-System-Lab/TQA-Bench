@@ -1,12 +1,11 @@
 import os
-from tqdm import tqdm
-from os.path import exists, isfile
 import shutil
-
+import multiprocessing
 import sys
 
-from pandas.core.computation.parsing import tokenize_string
+from pandas.core.computation.parsing import tokenize_backtick_quoted_string
 sys.path.append('.')
+
 from benchmarkUtils.database import DB
 from benchmarkUtils.LLM import countDBToken
 from benchmarkUtils.jsTool import JS
@@ -36,11 +35,10 @@ def tokenBasedSample(
     # 目标目录下需要新建多个文件
     dstRoot = os.path.join(dstPath, dbn)
     dstDBPath = os.path.join(dstRoot, fn)
-    dstJSPath = os.path.join(dstRoot, fn)
+    dstJSPath = os.path.join(dstRoot, 'sampleInfo.json')
 
     # 对原始数据库计数
     originalTokenSize = countDBToken(srcPath, markdown)
-    print(originalTokenSize)
     if originalTokenSize < minToken:
         # 如果原始表都不足minToken则去掉
         return False
@@ -76,14 +74,12 @@ def tokenBasedSample(
         else:
             # 大于了, 要用2分法了
             break
-        print(rp)
         lastTokenSize = tokenSize
 
     lp = rp // 2
     cp = -1
     while cp != (lp + rp) // 2:
         cp = (lp + rp) // 2
-        print(cp)
         db.sample(dstDBPath, cp)
         tokenSize = countDBToken(dstDBPath)
         if tokenSize < minToken:
@@ -106,12 +102,29 @@ if __name__ == '__main__':
     sampRoot = 'dataset/sampleDB'
     os.makedirs(sampRoot, exist_ok=True)
     dbNames = os.listdir(dbRoot)
-    for dbn in tqdm(dbNames):
-        print(dbn)
+
+    pool = multiprocessing.Pool(processes=64)
+    for dbn in dbNames:
         dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
-        tokenBasedSample(
+        sz = os.path.getsize(dbp) / 2**20
+        if sz > 1024:
+            # 先不采样超过1G的, 太慢了
+            continue
+#        tokenBasedSample(
+#            dbp,
+#            sampRoot,
+#            32 * 1024,
+#            64 * 1024
+#        )
+        pool.apply_async(tokenBasedSample, (
             dbp,
             sampRoot,
             32 * 1024,
             64 * 1024
-        )
+        ))
+    pool.close()
+    pool.join()
+    for dbn in dbNames:
+        jsp = os.path.join(sampRoot, dbn, 'sampleInfo.json')
+        if not os.path.isfile(jsp) and os.path.isdir(os.path.join(sampRoot, dbn)):
+            shutil.rmtree(os.path.join(sampRoot, dbn))

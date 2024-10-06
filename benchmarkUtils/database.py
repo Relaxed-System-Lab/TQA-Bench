@@ -47,7 +47,6 @@ class DB:
 
         dataframes = {}
         for tn in tablesName['name']:
-            print(tn)
             dataframes[tn] = pd.read_sql(f"SELECT * FROM [{tn}]", self.conn)
         self.tables = dataframes
         return dataframes
