@@ -3,7 +3,7 @@ import shutil
 import multiprocessing
 import sys
 
-from pandas.core.computation.parsing import tokenize_backtick_quoted_string
+from tqdm import tqdm
 sys.path.append('.')
 
 from benchmarkUtils.database import DB
@@ -96,35 +96,56 @@ def tokenBasedSample(
         os.remove(dstDBPath)
     return True
 
-
-if __name__ == '__main__':
-    dbRoot = 'dataset/workflowDB'
-    sampRoot = 'dataset/sampleDB'
+def multiProcessSample(dbRoot, sampRoot, minToken, maxToken, initRow=32, markdown=False, processes=64, maxSize=1024):
+    """
+    dbRoot: 数据库的根目录
+    sampRoot: 采样后需要放置的目录
+    minToken: 采样后数据库最低的token数
+    maxToken: 最高token数
+    initRow: 初始的采样大小
+    markdown: 是否使用markdown来转化表格
+    processes: 使用多少进程来进行采样
+    maxSize: 采样数据库的大小上限 (MB)
+    """
     os.makedirs(sampRoot, exist_ok=True)
     dbNames = os.listdir(dbRoot)
 
-    pool = multiprocessing.Pool(processes=64)
+    pBar = tqdm(total = len(dbNames))
+    pool = multiprocessing.Pool(processes=processes)
     for dbn in dbNames:
         dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
         sz = os.path.getsize(dbp) / 2**20
-        if sz > 1024:
+        if sz > maxSize:
             # 先不采样超过1G的, 太慢了
+            pBar.update()
             continue
-#        tokenBasedSample(
-#            dbp,
-#            sampRoot,
-#            32 * 1024,
-#            64 * 1024
-#        )
         pool.apply_async(tokenBasedSample, (
             dbp,
             sampRoot,
-            32 * 1024,
-            64 * 1024
-        ))
+            minToken,
+            maxToken,
+            initRow,
+            markdown
+        ), callback=lambda _: pBar.update())
     pool.close()
     pool.join()
+    pBar.close()
+
+    # 对于采样失败的, 需要将其目录移除
     for dbn in dbNames:
         jsp = os.path.join(sampRoot, dbn, 'sampleInfo.json')
         if not os.path.isfile(jsp) and os.path.isdir(os.path.join(sampRoot, dbn)):
             shutil.rmtree(os.path.join(sampRoot, dbn))
+
+if __name__ == '__main__':
+    dbRoot = 'dataset/workflowDB'
+    sampRoot = 'dataset/sampleDB'
+    multiProcessSample(
+        dbRoot,
+        sampRoot,
+        4 * 1024,
+        6 * 1024,
+        32,
+        False,
+        64
+    )
