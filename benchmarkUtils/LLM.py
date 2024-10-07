@@ -56,12 +56,13 @@ def gptCall(model,
     except Exception as e:
         print(e)
         msg = f'error: {e}\n' + str(msg)
-    otherInfo.update({"model": model, "prompt": prompt, "message": msg})
+    logInfo = {"model": model, "prompt": prompt, "message": msg}
+    logInfo.update(otherInfo)
     fileName = datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + "_" + str(uuid4()) + ".json"
     if logStart != "":
         fileName = logStart + "_" + fileName
     filePath = os.path.join(logPath, fileName)
-    JS(filePath).newJS(otherInfo)
+    JS(filePath).newJS(logInfo)
     return msg
 
 def countDBToken(dbPath, markdown=False):

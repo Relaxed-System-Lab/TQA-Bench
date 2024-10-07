@@ -7,13 +7,11 @@ import sys
 
 
 sys.path.append('.')
+from workflow import prompts, scaleRoot, qaRoot, refScale, scaledDict
 from benchmarkUtils.database import DB
 from benchmarkUtils.jsTool import JS
 from benchmarkUtils.LLM import gptCall
-
-promptPath = 'workflow/templates.json'
-
-prompts = JS(promptPath).loadJS()
+from benchmarkUtils.codeRun import codeExec
 
 def tableQAPrompt(dbPath, markdown=True):
     db = DB(dbPath)
@@ -36,7 +34,7 @@ def tableQAPrompt(dbPath, markdown=True):
     )
     return prompt
 
-def tableQAGen(
+def rawQAGen(
         dbRoot,
         qaRoot,
         model='gpt-4o-mini',
@@ -60,12 +58,13 @@ def tableQAGen(
         DB(dbp).sample(dbCachePath, sampleSize, removeEmpty=False)
         prompt = tableQAPrompt(dbCachePath, markdown)
         otherInfo={
+            'model': model,
+            'dbName': dbn,
             'originalDBPath': dbp,
             'cacheDBPath': dbCachePath,
             'sampleSize': sampleSize
         }
-        res = gptCall(
-            model,
+        res = gptCall( model,
             prompt,
             'tableQA',
             logRoot,
@@ -90,11 +89,67 @@ def extractPairs(text):
     cMatches = re.findall(cPat, text, re.IGNORECASE|re.DOTALL)
     return qMatches, cMatches
 
+def testCode(code, dbPath):
+    db = DB(dbPath)
+    tables = db.initDataFrame().copy()
+    res = None
+    try:
+        res = codeExec(code, tables)
+    except:
+        pass
+    return res
+
+def validPairs(rawRoot, validRoot):
+    jsNames = os.listdir(rawRoot)
+    os.makedirs(validRoot, exist_ok=True)
+
+    for jsn in jsNames:
+        if not jsn.endswith('.json'):
+            # 排除一些不是json文件的内容
+            continue
+        jsp = os.path.join(rawRoot, jsn)
+        dstJSP = os.path.join(validRoot, jsn)
+        qcPairs = JS(jsp).loadJS()
+
+        validPairs = []
+        for qc in qcPairs:
+            code = qc['code']
+            dbp = qc['info']['originalDBPath']
+            dbn = dbp.split('/')[-1].split('.')[0]
+            res = {}
+            dropQC = False
+            zeroCount = 0
+            for sc in scaledDict.keys():
+                scaledDBP = os.path.join(scaleRoot, sc, dbn, f'{dbn}.sqlite')
+                res[sc] = testCode(code, scaledDBP)
+                if res[sc] == 0:
+                    zeroCount += 1
+                if res[sc] is None:
+                    dropQC = True
+                    break
+                else:
+                    res[sc] = str(res[sc])
+            if dropQC or len(scaledDict) == zeroCount:
+                # 当存在None或者所有的结果都是0的情况下, 则不需要这些QC对了
+                continue
+            del qc['info']
+            qc['database'] = dbn
+            qc['answer']  = res
+            validPairs.append(qc)
+
+        print(len(validPairs), len(qcPairs))
+        JS(dstJSP).newJS(validPairs)
+
 if __name__ == '__main__':
-    tableQAGen(
-        'dataset/scaledDB/16k/',
-        'dataset/task/tableQA/'
+    refRoot = os.path.join(scaleRoot, refScale)
+    rawQAGen(
+        refRoot,
+        qaRoot,
+        'gpt-4o'
     )
     # msg = JS('dataset/task/tableQA/log/tableQA_07-10-2024-10-51-39_faf3809f-4249-4965-8e39-46f199947ff9.json').loadJS()['message']
     # qm, cm = extractPairs(msg)
     # print(qm, cm)
+    rawRoot = os.path.join(qaRoot, 'raw')
+    validRoot = os.path.join(qaRoot, 'valid')
+    validPairs(rawRoot, validRoot)
