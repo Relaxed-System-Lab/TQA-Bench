@@ -17,7 +17,8 @@ def gptCall(model,
                 'http': 'socks5://127.0.0.1:1080',
                 'https': 'socks5://127.0.0.1:1080',
             }, # 代理字典, 这里默认使用1080端口的sock5代理
-            OPENAI_API_KEY=None
+            OPENAI_API_KEY=None,
+            otherInfo={}
             ):
     """
     model: gpt模型, 包括gpt-4, gpt-4o, gpt-4o-mini等
@@ -55,12 +56,12 @@ def gptCall(model,
     except Exception as e:
         print(e)
         msg = f'error: {e}\n' + str(msg)
-    saveDict = {"model": model, "prompt": prompt, "message": msg}
+    otherInfo.update({"model": model, "prompt": prompt, "message": msg})
     fileName = datetime.now().strftime("%d-%m-%Y-%H-%M-%S") + "_" + str(uuid4()) + ".json"
     if logStart != "":
         fileName = logStart + "_" + fileName
     filePath = os.path.join(logPath, fileName)
-    JS(filePath).newJS(saveDict)
+    JS(filePath).newJS(otherInfo)
     return msg
 
 def countDBToken(dbPath, markdown=False):

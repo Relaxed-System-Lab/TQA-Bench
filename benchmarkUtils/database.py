@@ -64,7 +64,8 @@ class DB:
 
         dataframes = {}
         for tn in tablesName['name']:
-            dataframes[tn] = pd.read_sql(f"SELECT * FROM [{tn}]", self.conn)
+            newTN = tn.strip().replace(' ', '_').replace('-', '_').replace('\t', '_') # 注意给定的dataframe名字要把空格之类的换掉, 否则没法跑
+            dataframes[newTN] = pd.read_sql(f"SELECT * FROM [{tn}]", self.conn)
         self.tables = dataframes
         return dataframes
     
