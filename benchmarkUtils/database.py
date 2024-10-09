@@ -97,6 +97,7 @@ class DB:
         foreignKey = []
         for item in res:
             foreignKey.append({'currentColumn': item[3], 'foreignTable': item[2], 'foreignColumn': item[4]})
+            foreignKey[-1]['foreignColumn'] = self.getTableKey(foreignKey[-1]['foreignTable'])[0] if foreignKey[-1]['foreignColumn'] is None else foreignKey[-1]['foreignColumn']
         return foreignKey
 
     def getAllForeignKeys(self):
@@ -109,6 +110,9 @@ class DB:
         return allForeignKeys
 
     def getTableKey(self, tbn):
+        """
+        获取主键
+        """
         self.curs.execute(f'PRAGMA table_info([{tbn}]);')
         res = self.curs.fetchall()
         k = []

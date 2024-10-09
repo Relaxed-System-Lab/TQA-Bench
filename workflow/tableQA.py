@@ -1,5 +1,6 @@
 import os
 import re
+import random
 from uuid import uuid4
 from tqdm import tqdm
 
@@ -100,6 +101,7 @@ def testCode(code, dbPath):
     return res
 
 def validPairs(rawRoot, validRoot):
+    global scaledDict
     jsNames = os.listdir(rawRoot)
     os.makedirs(validRoot, exist_ok=True)
 
@@ -140,16 +142,42 @@ def validPairs(rawRoot, validRoot):
         print(len(validPairs), len(qcPairs))
         JS(dstJSP).newJS(validPairs)
 
+def finalQADataset(qaRoot, validRoot):
+    global scaledDict
+    jsNames = [item for item in os.listdir(validRoot) if item.endswith('.json')]
+    scales = list(scaledDict.keys())
+    dstPath = os.path.join(qaRoot, 'task.json')
+
+    allScaledQA = []
+    for jsn in jsNames:
+        jsp = os.path.join(validRoot, jsn)
+        lst = JS(jsp).loadJS()
+        for item in lst:
+            possibleChoices = item.get('choices', ['Unknown', 'True', 'False', 'None', 'Null'])
+            answer = item['answer']
+            rightAnsSet = list(set(answer.values()))
+            allChoices = rightAnsSet + possibleChoices[:4 - len(rightAnsSet)]
+            random.shuffle(allChoices)
+            item['choices'] = allChoices
+            item['rightIdx'] = {}
+            for sc in answer.keys():
+                item['rightIdx'][sc] = allChoices.index(answer[sc])
+            del item['answer']
+            del item['code']
+            allScaledQA.append(item)
+    JS(dstPath).newJS(allScaledQA)
+
 if __name__ == '__main__':
     refRoot = os.path.join(scaleRoot, refScale)
-    rawQAGen(
-        refRoot,
-        qaRoot,
-        'gpt-4o'
-    )
+    # rawQAGen(
+    #     refRoot,
+    #     qaRoot,
+    #     'gpt-4o'
+    # )
     # msg = JS('dataset/task/tableQA/log/tableQA_07-10-2024-10-51-39_faf3809f-4249-4965-8e39-46f199947ff9.json').loadJS()['message']
     # qm, cm = extractPairs(msg)
     # print(qm, cm)
     rawRoot = os.path.join(qaRoot, 'raw')
     validRoot = os.path.join(qaRoot, 'valid')
-    validPairs(rawRoot, validRoot)
+    # validPairs(rawRoot, validRoot)
+    finalQADataset(qaRoot, validRoot)

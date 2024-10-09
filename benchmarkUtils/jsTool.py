@@ -19,8 +19,13 @@ class JS:
 
     def addJS(self, item):
         saveList = self.loadJS() + [item]
-        with open(self.jsPath, 'w') as js:
-            json.dump(saveList, js, indent=2)
+        self.newJS(saveList)
+        return saveList
+
+    def delJS(self, idx):
+        saveList = self.loadJS()
+        del saveList[idx]
+        self.newJS(saveList)
         return saveList
 
     def condAdd(self, item, conds):
