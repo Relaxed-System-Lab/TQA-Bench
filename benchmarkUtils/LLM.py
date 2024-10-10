@@ -78,6 +78,15 @@ def countDBToken(dbPath, markdown=False):
     tkTool = tiktoken.get_encoding("cl100k_base")
     return len(tkTool.encode(dbStr))
 
+def countDFToken(df, markdown=False):
+    dfStr = ''
+    if markdown:
+        dfStr = df.to_markdown(index=False)
+    else:
+        dfStr = df.to_csv(index=False)
+    tkTool = tiktoken.get_encoding("cl100k_base")
+    return len(tkTool.encode(dfStr))
+
 if __name__ == '__main__':
     dbp = 'dataset/sampleDB/movie/movie.sqlite'
     logPath = 'dataset/log/tmp/'

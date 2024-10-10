@@ -43,7 +43,8 @@ def joinTables(dbp):
 
     return fullTables
 
-def tableFVGen()
+def tableFVGen():
+    pass
 
 if __name__ == '__main__':
     scalePath = 'dataset/scaledDB/16k/'

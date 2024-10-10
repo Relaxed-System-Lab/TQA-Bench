@@ -101,6 +101,9 @@ def testCode(code, dbPath):
     return res
 
 def validPairs(rawRoot, validRoot):
+    """
+    判断代码的可执行性
+    """
     global scaledDict
     jsNames = os.listdir(rawRoot)
     os.makedirs(validRoot, exist_ok=True)
@@ -124,31 +127,34 @@ def validPairs(rawRoot, validRoot):
             for sc in scaledDict.keys():
                 scaledDBP = os.path.join(scaleRoot, sc, dbn, f'{dbn}.sqlite')
                 res[sc] = testCode(code, scaledDBP)
-                if res[sc] == 0:
+                if str(res[sc]) in ['0', '0.0']:
                     zeroCount += 1
                 if res[sc] is None:
                     dropQC = True
                     break
                 else:
                     res[sc] = str(res[sc])
-            if dropQC or len(scaledDict) == zeroCount:
+            if dropQC or zeroCount > 1:
                 # 当存在None或者所有的结果都是0的情况下, 则不需要这些QC对了
                 continue
             del qc['info']
             qc['database'] = dbn
             qc['answer']  = res
+            if len(set(qc['answer'].values())) < 3:
+                # 不足3个的去掉, 当有3个的时候, 选择unk
+                continue
             validPairs.append(qc)
 
-        print(len(validPairs), len(qcPairs))
+        print('validPair/totalPair', len(validPairs), len(qcPairs))
         JS(dstJSP).newJS(validPairs)
 
 def finalQADataset(qaRoot, validRoot):
     global scaledDict
     jsNames = [item for item in os.listdir(validRoot) if item.endswith('.json')]
-    scales = list(scaledDict.keys())
     dstPath = os.path.join(qaRoot, 'task.json')
 
     allScaledQA = []
+    dedupChoices = []
     for jsn in jsNames:
         jsp = os.path.join(validRoot, jsn)
         lst = JS(jsp).loadJS()
@@ -163,8 +169,15 @@ def finalQADataset(qaRoot, validRoot):
             for sc in answer.keys():
                 item['rightIdx'][sc] = allChoices.index(answer[sc])
             del item['answer']
-            del item['code']
+            # del item['code']
+            sortedChoices = '|'.join(sorted(item['choices']))
+            if sortedChoices in dedupChoices:
+                continue
+            else:
+                dedupChoices.append(sortedChoices)
             allScaledQA.append(item)
+    allScaledQA.sort(key=lambda x: x['database'])
+    print('final remained QA Size:', len(allScaledQA))
     JS(dstPath).newJS(allScaledQA)
 
 if __name__ == '__main__':
@@ -179,5 +192,5 @@ if __name__ == '__main__':
     # print(qm, cm)
     rawRoot = os.path.join(qaRoot, 'raw')
     validRoot = os.path.join(qaRoot, 'valid')
-    # validPairs(rawRoot, validRoot)
+    validPairs(rawRoot, validRoot)
     finalQADataset(qaRoot, validRoot)

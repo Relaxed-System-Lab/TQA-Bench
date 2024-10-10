@@ -1,3 +1,4 @@
+import os
 import sys
 sys.path.append('.')
 from benchmarkUtils.jsTool import JS
@@ -6,8 +7,10 @@ promptPath = 'workflow/templates.json'
 
 prompts = JS(promptPath).loadJS()
 
+taskRoot = 'dataset/task'
+
 scaleRoot = 'dataset/scaledDB/'
-qaRoot = 'dataset/task/tableQA/'
+qaRoot = os.path.join(taskRoot, 'tableQA')
 refScale = '16k'
 
 scaledDict:dict={
