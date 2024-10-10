@@ -42,7 +42,7 @@ def codeExec(code, varDict):
     try:
         exec(code, varDict)
         sys.stdout = original_stdout
-        if type(varDict[varName]) in [pd.DataFrame, pd.Series, list, tuple]:
+        if type(varDict[varName]) in [pd.DataFrame, pd.Series, list, tuple, dict]:
             raise TypeError
         if varDict[varName] in [None, np.nan]:
             raise ValueError

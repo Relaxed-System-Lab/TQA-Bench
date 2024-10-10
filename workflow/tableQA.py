@@ -129,7 +129,7 @@ def validPairs(rawRoot, validRoot):
                 res[sc] = testCode(code, scaledDBP)
                 if str(res[sc]) in ['0', '0.0']:
                     zeroCount += 1
-                if res[sc] is None:
+                if res[sc] is None or str(res[sc]) == 'nan':
                     dropQC = True
                     break
                 else:

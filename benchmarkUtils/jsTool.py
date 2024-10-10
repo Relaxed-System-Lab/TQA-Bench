@@ -7,7 +7,7 @@ class JS:
 
     def newJS(self, content):
         with open(self.jsPath, 'w') as js:
-            json.dump(content, js, indent=2)
+            json.dump(content, js, indent=2, ignore_nan=True)
         return content
 
     def loadJS(self):
