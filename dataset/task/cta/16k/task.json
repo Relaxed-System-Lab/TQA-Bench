@@ -1,0 +1,1302 @@
+[
+  {
+    "table": "Product_deepwebsiteslinks.com_September2020_CTA.json.gz",
+    "columns": [
+      28
+    ],
+    "choices": [
+      "Restaurant/name",
+      "price",
+      "MusicRecording/name",
+      "paymentAccepted"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_bodenplatte24.net_September2020_CTA.json.gz",
+    "columns": [
+      8
+    ],
+    "choices": [
+      "TVEpisode/name",
+      "weight",
+      "unitText",
+      "Language"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "JobPosting_agefiph.fr_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "currency",
+      "EducationalOccupationalCredential",
+      "QuantitativeValue",
+      "OfferItemCondition"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_pajasaapartments.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Hotel/name",
+      "category",
+      "CreativeWork/name",
+      "CoordinateAT"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Museum_experienceprincegeorges.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Museum/name",
+      "telephone",
+      "unitCode",
+      "Energy"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_camla.org.au_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "addressRegion",
+      "Country",
+      "DeliveryMethod",
+      "Event/name"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_sooner.de_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "openingHours",
+      "CategoryCode",
+      "Organization",
+      "Movie/name"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_nordicchoicehotels.com_September2020_CTA.json.gz",
+    "columns": [
+      8
+    ],
+    "choices": [
+      "MusicArtistAT",
+      "Museum/name",
+      "faxNumber",
+      "Mass"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_alamocitystudios.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "Event/name",
+      "Place/name",
+      "EducationalOrganization",
+      "Duration"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "JobPosting_bupadentalcare.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      7
+    ],
+    "choices": [
+      "Number",
+      "identifierNameAP",
+      "JobPosting/name",
+      "audience"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_aubreycoc.org_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "postalCode",
+      "SportsTeam",
+      "Book/name",
+      "DayOfWeek"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_aspire-medical.eu_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "EducationalOccupationalCredential",
+      "CreativeWork/name",
+      "unitText",
+      "LocalBusiness/name"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_erinrothstein.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "price",
+      "Hotel/name",
+      "email",
+      "Review"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_dohertyhardware.ie_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "Distance",
+      "ItemList",
+      "LocationFeatureSpecification",
+      "CreativeWork"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_daftshop.co_September2020_CTA.json.gz",
+    "columns": [
+      13
+    ],
+    "choices": [
+      "unitCode",
+      "Action",
+      "Thing",
+      "workHours"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_ambitiousbrew.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "CreativeWorkSeries",
+      "Product/name",
+      "Person",
+      "postalCode"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_pupica.com_September2020_CTA.json.gz",
+    "columns": [
+      17
+    ],
+    "choices": [
+      "Boolean",
+      "Rating",
+      "MusicAlbum/name",
+      "Mass"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_agoudalife.com_September2020_CTA.json.gz",
+    "columns": [
+      13
+    ],
+    "choices": [
+      "identifierNameAP",
+      "MusicAlbum",
+      "SportsEvent/name",
+      "Number"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_southdakotagunshows.com_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "Event/name",
+      "Organization",
+      "WarrantyPromise",
+      "Recipe/name"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_electriciansnearme.net.au_September2020_CTA.json.gz",
+    "columns": [
+      18
+    ],
+    "choices": [
+      "URL",
+      "PostalAddress",
+      "EventAttendanceModeEnumeration",
+      "Time"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_asiswebdesign.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "price",
+      "Person",
+      "Date",
+      "MusicGroup"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_janetsdeliciouslowcarbkitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "DateTime",
+      "MusicRecording",
+      "Integer",
+      "GenderType"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_charmingsardinia.com_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "faxNumber",
+      "addressRegion",
+      "streetAddress",
+      "typicalAgeRange"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_lacarte.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "Movie/name",
+      "OccupationalExperienceRequirements",
+      "BookFormatType",
+      "Time"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_serrurier-grand-paris.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Person",
+      "ProductModel",
+      "Country",
+      "RestrictedDiet"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "SportsEvent_fcbarcelona.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "Distance",
+      "EventStatusType",
+      "Place",
+      "Person/name"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_fromragstostitches.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Distance",
+      "addressLocality",
+      "Offer",
+      "IdentifierAT"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_galesburg.org_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "Product",
+      "Photograph",
+      "Place",
+      "Event/name"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_mymommystyle.com_September2020_CTA.json.gz",
+    "columns": [
+      19
+    ],
+    "choices": [
+      "ItemAvailability",
+      "DateTime",
+      "Brand",
+      "Energy"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_darktourists.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Text",
+      "DateTime",
+      "priceRange",
+      "MonetaryAmount"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_loveandotherspices.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "DateTime",
+      "paymentAccepted",
+      "MusicRecording/name",
+      "Restaurant/name"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_comicbook.com_September2020_CTA.json.gz",
+    "columns": [
+      11
+    ],
+    "choices": [
+      "TVEpisode/name",
+      "weight",
+      "Language",
+      "MusicArtistAT"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_mummumtime.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "Recipe/name",
+      "currency",
+      "QuantitativeValue",
+      "OfferItemCondition"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_onepartgypsy.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "DateTime",
+      "category",
+      "CoordinateAT",
+      "CreativeWork/name"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_janetsdeliciouslowcarbkitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "Energy",
+      "telephone",
+      "Duration",
+      "unitCode"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_alpenclassics.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "addressRegion",
+      "Country",
+      "weight",
+      "DeliveryMethod"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_charlestonareaalliance.org_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "CategoryCode",
+      "Organization",
+      "openingHours",
+      "addressRegion"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_histaminefriendlykitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      11
+    ],
+    "choices": [
+      "Museum/name",
+      "Mass",
+      "Duration",
+      "MusicArtistAT"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Restaurant_favouritetable.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Restaurant/name",
+      "Place/name",
+      "audience",
+      "EducationalOrganization"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_worldofwhirlpool.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "Book/name",
+      "Number",
+      "Place",
+      "JobPosting/name"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_livralivro.com.br_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "Language",
+      "SportsTeam",
+      "EducationalOccupationalCredential",
+      "DayOfWeek"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_aspire-medical.eu_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "Organization",
+      "LocalBusiness/name",
+      "Hotel/name",
+      "unitText"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_abbott-group.com.au_September2020_CTA.json.gz",
+    "columns": [
+      14
+    ],
+    "choices": [
+      "ItemList",
+      "Review",
+      "email",
+      "unitCode"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "JobPosting_abroadstudyuniversity.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "CreativeWork",
+      "Thing",
+      "LocationFeatureSpecification",
+      "identifierNameAP"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_handmadepalestine.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "CreativeWorkSeries",
+      "URL",
+      "workHours",
+      "Action"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_animeheaven.ru_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "Integer",
+      "Product/name",
+      "postalCode",
+      "MusicAlbum/name"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_ayokitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "ItemList",
+      "SportsEvent/name",
+      "Rating",
+      "Boolean"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_bookkeepersnearme.net.au_September2020_CTA.json.gz",
+    "columns": [
+      13
+    ],
+    "choices": [
+      "CoordinateAT",
+      "identifierNameAP",
+      "MusicAlbum",
+      "Event/name"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_holidayniseko.com_September2020_CTA.json.gz",
+    "columns": [
+      7
+    ],
+    "choices": [
+      "streetAddress",
+      "Recipe/name",
+      "PostalAddress",
+      "WarrantyPromise"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_myharvestmarket.com_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "URL",
+      "EventAttendanceModeEnumeration",
+      "Text",
+      "MusicGroup"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_andreadekker.com_September2020_CTA.json.gz",
+    "columns": [
+      18
+    ],
+    "choices": [
+      "Date",
+      "price",
+      "Mass",
+      "Integer"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_lacarte.com_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "GenderType",
+      "faxNumber",
+      "Time",
+      "MusicRecording"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_hickmansiga.com_September2020_CTA.json.gz",
+    "columns": [
+      10
+    ],
+    "choices": [
+      "streetAddress",
+      "BookFormatType",
+      "Mass",
+      "typicalAgeRange"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_histaminefriendlykitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      19
+    ],
+    "choices": [
+      "Time",
+      "OccupationalExperienceRequirements",
+      "Mass",
+      "Movie/name"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "JobPosting_ckclinical.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "RestrictedDiet",
+      "Person",
+      "ProductModel",
+      "currency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_ditonton.net_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Duration",
+      "Distance",
+      "EventStatusType",
+      "Person/name"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Person_epiccamtime.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "addressLocality",
+      "IdentifierAT",
+      "Offer",
+      "GenderType"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_cinemakita.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "Photograph",
+      "Place",
+      "Product",
+      "Text"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Person_gayroulette.ru_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Person/name",
+      "Brand",
+      "DateTime",
+      "ItemAvailability"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_deepwebsiteslinks.com_September2020_CTA.json.gz",
+    "columns": [
+      8
+    ],
+    "choices": [
+      "priceRange",
+      "category",
+      "MonetaryAmount",
+      "Text"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_comedygumbeaux.com_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "paymentAccepted",
+      "MusicRecording/name",
+      "Restaurant/name",
+      "price"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "MusicAlbum_barkerandbarker.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Language",
+      "weight",
+      "MusicAlbum/name",
+      "TVEpisode/name"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "JobPosting_ohioanshhc.com_September2020_CTA.json.gz",
+    "columns": [
+      10
+    ],
+    "choices": [
+      "CategoryCode",
+      "QuantitativeValue",
+      "OfferItemCondition",
+      "currency"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_aixvinum.de_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "CreativeWork/name",
+      "weight",
+      "category",
+      "CoordinateAT"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Person_gridiron2fit.ca_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "unitCode",
+      "Person/name",
+      "Energy",
+      "telephone"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_blingingfortipps.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Text",
+      "DeliveryMethod",
+      "addressRegion",
+      "Country"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Person_bongochat.ru_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "openingHours",
+      "Organization",
+      "CategoryCode",
+      "GenderType"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_bestbeefrecipes.com_September2020_CTA.json.gz",
+    "columns": [
+      10
+    ],
+    "choices": [
+      "Museum/name",
+      "Mass",
+      "MusicArtistAT",
+      "Time"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_roju.ro_September2020_CTA.json.gz",
+    "columns": [
+      7
+    ],
+    "choices": [
+      "addressLocality",
+      "Place/name",
+      "EducationalOrganization",
+      "Duration"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_pupica.com_September2020_CTA.json.gz",
+    "columns": [
+      16
+    ],
+    "choices": [
+      "JobPosting/name",
+      "Number",
+      "Mass",
+      "audience"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_ourtownbelfast.org_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "LocalBusiness/name",
+      "Book/name",
+      "SportsTeam",
+      "DayOfWeek"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "JobPosting_afjv.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "unitText",
+      "EducationalOccupationalCredential",
+      "LocalBusiness/name",
+      "CategoryCode"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_everydaywellnesswithmorgan.com_September2020_CTA.json.gz",
+    "columns": [
+      17
+    ],
+    "choices": [
+      "email",
+      "Review",
+      "Hotel/name",
+      "Mass"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_bikemalik.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "CreativeWork",
+      "Text",
+      "LocationFeatureSpecification",
+      "ItemList"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_oakcreditrepair.com_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "Thing",
+      "Action",
+      "workHours",
+      "Date"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_actionfullmovies.com_September2020_CTA.json.gz",
+    "columns": [
+      4
+    ],
+    "choices": [
+      "Product/name",
+      "CreativeWorkSeries",
+      "postalCode",
+      "Integer"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Person_allporngals.com_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "Boolean",
+      "Person/name",
+      "MusicAlbum/name",
+      "Rating"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_comicbook.com_September2020_CTA.json.gz",
+    "columns": [
+      10
+    ],
+    "choices": [
+      "MusicAlbum",
+      "SportsEvent/name",
+      "Organization",
+      "identifierNameAP"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_deepwebsiteslinks.com_September2020_CTA.json.gz",
+    "columns": [
+      15
+    ],
+    "choices": [
+      "Distance",
+      "Event/name",
+      "Recipe/name",
+      "WarrantyPromise"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "TVEpisode_fyi.tv_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "PostalAddress",
+      "URL",
+      "EventAttendanceModeEnumeration",
+      "TVEpisode/name"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_envzone.com_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "Date",
+      "price",
+      "MusicGroup",
+      "Language"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_neshnyc.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Date",
+      "Integer",
+      "GenderType",
+      "MusicRecording"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_andreadekker.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Date",
+      "faxNumber",
+      "streetAddress",
+      "typicalAgeRange"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_signscompanies.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "BookFormatType",
+      "Movie/name",
+      "telephone",
+      "Time"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_phsinc.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "IdentifierAT",
+      "ProductModel",
+      "OccupationalExperienceRequirements",
+      "RestrictedDiet"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "JobPosting_hartwigcare.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      12
+    ],
+    "choices": [
+      "Distance",
+      "Person",
+      "EventStatusType",
+      "EducationalOccupationalCredential"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Person_allporngals.com_September2020_CTA.json.gz",
+    "columns": [
+      8
+    ],
+    "choices": [
+      "Person/name",
+      "Offer",
+      "IdentifierAT",
+      "addressLocality"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "JobPosting_centreforapprenticeships.co.uk_September2020_CTA.json.gz",
+    "columns": [
+      6
+    ],
+    "choices": [
+      "workHours",
+      "Offer",
+      "Photograph",
+      "Place"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_theperksofbeingus.com_September2020_CTA.json.gz",
+    "columns": [
+      19
+    ],
+    "choices": [
+      "DateTime",
+      "Mass",
+      "Brand",
+      "Product"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_indexsubtitle.com_September2020_CTA.json.gz",
+    "columns": [
+      3
+    ],
+    "choices": [
+      "Text",
+      "Number",
+      "priceRange",
+      "ItemAvailability"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_enjloan.com_September2020_CTA.json.gz",
+    "columns": [
+      1
+    ],
+    "choices": [
+      "paymentAccepted",
+      "MonetaryAmount",
+      "priceRange",
+      "Restaurant/name"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_buscalibre.pe_September2020_CTA.json.gz",
+    "columns": [
+      0
+    ],
+    "choices": [
+      "weight",
+      "MusicRecording/name",
+      "TVEpisode/name",
+      "Book/name"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_bookkeepersnearme.net.au_September2020_CTA.json.gz",
+    "columns": [
+      11
+    ],
+    "choices": [
+      "QuantitativeValue",
+      "Language",
+      "Number",
+      "currency"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_longmontchamber.org_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "category",
+      "OfferItemCondition",
+      "CreativeWork/name",
+      "streetAddress"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_histaminefriendlykitchen.com_September2020_CTA.json.gz",
+    "columns": [
+      10
+    ],
+    "choices": [
+      "CoordinateAT",
+      "Energy",
+      "unitCode",
+      "Mass"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_holidayniseko.com_September2020_CTA.json.gz",
+    "columns": [
+      9
+    ],
+    "choices": [
+      "DeliveryMethod",
+      "addressRegion",
+      "telephone",
+      "Number"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_cozumel.tc_September2020_CTA.json.gz",
+    "columns": [
+      5
+    ],
+    "choices": [
+      "openingHours",
+      "addressLocality",
+      "Country",
+      "Organization"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_insurancebrokersnearme.com.au_September2020_CTA.json.gz",
+    "columns": [
+      15
+    ],
+    "choices": [
+      "CategoryCode",
+      "Review",
+      "Mass",
+      "MusicArtistAT"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_froglife.org_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "EducationalOrganization",
+      "Museum/name",
+      "Duration",
+      "Person"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_honeydewfilms.com_September2020_CTA.json.gz",
+    "columns": [
+      2
+    ],
+    "choices": [
+      "JobPosting/name",
+      "Place/name",
+      "paymentAccepted",
+      "audience"
+    ],
+    "rightIdx": 2
+  }
+]
