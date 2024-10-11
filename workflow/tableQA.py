@@ -149,6 +149,9 @@ def validPairs(rawRoot, validRoot):
         JS(dstJSP).newJS(validPairs)
 
 def finalQADataset(qaRoot, validRoot):
+    """
+    将validRoot中的内容最后打乱重排, 如果只有3个选项, 则添加一个D选项为, 上述选项都不对
+    """
     global scaledDict
     jsNames = [item for item in os.listdir(validRoot) if item.endswith('.json')]
     dstPath = os.path.join(qaRoot, 'task.json')
@@ -159,11 +162,11 @@ def finalQADataset(qaRoot, validRoot):
         jsp = os.path.join(validRoot, jsn)
         lst = JS(jsp).loadJS()
         for item in lst:
-            possibleChoices = item.get('choices', ['Unknown', 'True', 'False', 'None', 'Null'])
+            possibleChoices = item.get('choices', ['There is no right choice above.'])
             answer = item['answer']
             rightAnsSet = list(set(answer.values()))
+            random.shuffle(rightAnsSet)
             allChoices = rightAnsSet + possibleChoices[:4 - len(rightAnsSet)]
-            random.shuffle(allChoices)
             item['choices'] = allChoices
             item['rightIdx'] = {}
             for sc in answer.keys():
@@ -192,5 +195,5 @@ if __name__ == '__main__':
     # print(qm, cm)
     rawRoot = os.path.join(qaRoot, 'raw')
     validRoot = os.path.join(qaRoot, 'valid')
-    validPairs(rawRoot, validRoot)
+    # validPairs(rawRoot, validRoot)
     finalQADataset(qaRoot, validRoot)
