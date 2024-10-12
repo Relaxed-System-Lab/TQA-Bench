@@ -1,10 +1,12 @@
 import os
+import random
 import simplejson as json
 import pandas as pd
 from urllib.request import urlretrieve
 
 import sys
 sys.path.append('.')
+from workflow.tableFV import split2Choices
 from benchmarkUtils.jsTool import JS
 
 map = {
@@ -61,16 +63,62 @@ def rawPairGen():
                 bdic = bRow.to_dict()
                 del adic['_id']
                 del bdic['_id']
-                saveList.append([adic, bdic])
+                saveList.append({
+                    'id1': id1,
+                    'id2': id2,
+                    'row1': adic,
+                    'row2': bdic
+                })
             with open(pairsJS, 'w') as js:
                 json.dump(saveList, js, indent=2, ignore_nan=True)
 
-def emGen():
+def processingPairs(pairs):
+    idxPair = []
+    row1List = {}
+    row2List = {}
+
+    for p in pairs:
+        idxPair.append((p['id1'], p['id2']))
+        row1List[p['id1']] = p['row1']
+        row2List[p['id2']] = p['row2']
+
+    idx1List = list(row1List.keys())
+    idx2List = list(row2List.keys())
+
+    truePair = []
+    falsePair = []
+    for i in range(0, len(idxPair), 4):
+        # 四组一批, 前两个交换, 后两个直接添加
+        pairSlice = idxPair[i:i+4]
+        if len(pairSlice) != 4:
+            break
+        falseIdx = (pairSlice[0][0], pairSlice[1][1])
+        if falseIdx not in idxPair:
+            falsePair.append([row1List[falseIdx[0]], row2List[falseIdx[1]]])
+        falseIdx = (pairSlice[1][0], pairSlice[0][1])
+        if falseIdx not in idxPair:
+            falsePair.append([row1List[falseIdx[0]], row2List[falseIdx[1]]])
+        truePair.append([row1List[pairSlice[2][0]], row2List[pairSlice[2][1]]])
+        truePair.append([row1List[pairSlice[3][0]], row2List[pairSlice[3][1]]])
+    return truePair, falsePair
+
+def emGen(bmSize=400):
+    emRoot = 'dataset/task/em'
+    os.makedirs(emRoot, exist_ok=True)
+    jsPath = os.path.join(emRoot, 'task.json')
+    truePairs = []
+    falsePairs = []
     for tp, vs in map.items():
         for v in vs:
             pairsJS = os.path.join(dataPath, tp, v, 'pairs.json')
             pairs = JS(pairsJS).loadJS()
-            print(tp, v, len(pairs))
+            tps, fps = processingPairs(pairs)
+            truePairs.extend(tps)
+            falsePairs.extend(fps)
+    sampledTrue = random.sample(truePairs, bmSize * 2)
+    sampledFalse = random.sample(falsePairs, bmSize * 2)
+    choices = split2Choices(sampledTrue, sampledFalse, None)
+    JS(jsPath).newJS(choices)
 
 if __name__ == '__main__':
     # download()

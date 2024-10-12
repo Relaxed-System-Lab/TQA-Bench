@@ -213,11 +213,17 @@ def split2Choices(trueStmt, falseStmt, dbn):
         slideStmts = labeledStmt[i:i+4]
         if len(slideStmts) < 4:
             break
-        splittedStmts.append({
-            'database': dbn,
-            'stmts': [item[0] for item in slideStmts],
-            'rightIdx': [idx for idx in range(4) if slideStmts[idx][1]]
-        })
+        if dbn is None:
+            splittedStmts.append({
+                'stmts': [item[0] for item in slideStmts],
+                'rightIdx': [idx for idx in range(4) if slideStmts[idx][1]]
+            })
+        else:
+            splittedStmts.append({
+                'database': dbn,
+                'stmts': [item[0] for item in slideStmts],
+                'rightIdx': [idx for idx in range(4) if slideStmts[idx][1]]
+            })
     return splittedStmts
 
 def QAGen(fvRoot, tfStmtRowsPath, QABasedPath):
