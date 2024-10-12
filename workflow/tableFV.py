@@ -200,12 +200,83 @@ def rowBasedGeneration(dbRoot):
         tfStmtRows = JS(tfStmtRowsPath).loadJS()
     return tfStmtRows
 
-def QAGen(tfStmtRowsPath, QABasedPath):
-    pass
+def split2Choices(trueStmt, falseStmt, dbn):
+    trueLabeledStmt = [(item, True) for item in trueStmt]
+    falseLabeledStmt = [(item, False) for item in falseStmt]
+    labeledStmt = trueLabeledStmt + falseLabeledStmt
+
+    random.shuffle(labeledStmt)
+    sz = len(labeledStmt)
+
+    splittedStmts = []
+    for i in range(0, sz, 4):
+        slideStmts = labeledStmt[i:i+4]
+        if len(slideStmts) < 4:
+            break
+        splittedStmts.append({
+            'database': dbn,
+            'stmts': [item[0] for item in slideStmts],
+            'rightIdx': [idx for idx in range(4) if slideStmts[idx][1]]
+        })
+    return splittedStmts
+
+def QAGen(fvRoot, tfStmtRowsPath, QABasedPath):
+    scales = '16k 32k 64k 128k'.split()
+    tfStmt = JS(tfStmtRowsPath).loadJS()
+    QABasedStmt = JS(QABasedPath).loadJS()
+
+    # 初始化commonStmt和scaledStmt
+    commonStmt = {}
+    scaledStmt = {}
+    for item in tfStmt:
+        if item['database'] not in commonStmt.keys():
+            commonStmt[item['database']] = {
+                    'true': [],
+                    'false': []
+            }
+    for item in QABasedStmt:
+        if item['database'] not in scaledStmt.keys():
+            scaledStmt[item['database']] = {}
+            for s in scales:
+                scaledStmt[item['database']][s] = {
+                        'true': [],
+                        'false': []
+                }
+
+    # 填充commonStmt
+    for item in tfStmt:
+        commonStmt[item['database']]['true'].append(item['stmt'])
+        commonStmt[item['database']]['false'].extend(item['falseStmt'][:2]) # 这里目前只拿一个
+
+    # 填充scaledStmt
+    for item in QABasedStmt:
+        for s in scales:
+            rightIdx = item['rightIdx'][s]
+            rightStmt = item['statements'][rightIdx]
+            scaledStmt[item['database']][s]['true'].append(rightStmt)
+            falseStmt = item['statements'][rightIdx-1]
+            scaledStmt[item['database']][s]['false'].append(falseStmt)
+            falseStmt = item['statements'][rightIdx-2]
+            scaledStmt[item['database']][s]['false'].append(falseStmt)
+
+    # 乱排列生成随机结果
+    for s in scales:
+        sr = os.path.join(fvRoot, s)
+        os.makedirs(sr, exist_ok=True)
+        sJSPath = os.path.join(sr, 'task.json')
+        saveList = []
+        for dbn in commonStmt.keys():
+            trueStmt = commonStmt[dbn]['true'].copy()
+            falseStmt = commonStmt[dbn]['false'].copy()
+            trueStmt.extend(scaledStmt[dbn][s]['true'])
+            falseStmt.extend(scaledStmt[dbn][s]['false'])
+            splitted = split2Choices(trueStmt, falseStmt, dbn)
+            saveList.extend(splitted)
+        JS(sJSPath).newJS(saveList)
 
 
 if __name__ == '__main__':
-    scalePath = 'dataset/scaledDB/16k/'
+    # scalePath = 'dataset/scaledDB/16k/'
     # dbNames = os.listdir(scalePath)
     # corr = 0
     # for dbn in dbNames:
@@ -215,7 +286,7 @@ if __name__ == '__main__':
     #         corr += 1
     #
     # print(corr, len(dbNames))
-    rowBasedGeneration(scalePath)
-    taskRoot = 'dataset/task/tableQA/task.json'
-    QABasedGeneration(taskRoot)
-    QAGen('dataset/task/tableFV/tfStmtRows.json', 'dataset/task/tableFV/QABased.json')
+    # rowBasedGeneration(scalePath)
+    # taskRoot = 'dataset/task/tableQA/task.json'
+    # QABasedGeneration(taskRoot)
+    QAGen('dataset/task/tableFV', 'dataset/task/tableFV/tfStmtRows.json', 'dataset/task/tableFV/QABased.json')
