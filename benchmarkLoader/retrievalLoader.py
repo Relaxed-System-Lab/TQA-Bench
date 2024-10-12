@@ -3,7 +3,7 @@ sys.path.append('.')
 from benchmarkLoader import BenchmarkDataset
 from benchmarkUtils.jsTool import JS
 
-class TableFVDataset(BenchmarkDataset):
+class RetrievalDataset(BenchmarkDataset):
     def __init__(self, scale, markdown=True):
         super().__init__(scale, markdown)
         jsPath = f'dataset/task/retrieval/task.json'
@@ -27,7 +27,7 @@ class TableFVDataset(BenchmarkDataset):
                 tableList.append(f'## {k}\n\n{v.to_csv(index=False)}')
         tables = '\n\n'.join(tableList)
         rightChoice = ''.join([self.maps[i] for i in qa['rightIdx']])
-        rightChoice = 'E' if rightChoice == '' else rightChoice
+        rightChoice = f'{rightChoice}E' if qa['needOther'] else rightChoice
 
         totalQuestion = f'# {qa["database"]}\n\n{tables}\n\nPlease select the table(s) that can be used to answer the following question.\nQuestion: {question}\n\n{choiceStr}\n{self.Echoice}'
         return totalQuestion, rightChoice
@@ -36,7 +36,7 @@ class TableFVDataset(BenchmarkDataset):
         return len(self.taskList)
 
 if __name__ == '__main__':
-    ds = TableFVDataset('16k')
+    ds = RetrievalDataset('16k')
     for q, c in ds:
         print(q)
         print(c)
