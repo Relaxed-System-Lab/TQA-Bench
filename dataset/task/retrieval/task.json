@@ -1,0 +1,3304 @@
+[
+  {
+    "question": "How many zip codes in the dataset have multiple counties associated with them?",
+    "database": "address",
+    "choices": [
+      "area_code",
+      "state",
+      "zip_data",
+      "CBSA"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which zip code has both the highest population and belongs to the CBSA with the largest population?",
+    "database": "address",
+    "choices": [
+      "CBSA",
+      "alias",
+      "area_code",
+      "state"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total land area covered by the districts represented by Democrats?",
+    "database": "address",
+    "choices": [
+      "state",
+      "area_code",
+      "avoid",
+      "zip_congress"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many unique affiliations have authors with papers listed in this dataset?",
+    "database": "authors",
+    "choices": [
+      "Paper",
+      "Journal",
+      "PaperAuthor",
+      "Author"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique authors have published papers in journals?",
+    "database": "authors",
+    "choices": [
+      "Conference",
+      "Paper",
+      "Author",
+      "Journal"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the conference with the highest number of papers in the dataset?",
+    "database": "authors",
+    "choices": [
+      "PaperAuthor",
+      "Journal",
+      "Paper",
+      "Conference"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many papers in the dataset are co-authored by authors with different affiliations?",
+    "database": "authors",
+    "choices": [
+      "Paper",
+      "PaperAuthor",
+      "Conference",
+      "Journal"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many active customers are there based on their address status?",
+    "database": "books",
+    "choices": [
+      "country",
+      "book_author",
+      "book_language",
+      "cust_order"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many customers have placed orders with 'Pending Delivery' status?",
+    "database": "books",
+    "choices": [
+      "book_language",
+      "book_author",
+      "customer",
+      "book"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of books published by \"University of Chicago Press\"?",
+    "database": "books",
+    "choices": [
+      "book",
+      "order_history",
+      "publisher",
+      "order_line"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many customers have an \"Active\" address status?",
+    "database": "books",
+    "choices": [
+      "country",
+      "order_history",
+      "shipping_method",
+      "order_line"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Which author has the most books in this dataset?",
+    "database": "books",
+    "choices": [
+      "customer_address",
+      "country",
+      "order_status",
+      "book_author"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which author has the most books written in English?",
+    "database": "books",
+    "choices": [
+      "shipping_method",
+      "order_status",
+      "author",
+      "book_language"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average number of pages for books published by Del Rey Books?",
+    "database": "books",
+    "choices": [
+      "address_status",
+      "shipping_method",
+      "book",
+      "publisher"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many customers have an active address in Canada?",
+    "database": "books",
+    "choices": [
+      "publisher",
+      "customer_address",
+      "book",
+      "customer"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which publisher has published the most books?",
+    "database": "books",
+    "choices": [
+      "shipping_method",
+      "country",
+      "address",
+      "customer"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many orders are currently in \"Pending Delivery\" status?",
+    "database": "books",
+    "choices": [
+      "order_history",
+      "customer",
+      "address_status",
+      "book_author"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the most common release date among the sets that have cards with the keyword \"Trample\"?",
+    "database": "card_games",
+    "choices": [
+      "foreign_data",
+      "set_translations",
+      "rulings",
+      "sets"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique languages are there in which cards with the rarity \"rare\" have been translated?",
+    "database": "card_games",
+    "choices": [
+      "cards",
+      "rulings",
+      "set_translations",
+      "sets"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average converted mana cost of cards that have been printed in sets released in the year 2019?",
+    "database": "card_games",
+    "choices": [
+      "sets",
+      "set_translations",
+      "legalities",
+      "cards"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many cards share the same uuid across different formats specified in the legalities table?",
+    "database": "card_games",
+    "choices": [
+      "sets",
+      "foreign_data",
+      "cards",
+      "set_translations"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the most common language for the foreign cards available in the dataset?",
+    "database": "card_games",
+    "choices": [
+      "rulings",
+      "set_translations",
+      "sets",
+      "cards"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Which is the earliest released set that contains cards with foreign translations?",
+    "database": "card_games",
+    "choices": [
+      "rulings",
+      "set_translations",
+      "legalities",
+      "sets"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many cards have foreign translations available in French according to the \"foreign_data\" table?",
+    "database": "card_games",
+    "choices": [
+      "legalities",
+      "sets",
+      "set_translations",
+      "cards"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many crimes were reported in the district with the district number 3?",
+    "database": "chicago_crime",
+    "choices": [
+      "FBI_Code",
+      "Crime",
+      "Neighborhood",
+      "Ward"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which neighborhood has the most crimes reported in it?",
+    "database": "chicago_crime",
+    "choices": [
+      "District",
+      "Crime",
+      "IUCR",
+      "Ward"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the email of the alderman for the ward where the most drug abuse crimes were reported?",
+    "database": "chicago_crime",
+    "choices": [
+      "IUCR",
+      "District",
+      "Community_Area",
+      "Ward"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which police district commander manages the largest population within their district?",
+    "database": "chicago_crime",
+    "choices": [
+      "Community_Area",
+      "IUCR",
+      "Neighborhood",
+      "FBI_Code"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the neighborhood with the most motor vehicle thefts?",
+    "database": "chicago_crime",
+    "choices": [
+      "FBI_Code",
+      "District",
+      "Community_Area",
+      "IUCR"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which district has the highest number of reported crimes?",
+    "database": "chicago_crime",
+    "choices": [
+      "Ward",
+      "FBI_Code",
+      "Community_Area",
+      "Crime"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average population of the wards with reported vandalism crimes?",
+    "database": "chicago_crime",
+    "choices": [
+      "FBI_Code",
+      "Neighborhood",
+      "District",
+      "Crime"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many neighborhoods have reported crimes categorized under \"Persons\" according to the FBI code description?",
+    "database": "chicago_crime",
+    "choices": [
+      "District",
+      "FBI_Code",
+      "IUCR",
+      "Crime"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the community area with the highest number of arrests for 'NARCOTICS' related crimes?",
+    "database": "chicago_crime",
+    "choices": [
+      "Crime",
+      "Ward",
+      "Community_Area",
+      "Neighborhood"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many community areas do aldermen with a city hall office room ending in '0' represent?",
+    "database": "chicago_crime",
+    "choices": [
+      "Ward",
+      "FBI_Code",
+      "Crime",
+      "District"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "For which institution is the discrepancy between expected national awards and actual awards the largest in absolute terms?",
+    "database": "college_completion",
+    "choices": [
+      "state_sector_grads",
+      "state_sector_details",
+      "institution_details",
+      "institution_grads"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of 4-year bachelor's graduates in New Mexico for the year 2013?",
+    "database": "college_completion",
+    "choices": [
+      "institution_grads",
+      "institution_details",
+      "state_sector_grads",
+      "state_sector_details"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average aid percentile of institutions in states with more than 20 public schools offering 4-year programs?",
+    "database": "college_completion",
+    "choices": [
+      "state_sector_grads",
+      "state_sector_details",
+      "institution_grads",
+      "institution_details"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many institutions have an expected award state value greater than the average state appropriations value for private for-profit 4-year schools in New Jersey?",
+    "database": "college_completion",
+    "choices": [
+      "state_sector_grads",
+      "institution_grads",
+      "institution_details",
+      "state_sector_details"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of unique ingredients used across all recipes in the dataset?",
+    "database": "cookbook",
+    "choices": [
+      "Nutrition",
+      "Quantity",
+      "Recipe",
+      "Ingredient"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which recipe has the highest total fat per serving as per the Nutrition table?",
+    "database": "cookbook",
+    "choices": [
+      "Quantity",
+      "Nutrition",
+      "Recipe",
+      "Ingredient"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many recipes include 'margarine' as an ingredient?",
+    "database": "cookbook",
+    "choices": [
+      "Nutrition",
+      "Ingredient",
+      "Recipe",
+      "Quantity"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average protein content per serving across all recipes?",
+    "database": "cookbook",
+    "choices": [
+      "Quantity",
+      "Ingredient",
+      "Recipe",
+      "Nutrition"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average sodium content in recipes that include the ingredient \"salt\"?",
+    "database": "cookbook",
+    "choices": [
+      "Recipe",
+      "Nutrition",
+      "Ingredient",
+      "Quantity"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average calorie content of recipes that include \"margarine\" as an ingredient?",
+    "database": "cookbook",
+    "choices": [
+      "Nutrition",
+      "Recipe",
+      "Ingredient",
+      "Quantity"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many recipes list an ingredient from the \"fresh herbs\" category?",
+    "database": "cookbook",
+    "choices": [
+      "Quantity",
+      "Ingredient",
+      "Nutrition",
+      "Recipe"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average iron content in recipes that include any baking product?",
+    "database": "cookbook",
+    "choices": [
+      "Recipe",
+      "Quantity",
+      "Ingredient",
+      "Nutrition"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total sum of calories for all recipes that include onion as an ingredient?",
+    "database": "cookbook",
+    "choices": [
+      "Recipe",
+      "Quantity",
+      "Ingredient",
+      "Nutrition"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total cooking time (sum of prep, cook, and stand minutes) for the recipe with the highest protein content?",
+    "database": "cookbook",
+    "choices": [
+      "Ingredient",
+      "Recipe",
+      "Nutrition",
+      "Quantity"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which recipe has the highest percentage of calories from carbohydrates?",
+    "database": "cookbook",
+    "choices": [
+      "Quantity",
+      "Recipe",
+      "Nutrition",
+      "Ingredient"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total consumption for customers whose CustomerID appears in the transactions_1k table?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "products",
+      "yearmonth",
+      "gasstations",
+      "transactions_1k"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many distinct products have been purchased by SMEs?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "gasstations",
+      "yearmonth",
+      "customers",
+      "transactions_1k"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which product has generated the highest total revenue across all transactions?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "yearmonth",
+      "products",
+      "gasstations",
+      "customers"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total consumption for customers who have transactions also listed in transactions_1k?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "customers",
+      "yearmonth",
+      "gasstations",
+      "products"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many gas stations are categorized as \"Premium\" in the CZE country?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "products",
+      "customers",
+      "yearmonth",
+      "gasstations"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which gas station has the highest total transaction amount?",
+    "database": "debit_card_specializing",
+    "choices": [
+      "customers",
+      "gasstations",
+      "products",
+      "transactions_1k"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of clients who own a card?",
+    "database": "financial",
+    "choices": [
+      "order",
+      "card",
+      "trans",
+      "account"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average loan amount for clients who own a 'classic' card?",
+    "database": "financial",
+    "choices": [
+      "card",
+      "trans",
+      "disp",
+      "client"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many clients have both a loan and a card issued to them?",
+    "database": "financial",
+    "choices": [
+      "district",
+      "loan",
+      "order",
+      "disp"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of transactions made by clients who received a loan?",
+    "database": "financial",
+    "choices": [
+      "account",
+      "district",
+      "order",
+      "disp"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many clients have an account in the same district as their card was issued?",
+    "database": "financial",
+    "choices": [
+      "loan",
+      "disp",
+      "order",
+      "account"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total loan amount for accounts that have made orders with the k_symbol \"SIPO\"?",
+    "database": "financial",
+    "choices": [
+      "account",
+      "loan",
+      "disp",
+      "client"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of orders made by clients who have a classic card?",
+    "database": "financial",
+    "choices": [
+      "order",
+      "trans",
+      "loan",
+      "disp"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average loan amount for clients in districts with a higher than average A11?",
+    "database": "financial",
+    "choices": [
+      "trans",
+      "client",
+      "card",
+      "loan"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total payment amount for Completed loans?",
+    "database": "financial",
+    "choices": [
+      "order",
+      "trans",
+      "account",
+      "card"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of clients from 'Prague' with at least one loan?",
+    "database": "financial",
+    "choices": [
+      "district",
+      "trans",
+      "loan",
+      "client"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which constructor had the highest number of wins documented in the constructorStandings table?",
+    "database": "formula_1",
+    "choices": [
+      "races",
+      "status",
+      "pitStops",
+      "lapTimes"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Which circuit has hosted the maximum number of races?",
+    "database": "formula_1",
+    "choices": [
+      "drivers",
+      "results",
+      "pitStops",
+      "constructors"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many unique circuits have hosted races where Renault scored points?",
+    "database": "formula_1",
+    "choices": [
+      "status",
+      "constructorStandings",
+      "drivers",
+      "lapTimes"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Calculate the average height in cm of players who have appeared in at least one game.",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "PlayerInfo",
+      "height_info",
+      "weight_info",
+      "SeasonStatus"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of goals (G) scored by players drafted in a round below the fifth?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "height_info",
+      "weight_info",
+      "PlayerInfo",
+      "SeasonStatus"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average total points (P) per game played (GP) for the players listed in PlayerInfo who have more than 0 sum_7yr_GP?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "height_info",
+      "PlayerInfo",
+      "weight_info",
+      "SeasonStatus"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which player in the PlayerInfo table has the most entries in the SeasonStatus table? ",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "PlayerInfo",
+      "SeasonStatus",
+      "weight_info",
+      "height_info"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average height in cm of players who have played more than 10 games in a season?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "weight_info",
+      "height_info",
+      "SeasonStatus",
+      "PlayerInfo"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many players have been drafted but never played a game?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "height_info",
+      "SeasonStatus",
+      "PlayerInfo",
+      "weight_info"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the number of different teams played by players from Canada in the `SeasonStatus` table?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "weight_info",
+      "SeasonStatus",
+      "height_info",
+      "PlayerInfo"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the most common birthplace of players who achieved over 50 total points in a season in the `SeasonStatus` table?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "PlayerInfo",
+      "height_info",
+      "weight_info",
+      "SeasonStatus"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average weight in kilograms of players who have played more than zero games?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "weight_info",
+      "height_info",
+      "SeasonStatus",
+      "PlayerInfo"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average height in centimeters of players drafted by the \"Anaheim Ducks\"?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "height_info",
+      "SeasonStatus",
+      "PlayerInfo",
+      "weight_info"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which player has the highest plus/minus in the 'WC' league?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "weight_info",
+      "SeasonStatus",
+      "PlayerInfo",
+      "height_info"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many players from the 'Canada' nation have been drafted in the second round?",
+    "database": "ice_hockey_draft",
+    "choices": [
+      "SeasonStatus",
+      "PlayerInfo",
+      "weight_info",
+      "height_info"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many times does the PRED_CLASS \"wearing\" appear in IMG_REL?",
+    "database": "image_and_language",
+    "choices": [
+      "OBJ_CLASSES",
+      "PRED_CLASSES",
+      "IMG_OBJ",
+      "IMG_OBJ_ATT"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the smallest width (W) of the objects labeled with the attribute \"dark\"?",
+    "database": "image_and_language",
+    "choices": [
+      "PRED_CLASSES",
+      "IMG_OBJ_ATT",
+      "IMG_OBJ",
+      "OBJ_CLASSES"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the first attribute class that appears in IMG_OBJ_ATT?",
+    "database": "image_and_language",
+    "choices": [
+      "OBJ_CLASSES",
+      "IMG_OBJ",
+      "PRED_CLASSES",
+      "ATT_CLASSES"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which image (IMG_ID) contains the largest number of unique object classes?",
+    "database": "image_and_language",
+    "choices": [
+      "IMG_OBJ",
+      "IMG_OBJ_ATT",
+      "OBJ_CLASSES",
+      "IMG_REL"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the most common object class described as \"dark\" across all image objects?",
+    "database": "image_and_language",
+    "choices": [
+      "OBJ_CLASSES",
+      "ATT_CLASSES",
+      "IMG_REL",
+      "PRED_CLASSES"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "For images containing \"umbrella,\" how many unique attributes are associated with these objects?",
+    "database": "image_and_language",
+    "choices": [
+      "IMG_OBJ_ATT",
+      "ATT_CLASSES",
+      "PRED_CLASSES",
+      "IMG_OBJ"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of unique object classes associated with attribute classes in the dataset?",
+    "database": "image_and_language",
+    "choices": [
+      "PRED_CLASSES",
+      "OBJ_CLASSES",
+      "IMG_REL",
+      "IMG_OBJ_ATT"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique images contain an object with both object and attribute classes defined?",
+    "database": "image_and_language",
+    "choices": [
+      "ATT_CLASSES",
+      "IMG_REL",
+      "PRED_CLASSES",
+      "IMG_OBJ"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the most frequently appearing object class in images associated with a specific attribute class (e.g., 'blue')?",
+    "database": "image_and_language",
+    "choices": [
+      "IMG_OBJ_ATT",
+      "OBJ_CLASSES",
+      "ATT_CLASSES",
+      "IMG_REL"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique relationships exist between objects in the \"IMG_REL\" table?",
+    "database": "image_and_language",
+    "choices": [
+      "PRED_CLASSES",
+      "IMG_REL",
+      "IMG_OBJ",
+      "ATT_CLASSES"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the most frequently appearing object class in the dataset?",
+    "database": "image_and_language",
+    "choices": [
+      "OBJ_CLASSES",
+      "IMG_REL",
+      "PRED_CLASSES",
+      "IMG_OBJ"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the number of current politicians listed in current_terms who have a religious affiliation based on the \"religion_bio\" field in the current table?",
+    "database": "legislator",
+    "choices": [
+      "current",
+      "historical_terms",
+      "historical",
+      "current_terms"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique politicians in the current table have served in more than one term in their current role, based on the current_terms table?",
+    "database": "legislator",
+    "choices": [
+      "current_terms",
+      "historical_terms",
+      "current",
+      "historical"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many individuals are there in the current dataset who have a social media presence on Facebook?",
+    "database": "legislator",
+    "choices": [
+      "social_media",
+      "historical",
+      "current_terms",
+      "current"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the most common religion among current members with a Facebook presence?",
+    "database": "legislator",
+    "choices": [
+      "current",
+      "social_media",
+      "historical",
+      "historical_terms"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique middle names appear in both the current and historical datasets?",
+    "database": "legislator",
+    "choices": [
+      "current",
+      "current_terms",
+      "historical_terms",
+      "social_media"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the number of females in the current dataset who also have their contact information available in the current_terms table?",
+    "database": "legislator",
+    "choices": [
+      "current",
+      "social_media",
+      "current_terms",
+      "historical_terms"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average district number for current representatives who are registered as Democrats and have a listed religion in the `current` table?",
+    "database": "legislator",
+    "choices": [
+      "current",
+      "social_media",
+      "historical_terms",
+      "historical"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average lowest price of dishes listed in menus with more than 5 pages?",
+    "database": "menu",
+    "choices": [
+      "MenuItem",
+      "MenuPage",
+      "Dish",
+      "Menu"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique venues are associated with dishes that have appeared over 50 times?",
+    "database": "menu",
+    "choices": [
+      "MenuItem",
+      "Dish",
+      "MenuPage",
+      "Menu"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many dishes first appeared before 1920 and are associated with menus using \"Dollars\" as currency?",
+    "database": "menu",
+    "choices": [
+      "MenuPage",
+      "Menu",
+      "MenuItem",
+      "Dish"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many menus feature dishes that were last appeared after 1950?",
+    "database": "menu",
+    "choices": [
+      "MenuItem",
+      "Menu",
+      "Dish",
+      "MenuPage"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average number of dishes per menu in the dataset?",
+    "database": "menu",
+    "choices": [
+      "MenuItem",
+      "MenuPage",
+      "Dish",
+      "Menu"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which dish has appeared on the most number of distinct menus?",
+    "database": "menu",
+    "choices": [
+      "MenuPage",
+      "Dish",
+      "MenuItem",
+      "Menu"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which menu had the highest total number of dishes listed?",
+    "database": "menu",
+    "choices": [
+      "Menu",
+      "MenuPage",
+      "MenuItem",
+      "Dish"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the range of menu page sizes (i.e., area in square centimeters) across all menus?",
+    "database": "menu",
+    "choices": [
+      "MenuItem",
+      "Menu",
+      "MenuPage",
+      "Dish"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average rating for movies directed by directors with a quality score of 4?",
+    "database": "movielens",
+    "choices": [
+      "movies",
+      "users",
+      "movies2actors",
+      "u2base"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique users rated movies that feature actors with a quality score of 3 or higher?",
+    "database": "movielens",
+    "choices": [
+      "users",
+      "directors",
+      "movies",
+      "movies2directors"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many movies involve both a male and female actor in the cast?",
+    "database": "movielens",
+    "choices": [
+      "movies2directors",
+      "movies2actors",
+      "actors",
+      "movies"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average running time of English movies rated by female users?",
+    "database": "movielens",
+    "choices": [
+      "movies2actors",
+      "directors",
+      "movies",
+      "actors"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique directors have directed movies featuring actors with a quality rating of 4?",
+    "database": "movielens",
+    "choices": [
+      "directors",
+      "users",
+      "movies",
+      "u2base"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average rating given by users for movies directed by directors with d_quality 4?",
+    "database": "movielens",
+    "choices": [
+      "users",
+      "directors",
+      "movies2directors",
+      "movies"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average running time of USA movies that have at least one actor with a_quality 3?",
+    "database": "movielens",
+    "choices": [
+      "directors",
+      "movies2directors",
+      "u2base",
+      "movies2actors"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which genre has the highest average budget for movies in which it's featured?",
+    "database": "movies_4",
+    "choices": [
+      "department",
+      "movie_cast",
+      "country",
+      "production_country"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the highest revenue movie produced in the United States?",
+    "database": "movies_4",
+    "choices": [
+      "movie_company",
+      "movie_crew",
+      "genre",
+      "gender"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Which person has worked as an Executive Producer on the highest number of movies?",
+    "database": "movies_4",
+    "choices": [
+      "movie_keywords",
+      "language_role",
+      "production_company",
+      "keyword"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the highest average vote rating for a movie genre across all countries?",
+    "database": "movies_4",
+    "choices": [
+      "country",
+      "department",
+      "production_company",
+      "movie_keywords"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the average runtime of movies produced in the United States?",
+    "database": "movies_4",
+    "choices": [
+      "genre",
+      "language",
+      "movie",
+      "movie_genres"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average vote count for movies released in 2009 that are in the Drama genre?",
+    "database": "movies_4",
+    "choices": [
+      "gender",
+      "movie_company",
+      "production_company",
+      "language_role"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many unique genres are associated with movies produced in the United States?",
+    "database": "movies_4",
+    "choices": [
+      "language",
+      "keyword",
+      "movie_languages",
+      "genre"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the most common job title in the Crew department?",
+    "database": "movies_4",
+    "choices": [
+      "language",
+      "movie_crew",
+      "production_country",
+      "movie_genres"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many movies are associated with the production company 'Warner Bros.'?",
+    "database": "movies_4",
+    "choices": [
+      "language_role",
+      "department",
+      "genre",
+      "production_company"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average budget of movies produced in the United States?",
+    "database": "movies_4",
+    "choices": [
+      "movie_languages",
+      "movie_keywords",
+      "country",
+      "language_role"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the runtime of the longest-released movie associated with the Mystery genre?",
+    "database": "movies_4",
+    "choices": [
+      "production_country",
+      "gender",
+      "movie_languages",
+      "language"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many people are from Canada?",
+    "database": "olympics",
+    "choices": [
+      "games_city",
+      "noc_region",
+      "event",
+      "competitor_event"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many competitors are associated with the 2004 Summer games?",
+    "database": "olympics",
+    "choices": [
+      "sport",
+      "city",
+      "games_city",
+      "games"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique sports have events associated with a medal of NA?",
+    "database": "olympics",
+    "choices": [
+      "city",
+      "games_competitor",
+      "event",
+      "games"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many female competitors participated in the 2010 Winter games?",
+    "database": "olympics",
+    "choices": [
+      "medal",
+      "noc_region",
+      "person",
+      "games_competitor"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many users who have been Yelping since 2008 are considered elites in any available year?",
+    "database": "public_review_platform",
+    "choices": [
+      "Business_Categories",
+      "Checkins",
+      "Reviews",
+      "Business_Hours"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the average number of tips received by businesses that are active and have a review_count labeled as 'High'?",
+    "database": "public_review_platform",
+    "choices": [
+      "Business_Hours",
+      "Users_Compliments",
+      "Compliments",
+      "Tips"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many elite users in the year 2012 have been active since 2010 or earlier?",
+    "database": "public_review_platform",
+    "choices": [
+      "Business",
+      "Users_Compliments",
+      "Years",
+      "Categories"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of reviews that received a \"Low\" rating for funny votes?",
+    "database": "public_review_platform",
+    "choices": [
+      "Attributes",
+      "Reviews",
+      "Tips",
+      "Elite"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many check-ins occurred on Sundays across all businesses?",
+    "database": "public_review_platform",
+    "choices": [
+      "Users",
+      "Users_Compliments",
+      "Reviews",
+      "Tips"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the average household income in regions where Weimei Corp has made purchases?",
+    "database": "regional_sales",
+    "choices": [
+      "Sales_Orders",
+      "Regions",
+      "Sales_Team",
+      "Store_Locations"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique customers have placed orders through the \"Online\" sales channel?",
+    "database": "regional_sales",
+    "choices": [
+      "Customers",
+      "Regions",
+      "Products",
+      "Store_Locations"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "Which customer had the highest total order quantity across all sales orders?",
+    "database": "regional_sales",
+    "choices": [
+      "Store_Locations",
+      "Products",
+      "Sales_Team",
+      "Sales_Orders"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the most frequently ordered product in the Midwest region?",
+    "database": "regional_sales",
+    "choices": [
+      "Products",
+      "Sales_Orders",
+      "Store_Locations",
+      "Regions"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average order quantity for orders delivered in California?",
+    "database": "regional_sales",
+    "choices": [
+      "Products",
+      "Sales_Team",
+      "Sales_Orders",
+      "Regions"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many sales orders were placed for products categorized as 'Wall Frames'?",
+    "database": "regional_sales",
+    "choices": [
+      "Store_Locations",
+      "Customers",
+      "Sales_Orders",
+      "Sales_Team"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average household income of the locations where Ascend Ltd has made purchases?",
+    "database": "regional_sales",
+    "choices": [
+      "Customers",
+      "Sales_Orders",
+      "Products",
+      "Sales_Team"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the sales team that handled the most orders?",
+    "database": "regional_sales",
+    "choices": [
+      "Sales_Orders",
+      "Store_Locations",
+      "Customers",
+      "Products"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average discount applied on orders from the 'Midwest' region?",
+    "database": "regional_sales",
+    "choices": [
+      "Customers",
+      "Sales_Orders",
+      "Sales_Team",
+      "Store_Locations"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which customer has placed the largest order by quantity?",
+    "database": "regional_sales",
+    "choices": [
+      "Customers",
+      "Sales_Team",
+      "Store_Locations",
+      "Sales_Orders"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many complaints were received for clients living in the 'Northeast' region?",
+    "database": "retail_complains",
+    "choices": [
+      "district",
+      "state",
+      "reviews",
+      "callcenterlogs"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique products have been reviewed in the 'Midwest' region?",
+    "database": "retail_complains",
+    "choices": [
+      "client",
+      "callcenterlogs",
+      "reviews",
+      "district"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of complaints from clients in the region where the district ID 25 is located?",
+    "database": "retail_complains",
+    "choices": [
+      "client",
+      "reviews",
+      "events",
+      "state"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique clients have had events related to a credit card issue?",
+    "database": "retail_complains",
+    "choices": [
+      "client",
+      "district",
+      "reviews",
+      "state"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average number of complaints per state?",
+    "database": "retail_complains",
+    "choices": [
+      "events",
+      "state",
+      "reviews",
+      "client"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many complaints were resolved timely with explanation from clients in the \"Northeast\" region?",
+    "database": "retail_complains",
+    "choices": [
+      "client",
+      "district",
+      "state",
+      "events"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique clients have both filed complaints and had interactions recorded in the call center logs?",
+    "database": "retail_complains",
+    "choices": [
+      "district",
+      "callcenterlogs",
+      "client",
+      "state"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average age of clients who made calls to the call center?",
+    "database": "retail_complains",
+    "choices": [
+      "client",
+      "reviews",
+      "district",
+      "state"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of unique suppliers that provide parts in the 'EUROPE' region?",
+    "database": "retails",
+    "choices": [
+      "partsupp",
+      "lineitem",
+      "nation",
+      "customer"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average retail price of parts that were ordered by customers in the 'HOUSEHOLD' market segment?",
+    "database": "retails",
+    "choices": [
+      "orders",
+      "region",
+      "nation",
+      "partsupp"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many different parts have been shipped with 'FOB' shipping mode?",
+    "database": "retails",
+    "choices": [
+      "partsupp",
+      "lineitem",
+      "part",
+      "orders"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total account balance of customers in 'ASIA'?",
+    "database": "retails",
+    "choices": [
+      "customer",
+      "region",
+      "orders",
+      "nation"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the maximum discount given on any 'FURNITURE' segment order?",
+    "database": "retails",
+    "choices": [
+      "part",
+      "region",
+      "customer",
+      "supplier"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of unique parts that have been ordered across all orders?",
+    "database": "retails",
+    "choices": [
+      "orders",
+      "nation",
+      "lineitem",
+      "supplier"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which nation has the highest average customer account balance?",
+    "database": "retails",
+    "choices": [
+      "customer",
+      "partsupp",
+      "nation",
+      "lineitem"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total retail price of parts supplied by suppliers in the EUROPE region?",
+    "database": "retails",
+    "choices": [
+      "nation",
+      "partsupp",
+      "customer",
+      "orders"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average supply cost for parts supplied by suppliers in the EUROPE region?",
+    "database": "retails",
+    "choices": [
+      "lineitem",
+      "region",
+      "orders",
+      "supplier"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total revenue generated from all sales?",
+    "database": "sales",
+    "choices": [
+      "Employees",
+      "Products",
+      "Customers",
+      "Sales"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which customer purchased the most expensive product?",
+    "database": "sales",
+    "choices": [
+      "Customers",
+      "Employees",
+      "Sales",
+      "Products"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the name of the product that has been sold the most times?",
+    "database": "sales",
+    "choices": [
+      "Sales",
+      "Customers",
+      "Employees",
+      "Products"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which product generated the most revenue?",
+    "database": "sales",
+    "choices": [
+      "Products",
+      "Customers",
+      "Sales",
+      "Employees"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which customer has purchased the highest quantity of products?",
+    "database": "sales",
+    "choices": [
+      "Products",
+      "Customers",
+      "Employees",
+      "Sales"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average purchase quantity per customer?",
+    "database": "sales",
+    "choices": [
+      "Employees",
+      "Products",
+      "Customers",
+      "Sales"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique products have been sold based on the sales data?",
+    "database": "sales",
+    "choices": [
+      "Products",
+      "Customers",
+      "Employees",
+      "Sales"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which customer made the most purchases in terms of quantity?",
+    "database": "sales",
+    "choices": [
+      "Sales",
+      "Products",
+      "Customers",
+      "Employees"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which customer made the largest purchase in terms of total price of products bought?",
+    "database": "sales",
+    "choices": [
+      "Products",
+      "Sales",
+      "Employees",
+      "Customers"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total revenue generated by each sales person?",
+    "database": "sales",
+    "choices": [
+      "Sales",
+      "Customers",
+      "Products",
+      "Employees"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which customer has purchased the most different products?",
+    "database": "sales",
+    "choices": [
+      "Customers",
+      "Sales",
+      "Products",
+      "Employees"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which work has the earliest scene, considering both the chapters and works tables?",
+    "database": "shakespeare",
+    "choices": [
+      "paragraphs",
+      "chapters",
+      "characters",
+      "works"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of paragraphs spoken by characters in comedies, using the works, chapters, and paragraphs tables?",
+    "database": "shakespeare",
+    "choices": [
+      "paragraphs",
+      "characters",
+      "chapters",
+      "works"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many chapters are associated with the comedy genre in the works table?",
+    "database": "shakespeare",
+    "choices": [
+      "paragraphs",
+      "chapters",
+      "works",
+      "characters"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique characters appear in works with a title starting with 'T'?",
+    "database": "shakespeare",
+    "choices": [
+      "paragraphs",
+      "chapters",
+      "characters",
+      "works"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many paragraphs contain stage directions in works authored before 1600?",
+    "database": "shakespeare",
+    "choices": [
+      "chapters",
+      "paragraphs",
+      "characters",
+      "works"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the name of the work with the most chapters featuring stage directions?",
+    "database": "shakespeare",
+    "choices": [
+      "characters",
+      "works",
+      "paragraphs",
+      "chapters"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many different characters are there in the work \"Cymbeline\"?",
+    "database": "shakespeare",
+    "choices": [
+      "chapters",
+      "works",
+      "characters",
+      "paragraphs"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "Which work features the most acts?",
+    "database": "shakespeare",
+    "choices": [
+      "chapters",
+      "characters",
+      "paragraphs",
+      "works"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique GEOIDs are associated with customers who have not responded to any mailings?",
+    "database": "software_company",
+    "choices": [
+      "Mailings1_2",
+      "Demog",
+      "mailings3",
+      "Customers"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many distinct occupations are represented among customers from the same geographical areas as in the Demog table?",
+    "database": "software_company",
+    "choices": [
+      "mailings3",
+      "Mailings1_2",
+      "Sales",
+      "Demog"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of responses labeled as 'false' in both Mailings1_2 and mailings3?",
+    "database": "software_company",
+    "choices": [
+      "Customers",
+      "Demog",
+      "mailings3",
+      "Mailings1_2"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average income of inhabitants who have received a mailing?",
+    "database": "software_company",
+    "choices": [
+      "Demog",
+      "Sales",
+      "Customers",
+      "mailings3"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique GEOIDs from the Customers table appear in the Demog table?",
+    "database": "software_company",
+    "choices": [
+      "Customers",
+      "Mailings1_2",
+      "mailings3",
+      "Sales"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of male customers above the age of 50 who have received mailings recorded in both Mailings1_2 and mailings3?",
+    "database": "software_company",
+    "choices": [
+      "Demog",
+      "Customers",
+      "Sales",
+      "mailings3"
+    ],
+    "rightIdx": [
+      1,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of customers who responded to any mailing positively?",
+    "database": "software_company",
+    "choices": [
+      "Customers",
+      "Mailings1_2",
+      "mailings3",
+      "Sales"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average age of customers who received mailings in Mailings1_2 and belong to regions where average household income is above 2500 in Demog?",
+    "database": "software_company",
+    "choices": [
+      "Mailings1_2",
+      "Customers",
+      "Demog",
+      "Sales"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average sales per order for the \"West\" region?",
+    "database": "superstore",
+    "choices": [
+      "central_superstore",
+      "east_superstore",
+      "south_superstore",
+      "west_superstore"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total sales amount for products in the \"Binders\" sub-category across all regions?",
+    "database": "superstore",
+    "choices": [
+      "central_superstore",
+      "product",
+      "south_superstore",
+      "people"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique customers have ordered products in both the Central and West regions?",
+    "database": "superstore",
+    "choices": [
+      "west_superstore",
+      "product",
+      "east_superstore",
+      "south_superstore"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total sales revenue for the product \"Contract Clock, 14\", Brown\" across all regions?",
+    "database": "superstore",
+    "choices": [
+      "product",
+      "central_superstore",
+      "west_superstore",
+      "east_superstore"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average discount provided for 'Phones' sub-category products across all regions?",
+    "database": "superstore",
+    "choices": [
+      "east_superstore",
+      "product",
+      "west_superstore",
+      "people"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total cost of claims associated with patients who have documented allergies?",
+    "database": "synthea",
+    "choices": [
+      "careplans",
+      "observations",
+      "conditions",
+      "immunizations"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "How many patients have an allergy?",
+    "database": "synthea",
+    "choices": [
+      "observations",
+      "encounters",
+      "immunizations",
+      "patients"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many unique patients have both a claim and an encounter recorded?",
+    "database": "synthea",
+    "choices": [
+      "conditions",
+      "procedures",
+      "careplans",
+      "observations"
+    ],
+    "rightIdx": [],
+    "needOther": true
+  },
+  {
+    "question": "What is the average prevalence rate of all conditions listed in the all_prevalences table?",
+    "database": "synthea",
+    "choices": [
+      "all_prevalences",
+      "observations",
+      "encounters",
+      "medications"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many atoms are part of molecules labeled with a '+'?",
+    "database": "toxicology",
+    "choices": [
+      "bond",
+      "connected",
+      "atom",
+      "molecule"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the number of unique elements found in molecules labeled with a '-'?",
+    "database": "toxicology",
+    "choices": [
+      "bond",
+      "molecule",
+      "atom",
+      "connected"
+    ],
+    "rightIdx": [
+      1,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many bonds connect to atoms that are part of molecules labeled with a '+'?",
+    "database": "toxicology",
+    "choices": [
+      "connected",
+      "molecule",
+      "atom",
+      "bond"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many positive labeled molecules contain carbon atoms?",
+    "database": "toxicology",
+    "choices": [
+      "atom",
+      "connected",
+      "molecule",
+      "bond"
+    ],
+    "rightIdx": [
+      0,
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of bonds in molecules that contain nitrogen atoms?",
+    "database": "toxicology",
+    "choices": [
+      "bond",
+      "connected",
+      "molecule",
+      "atom"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many molecules have both carbon and hydrogen atoms?",
+    "database": "toxicology",
+    "choices": [
+      "atom",
+      "bond",
+      "connected",
+      "molecule"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique elements are present across all molecules?",
+    "database": "toxicology",
+    "choices": [
+      "bond",
+      "molecule",
+      "atom",
+      "connected"
+    ],
+    "rightIdx": [
+      2
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of atoms connected through bonds in the `connected` table?",
+    "database": "toxicology",
+    "choices": [
+      "connected",
+      "atom",
+      "molecule",
+      "bond"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many distinct molecules contain carbon (element 'c') in their structure?",
+    "database": "toxicology",
+    "choices": [
+      "molecule",
+      "atom",
+      "connected",
+      "bond"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of molecules with at least one bond of bond_type '-'?",
+    "database": "toxicology",
+    "choices": [
+      "bond",
+      "atom",
+      "connected",
+      "molecule"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many molecules have atoms with the element 'h'?",
+    "database": "toxicology",
+    "choices": [
+      "molecule",
+      "connected",
+      "bond",
+      "atom"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of bonds associated with the molecule having the most atoms?",
+    "database": "toxicology",
+    "choices": [
+      "molecule",
+      "bond",
+      "connected",
+      "atom"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many unique element types exist in molecules labeled with '+'?",
+    "database": "toxicology",
+    "choices": [
+      "atom",
+      "connected",
+      "bond",
+      "molecule"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the total number of bonds in molecules labeled with '-'?",
+    "database": "toxicology",
+    "choices": [
+      "atom",
+      "connected",
+      "molecule",
+      "bond"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "How many molecules contain at least one 'h' element?",
+    "database": "toxicology",
+    "choices": [
+      "connected",
+      "bond",
+      "atom",
+      "molecule"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average student-staff ratio for universities in the United States of America in 2014?",
+    "database": "university",
+    "choices": [
+      "university",
+      "university_ranking_year",
+      "ranking_system",
+      "country"
+    ],
+    "rightIdx": [
+      0,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many universities are ranked in the Total CWUR criterion in 2014?",
+    "database": "university",
+    "choices": [
+      "university_year",
+      "country",
+      "ranking_criteria",
+      "university_ranking_year"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many universities from Canada have data available for the year 2014?",
+    "database": "university",
+    "choices": [
+      "ranking_system",
+      "ranking_criteria",
+      "university",
+      "country"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What ratio of universities have \"international students\" as a majority (more than 50%) of their student body in the available dataset?",
+    "database": "university",
+    "choices": [
+      "university_ranking_year",
+      "ranking_system",
+      "country",
+      "university"
+    ],
+    "rightIdx": [
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which country has the university with the highest score in the Income ranking criteria?",
+    "database": "university",
+    "choices": [
+      "university_ranking_year",
+      "country",
+      "university_year",
+      "ranking_system"
+    ],
+    "rightIdx": [
+      0,
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average student-to-staff ratio among universities that have a ranking score in Pub criteria?",
+    "database": "university",
+    "choices": [
+      "country",
+      "university",
+      "university_ranking_year",
+      "university_year"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many universities are from the United Kingdom in the dataset?",
+    "database": "university",
+    "choices": [
+      "university",
+      "university_year",
+      "ranking_criteria",
+      "ranking_system"
+    ],
+    "rightIdx": [
+      0
+    ],
+    "needOther": true
+  },
+  {
+    "question": "How many universities in the United States were ranked based on the criterion 'Pub' in the year 2010?",
+    "database": "university",
+    "choices": [
+      "university_ranking_year",
+      "university_year",
+      "country",
+      "university"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the name of the university with the highest total score in all criteria for the year 2015 across all ranking systems?",
+    "database": "university",
+    "choices": [
+      "ranking_criteria",
+      "university_year",
+      "university",
+      "university_ranking_year"
+    ],
+    "rightIdx": [
+      2,
+      3
+    ],
+    "needOther": false
+  },
+  {
+    "question": "What is the average release year of games on the PC platform?",
+    "database": "video_games",
+    "choices": [
+      "game_publisher",
+      "game",
+      "region",
+      "genre"
+    ],
+    "rightIdx": [
+      1
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the average number of sales for all games published by Tecmo Koei across all regions?",
+    "database": "video_games",
+    "choices": [
+      "game_platform",
+      "region_sales",
+      "region",
+      "game_publisher"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "What is the total number of games released by Tecmo Koei across all platforms?",
+    "database": "video_games",
+    "choices": [
+      "genre",
+      "game_publisher",
+      "publisher",
+      "game_platform"
+    ],
+    "rightIdx": [
+      1,
+      2,
+      3
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which platform has the most games published by Konami Digital Entertainment?",
+    "database": "video_games",
+    "choices": [
+      "platform",
+      "game_platform",
+      "publisher",
+      "region_sales"
+    ],
+    "rightIdx": [
+      0,
+      1,
+      2
+    ],
+    "needOther": true
+  },
+  {
+    "question": "Which year had the highest number of releases for the Sports genre?",
+    "database": "video_games",
+    "choices": [
+      "platform",
+      "region_sales",
+      "genre",
+      "game_platform"
+    ],
+    "rightIdx": [
+      0,
+      2,
+      3
+    ],
+    "needOther": true
+  }
+]
