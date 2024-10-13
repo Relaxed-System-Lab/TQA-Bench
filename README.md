@@ -2,7 +2,7 @@
 
 ## Data Download
 
-Download data from the [link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/EZFNFZnjG6hLhULwJwLT3AQBiGVlkUMSCPo73GwIp-3tBw?e=FbnPy2) to the `dataset` directory. Then unzip it.
+Download data from the [link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/EcOPRsSJQL5Kn-aFXRNgIesBsI1jR3c_8Klokr9RCSDPdg?e=zIUiCf) to the `dataset` directory. Then unzip it.
 
 ## Data Loader
 
