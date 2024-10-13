@@ -6,7 +6,7 @@ import sys
 sys.path.append('.')
 from benchmarkUtils.jsTool import JS
 
-class CPALoader(Dataset):
+class CPADataset(Dataset):
     def __init__(self, scale, markdown=True):
         self.scale = scale
         self.markdown = markdown
@@ -39,7 +39,7 @@ class CPALoader(Dataset):
         return len(self.taskList)
 
 if __name__ == '__main__':
-    dl = CPALoader('16k')
+    dl = CPADataset('16k')
     for q, c in dl:
         print(q)
         print(c)

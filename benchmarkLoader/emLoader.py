@@ -5,7 +5,7 @@ import sys
 sys.path.append('.')
 from benchmarkUtils.jsTool import JS
 
-class EMLoader(Dataset):
+class EMDataset(Dataset):
     def __init__(self):
         jsPath = 'dataset/task/em/task.json'
         self.taskList = JS(jsPath).loadJS()
@@ -26,7 +26,7 @@ class EMLoader(Dataset):
         return totalQuestion, rightChoice
 
 if __name__ == '__main__':
-    ds = EMLoader()
+    ds = EMDataset()
     for q, c in ds:
         print(q)
         print(c)

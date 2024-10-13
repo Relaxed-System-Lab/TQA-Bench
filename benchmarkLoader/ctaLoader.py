@@ -6,7 +6,7 @@ import sys
 sys.path.append('.')
 from benchmarkUtils.jsTool import JS
 
-class CTALoader(Dataset):
+class CTADataset(Dataset):
     def __init__(self, scale, markdown=True):
         self.scale = scale
         self.markdown = markdown
@@ -39,7 +39,7 @@ class CTALoader(Dataset):
         return len(self.taskList)
 
 if __name__ == '__main__':
-    dl = CTALoader('16k')
+    dl = CTADataset('16k')
     for q, c in dl:
         print(q)
         print(c)
