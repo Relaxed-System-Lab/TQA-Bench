@@ -1,15 +1,197 @@
 [
   {
-    "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
+    "table": "Product_memorialcardshop.co.uk_September2020_CPA.json.gz",
     "columns": [
       0,
       5
     ],
     "choices": [
+      "inLanguage",
+      "copyrightYear",
+      "isbn",
+      "mpn"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "workLocation",
+      "height",
+      "amenityFeature",
+      "eventStatus"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_swisshomegarden.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "cookTime",
+      "productionDate",
       "availabilityStarts",
+      "paymentAccepted"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_naturalchow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "employmentType",
+      "carboHydrateContent",
+      "gtin12",
+      "mpn"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_eesipeo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "postalCode",
+      "dateModified",
+      "datePublished",
+      "partOfSeries"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_tapi.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "warranty",
+      "currenciesAccepted",
+      "eventAttendanceMode",
+      "startDate"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_merrickforachange.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "userInteractionCount",
       "deliveryLeadTime",
       "keywords",
-      "performTime"
+      "disambiguatingDescription"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_valais.ch_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "sku",
+      "title",
+      "latitude",
+      "interactionType"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_defakkelhoogeveen.nl_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "founder",
+      "image",
+      "price",
+      "location"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_oneblockdown.it_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "sku",
+      "sodiumContent",
+      "brand",
+      "contentRating"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "affiliation",
+      "numberOfPages",
+      "bookEdition",
+      "worstRating"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_naturalchow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "recipeCategory",
+      "worksFor",
+      "unsaturatedFatContent",
+      "priceCurrency"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_az-reptec.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "makesOffer",
+      "director",
+      "gtin13",
+      "validFrom"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_dragonflywhispers.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "episodeNumber",
+      "publisher",
+      "inventoryLevel",
+      "hiringOrganization"
     ],
     "rightIdx": 2
   },
@@ -17,97 +199,517 @@
     "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
     "columns": [
       0,
-      2
+      3
     ],
     "choices": [
-      "isbn",
-      "latitude",
-      "workLocation",
-      "datePosted"
+      "bookFormat",
+      "itemReviewed",
+      "doorTime",
+      "performer"
     ],
     "rightIdx": 0
   },
   {
-    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "saturatedFatContent",
-      "description",
-      "award",
-      "birthDate"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "table": "Product_hobbytech.ca_September2020_CPA.json.gz",
     "columns": [
       0,
       4
     ],
     "choices": [
-      "priceValidUntil",
-      "jobTitle",
-      "eventAttendanceMode",
-      "alternateName"
+      "openingHours",
+      "currenciesAccepted",
+      "sku",
+      "bookFormat"
     ],
     "rightIdx": 2
   },
   {
-    "table": "Book_tea-ebook.com_September2020_CPA.json.gz",
+    "table": "Product_aelight.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "reviewCount",
+      "actor",
+      "copyrightHolder",
+      "unitCode"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_24x7fullmovie.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "ratingValue",
+      "calories",
+      "numberOfPages",
+      "servesCuisine"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_crazydude.ch_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "inventoryLevel",
+      "eventStatus",
+      "itemCondition",
+      "typicalAgeRange"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_jerseycityculture.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "author",
+      "price",
+      "duration",
+      "email"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_polish-porn.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "addressRegion",
+      "alternativeHeadline",
+      "keywords",
+      "countryOfOrigin"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_idate2012.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "memberOf",
+      "suitableForDiet",
+      "doorTime",
+      "endDate"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_newyorksocialdiary.com_September2020_CPA.json.gz",
     "columns": [
       0,
       3
     ],
     "choices": [
-      "givenName",
-      "fatContent",
-      "publisher",
+      "hasMap",
+      "location",
+      "recipeCuisine",
+      "isAccessibleForFree"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_dog-leash-store.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "dayOfWeek",
+      "mpn",
+      "depth",
+      "model"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_marystestkitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      22
+    ],
+    "choices": [
+      "employee",
+      "validThrough",
+      "additionalName",
+      "sugarContent"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "addressCountry",
+      "gender",
+      "performTime",
+      "startDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "price",
+      "legalName",
+      "eligibleQuantity",
+      "releaseDate"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_sawtoothbooks.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "review",
+      "bookEdition",
+      "priceRange",
+      "streetAddress"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_cartographyassets.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "dateCreated",
+      "recipeInstructions",
+      "ratingCount",
       "deathDate"
     ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "jobTitle",
+      "audienceType",
+      "availability",
+      "genre"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_oneblockdown.it_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "saturatedFatContent",
+      "gtin12",
+      "headline",
+      "checkoutTime"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_irishculturebayarea.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "totalTime",
+      "about",
+      "ratingValue",
+      "availability"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "numberOfPages",
+      "givenName",
+      "addressLocality",
+      "availableLanguage"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_ukhaulier.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "cholesterolContent",
+      "postalCode",
+      "birthPlace",
+      "track"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_villeinitalia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "latitude",
+      "fiberContent",
+      "acceptedPaymentmethod",
+      "inventoryLevel"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_idate2012.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "material",
+      "faxNumber",
+      "location",
+      "logo"
+    ],
     "rightIdx": 2
+  },
+  {
+    "table": "Recipe_chileanfoodandgarden.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "recipeCuisine",
+      "dateCreated",
+      "unitCode",
+      "recipeYield"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "gtin",
+      "description",
+      "url",
+      "sugarContent"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_apexbt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "gtin14",
+      "organizer",
+      "datePublished",
+      "offers"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_donner.nl_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "gtin8",
+      "homeTeam",
+      "serialNumber",
+      "bookFormat"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_nudelmanbooks.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "numTracks",
+      "availability",
+      "productID",
+      "manufacturer"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_uslawns.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "identifier",
+      "width",
+      "cookTime",
+      "areaServed"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_naturalchow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "description",
+      "homeLocation",
+      "servingSize",
+      "nationality"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_whidbeylocal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "telephone",
+      "description",
+      "alumniOf",
+      "awayTeam"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Person_hittahem.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "latitude",
+      "text",
+      "category",
+      "jobTitle"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_communityvision.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "areaServed",
+      "byArtist",
+      "fatContent",
+      "addressCountry"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "award",
+      "unitText",
+      "checkInTime",
+      "priceCurrency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_eesipeo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "sameAs",
+      "author",
+      "address",
+      "price"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_billieandrose.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "honorificSuffix",
+      "productionCompany",
+      "knowsLanguage",
+      "offers"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_datamites.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "cookingMethod",
+      "gtin12",
+      "alternateName",
+      "birthDate"
+    ],
+    "rightIdx": 1
   },
   {
     "table": "LocalBusiness_chelyabinsk-vsaunah.ru_September2020_CPA.json.gz",
     "columns": [
       0,
-      7
+      3
     ],
     "choices": [
-      "worstRating",
-      "worksFor",
-      "inAlbum",
-      "duration"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Product_myhenna.us_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "suitableForDiet",
-      "recipeYield",
-      "weight",
-      "gtin"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Recipe_diyncrafts.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      17
-    ],
-    "choices": [
-      "proteinContent",
-      "cookTime",
-      "sugarContent",
-      "price"
+      "color",
+      "offers",
+      "priceRange",
+      "recipeIngredient"
     ],
     "rightIdx": 2
   },
@@ -118,10 +720,52 @@
       2
     ],
     "choices": [
-      "fiberContent",
-      "birthPlace",
-      "isAccessibleForFree",
-      "text"
+      "contactType",
+      "text",
+      "competitor",
+      "photo"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Place_urbanzoom.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "opens",
+      "description",
+      "availableDeliveryMethod",
+      "keywords"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_whidbeylocal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "gtin13",
+      "addressLocality",
+      "closes",
+      "transFatContent"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_bigrigworld.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "proteinContent",
+      "genre",
+      "familyName",
+      "availableDeliveryMethod"
     ],
     "rightIdx": 3
   },
@@ -129,335 +773,461 @@
     "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
     "columns": [
       0,
-      5
-    ],
-    "choices": [
-      "transFatContent",
-      "servesCuisine",
-      "episodeNumber",
-      "location"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      3
-    ],
-    "choices": [
-      "makesOffer",
-      "url",
-      "dayOfWeek",
-      "recipeIngredient"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "CreativeWork_alphaglobalsearch.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "legalName",
-      "endDate",
-      "headline",
-      "recipeInstructions"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Product_tog.ae_September2020_CPA.json.gz",
-    "columns": [
-      0,
       8
     ],
     "choices": [
-      "typicalAgeRange",
-      "streetAddress",
-      "faxNumber",
-      "acceptedPaymentmethod"
+      "priceValidUntil",
+      "bestRating",
+      "inAlbum",
+      "validThrough"
     ],
     "rightIdx": 3
   },
   {
-    "table": "Recipe_thatdeliciousdish.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      15
-    ],
-    "choices": [
-      "closes",
-      "isbn",
-      "fiberContent",
-      "eventAttendanceMode"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Recipe_marystestkitchen.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "recipeCategory",
-      "cookingMethod",
-      "contactType",
-      "author"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "CreativeWork_eesipeo.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "keywords",
-      "competitor",
-      "publisher",
-      "sku"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Product_boxeddeal.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "logo",
-      "identifier",
-      "countryOfOrigin",
-      "availability"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Hotel_costarica.org_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      3
-    ],
-    "choices": [
-      "hasMap",
-      "affiliation",
-      "sugarContent",
-      "photo"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Recipe_thatdeliciousdish.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      19
-    ],
-    "choices": [
-      "carboHydrateContent",
-      "inLanguage",
-      "review",
-      "recipeCuisine"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Recipe_chileanfoodandgarden.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "recipeCuisine",
-      "mpn",
-      "manufacturer",
-      "releaseDate"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Product_harddrivesdirect.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "model",
-      "serialNumber",
-      "gtin14",
-      "reviewCount"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "CreativeWork_ihomefinder.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      3
-    ],
-    "choices": [
-      "longitude",
-      "author",
-      "ratingValue",
-      "title"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_adcdrums.co.uk_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      14
-    ],
-    "choices": [
-      "depth",
-      "identifier",
-      "bookFormat",
-      "bookEdition"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Hotel_maratontravel.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      2
-    ],
-    "choices": [
-      "addressCountry",
-      "memberOf",
-      "numTracks",
-      "photo"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Product_apeloigcollection.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      3
-    ],
-    "choices": [
-      "warranty",
-      "contentRating",
-      "currenciesAccepted",
-      "mpn"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Hotel_valais.ch_September2020_CPA.json.gz",
+    "table": "Recipe_whatscookingindia.com_September2020_CPA.json.gz",
     "columns": [
       0,
       4
     ],
     "choices": [
-      "inventoryLevel",
-      "checkoutTime",
-      "streetAddress",
-      "familyName"
+      "longitude",
+      "cookTime",
+      "carboHydrateContent",
+      "unsaturatedFatContent"
     ],
-    "rightIdx": 2
+    "rightIdx": 1
   },
   {
-    "table": "Book_autorenwelt.de_September2020_CPA.json.gz",
+    "table": "LocalBusiness_crossville-chamber.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "telephone",
+      "creator",
+      "prepTime",
+      "faxNumber"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "ratingValue",
+      "isbn",
+      "weight",
+      "datePosted"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Place_kykart.ru_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "height",
+      "inLanguage",
+      "copyrightYear",
+      "ratingValue"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_maratontravel.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "productionDate",
+      "workLocation",
+      "amenityFeature",
+      "priceRange"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Person_youworkforthem.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "description",
+      "employmentType",
+      "paymentAccepted",
+      "availabilityStarts"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_emco-holiday.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "description",
+      "gtin12",
+      "postalCode",
+      "mpn"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      26
+    ],
+    "choices": [
+      "saturatedFatContent",
+      "warranty",
+      "dateModified",
+      "partOfSeries"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_24x7fullmovie.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "description",
+      "eventAttendanceMode",
+      "disambiguatingDescription",
+      "startDate"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "interactionType",
+      "userInteractionCount",
+      "deliveryLeadTime",
+      "description"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_atlantaparent.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "location",
+      "price",
+      "title",
+      "sku"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "image",
+      "contentRating",
+      "founder",
+      "ratingValue"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_blacklegacy.co_September2020_CPA.json.gz",
     "columns": [
       0,
       4
     ],
     "choices": [
       "worstRating",
-      "priceCurrency",
-      "description",
-      "addressLocality"
+      "sodiumContent",
+      "brand",
+      "gtin13"
     ],
-    "rightIdx": 1
+    "rightIdx": 3
   },
   {
-    "table": "Movie_24x7fullmovie.com_September2020_CPA.json.gz",
+    "table": "Book_maibaum-ries.de_September2020_CPA.json.gz",
     "columns": [
       0,
-      4
+      10
     ],
     "choices": [
-      "acceptedPaymentmethod",
-      "byArtist",
-      "keywords",
-      "gtin8"
+      "bookEdition",
+      "affiliation",
+      "reviewCount",
+      "worksFor"
     ],
     "rightIdx": 2
   },
   {
-    "table": "Place_kykart.ru_September2020_CPA.json.gz",
+    "table": "Recipe_culinary-cool.com_September2020_CPA.json.gz",
     "columns": [
       0,
       1
     ],
     "choices": [
-      "validFrom",
-      "additionalName",
-      "telephone",
-      "knowsLanguage"
+      "priceCurrency",
+      "description",
+      "recipeCategory",
+      "validFrom"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_allncertsolutions.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "ratingValue",
+      "director",
+      "publisher",
+      "makesOffer"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_probooking.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "hiringOrganization",
+      "performer",
+      "priceRange",
+      "episodeNumber"
     ],
     "rightIdx": 2
   },
   {
-    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      12
-    ],
-    "choices": [
-      "bestRating",
-      "amenityFeature",
-      "material",
-      "reviewCount"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Event_kanarrafalls.com_September2020_CPA.json.gz",
+    "table": "LocalBusiness_thewatersal.com_September2020_CPA.json.gz",
     "columns": [
       0,
       7
     ],
     "choices": [
-      "validThrough",
-      "track",
-      "priceCurrency",
-      "gtin13"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Recipe_jeyashriskitchen.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      12
-    ],
-    "choices": [
+      "doorTime",
+      "dayOfWeek",
       "itemReviewed",
-      "fatContent",
-      "gender",
-      "priceRange"
+      "bookFormat"
     ],
     "rightIdx": 1
   },
   {
-    "table": "Book_sawtoothbooks.com_September2020_CPA.json.gz",
+    "table": "Book_donner.nl_September2020_CPA.json.gz",
     "columns": [
       0,
-      5
+      11
     ],
     "choices": [
-      "depth",
-      "image",
+      "reviewCount",
+      "currenciesAccepted",
+      "openingHours",
+      "availability"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_uslawns.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "actor",
+      "servesCuisine",
+      "priceRange",
+      "copyrightHolder"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      19
+    ],
+    "choices": [
+      "sugarContent",
+      "numberOfPages",
+      "itemCondition",
+      "calories"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_simonscarrow.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "email",
+      "typicalAgeRange",
+      "eventStatus",
+      "datePublished"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_desertdiamondsireland.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "author",
+      "datePublished",
+      "duration",
+      "countryOfOrigin"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_dog-leash-store.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "addressRegion",
+      "memberOf",
+      "alternativeHeadline",
+      "model"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_burdevents.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      14
+    ],
+    "choices": [
+      "endDate",
+      "hasMap",
+      "availability",
+      "suitableForDiet"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_ilcorp.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "isAccessibleForFree",
+      "model",
       "priceCurrency",
-      "genre"
+      "recipeCuisine"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "endDate",
+      "validThrough",
+      "depth",
+      "dayOfWeek"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_homechefschool.ca_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "performTime",
+      "employee",
+      "additionalName",
+      "validThrough"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_newyorksocialdiary.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "addressCountry",
+      "eligibleQuantity",
+      "gender",
+      "price"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_italwax.nl_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "streetAddress",
+      "inventoryLevel",
+      "legalName",
+      "releaseDate"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_marriott.com.br_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "review",
+      "priceRange",
+      "ratingCount",
+      "faxNumber"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_naturalchow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      13
+    ],
+    "choices": [
+      "availability",
+      "recipeInstructions",
+      "sodiumContent",
+      "deathDate"
     ],
     "rightIdx": 2
   },
@@ -468,738 +1238,38 @@
       2
     ],
     "choices": [
-      "employmentType",
-      "paymentAccepted",
       "ratingCount",
-      "founder"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Book_donner.nl_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "copyrightYear",
-      "about",
-      "priceCurrency",
-      "address"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      10
-    ],
-    "choices": [
-      "employee",
       "audienceType",
-      "productionDate",
-      "availability"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      16
-    ],
-    "choices": [
-      "datePublished",
-      "prepTime",
-      "weight",
-      "fiberContent"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "CreativeWork_caminodesantiago.me_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      2
-    ],
-    "choices": [
-      "dateModified",
-      "sodiumContent",
-      "text",
-      "productID"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "addressLocality",
-      "unsaturatedFatContent",
-      "opens",
-      "disambiguatingDescription"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Event_irishculturebayarea.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "price",
-      "creator",
-      "startDate",
-      "actor"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Product_englefield.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      4
-    ],
-    "choices": [
-      "category",
-      "price",
-      "availableDeliveryMethod",
-      "dateCreated"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Event_burdevents.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "eligibleQuantity",
-      "awayTeam",
-      "productionCompany",
-      "priceCurrency"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Recipe_culinary-cool.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "unitCode",
-      "url",
-      "telephone",
-      "description"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Event_newyorksocialdiary.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      5
-    ],
-    "choices": [
-      "location",
-      "telephone",
-      "addressRegion",
-      "availableLanguage"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Event_kanarrafalls.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "height",
-      "publisher",
-      "totalTime",
-      "availability"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "MusicAlbum_som13.com.br_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "ratingCount",
-      "numTracks",
-      "hiringOrganization",
-      "nationality"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Person_cinema.de_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "givenName",
-      "openingHours",
-      "recipeCategory",
-      "userInteractionCount"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Event_irishculturebayarea.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "dateModified",
-      "priceCurrency",
-      "color",
-      "calories"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Recipe_tonyastaab.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "honorificSuffix",
-      "offers",
-      "totalTime",
-      "checkInTime"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "areaServed",
-      "isAccessibleForFree",
-      "sameAs",
-      "headline"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_amandamansell.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "doorTime",
-      "offers",
-      "width",
-      "eventStatus"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "numberOfPages",
-      "interactionType",
-      "brand",
-      "reviewCount"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Product_foxislandmarket.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "performer",
-      "gtin12",
-      "logo",
-      "model"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Hotel_maratontravel.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      4
-    ],
-    "choices": [
-      "homeTeam",
-      "unitText",
-      "copyrightHolder",
-      "priceRange"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "CreativeWork_ijrte.org_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      5
-    ],
-    "choices": [
-      "addressCountry",
-      "publisher",
-      "director",
-      "cholesterolContent"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      17
-    ],
-    "choices": [
-      "alumniOf",
-      "email",
-      "organizer",
-      "review"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Product_memorialcardshop.co.uk_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "itemCondition",
-      "alternativeHeadline",
-      "sku",
-      "carboHydrateContent"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Book_tinderpress.co.uk_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      5
-    ],
-    "choices": [
-      "servingSize",
-      "url",
-      "validThrough",
-      "homeLocation"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_alexandriacars.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      12
-    ],
-    "choices": [
-      "postalCode",
-      "performTime",
-      "serialNumber",
-      "partOfSeries"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "datePosted",
-      "availabilityStarts",
-      "validThrough",
-      "deliveryLeadTime"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Recipe_straitsroadkitchen.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      4
-    ],
-    "choices": [
-      "prepTime",
-      "latitude",
-      "workLocation",
-      "saturatedFatContent"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      14
-    ],
-    "choices": [
-      "priceValidUntil",
-      "proteinContent",
-      "award",
-      "birthDate"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_double8cattle.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      11
-    ],
-    "choices": [
-      "deathDate",
-      "priceValidUntil",
-      "alternateName",
+      "headline",
       "jobTitle"
     ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_boxeddeal.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "worksFor",
-      "gtin8",
-      "fatContent",
-      "givenName"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_greenhousehome.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      5
-    ],
-    "choices": [
-      "duration",
-      "gtin14",
-      "gtin",
-      "inAlbum"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_bringfido.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      3
-    ],
-    "choices": [
-      "suitableForDiet",
-      "warranty",
-      "recipeYield",
-      "price"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Recipe_livinglovingpaleo.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      4
-    ],
-    "choices": [
-      "isAccessibleForFree",
-      "proteinContent",
-      "fiberContent",
-      "cookTime"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "LocalBusiness_whidbeylocal.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      7
-    ],
-    "choices": [
-      "episodeNumber",
-      "addressLocality",
-      "servesCuisine",
-      "birthPlace"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_collingwoodstores.co.uk_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      4
-    ],
-    "choices": [
-      "transFatContent",
-      "dayOfWeek",
-      "recipeIngredient",
-      "mpn"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Product_billieandrose.com.au_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "offers",
-      "makesOffer",
-      "recipeInstructions",
-      "legalName"
-    ],
     "rightIdx": 0
   },
   {
-    "table": "Event_ilcorp.org_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      11
-    ],
-    "choices": [
-      "typicalAgeRange",
-      "faxNumber",
-      "price",
-      "endDate"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "LocalBusiness_allbiz.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      10
-    ],
-    "choices": [
-      "isbn",
-      "streetAddress",
-      "addressCountry",
-      "closes"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Product_emilysplants.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      10
-    ],
-    "choices": [
-      "eventAttendanceMode",
-      "contactType",
-      "cookingMethod",
-      "availableDeliveryMethod"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Product_hairwhisper.ca_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
-    ],
-    "choices": [
-      "author",
-      "inventoryLevel",
-      "competitor",
-      "keywords"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Event_kanarrafalls.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      6
-    ],
-    "choices": [
-      "performer",
-      "sku",
-      "countryOfOrigin",
-      "availability"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "sugarContent",
-      "description",
-      "affiliation",
-      "logo"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      5
-    ],
-    "choices": [
-      "recipeCuisine",
-      "reviewCount",
-      "inLanguage",
-      "hasMap"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "table": "Product_goodwinsorganics.com_September2020_CPA.json.gz",
     "columns": [
       0,
       2
-    ],
-    "choices": [
-      "endDate",
-      "releaseDate",
-      "review",
-      "manufacturer"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Recipe_calories-info.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "keywords",
-      "serialNumber",
-      "mpn",
-      "reviewCount"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "validFrom",
-      "gtin14",
-      "ratingValue",
-      "longitude"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Product_boxeddeal.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      12
-    ],
-    "choices": [
-      "gtin",
-      "bookEdition",
-      "title",
-      "identifier"
-    ],
-    "rightIdx": 0
-  },
-  {
-    "table": "Recipe_adventuresofb2.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      12
-    ],
-    "choices": [
-      "bookFormat",
-      "totalTime",
-      "numTracks",
-      "memberOf"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "Product_calabasassaddlery.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      8
-    ],
-    "choices": [
-      "photo",
-      "contentRating",
-      "inventoryLevel",
-      "warranty"
-    ],
-    "rightIdx": 2
-  },
-  {
-    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      9
     ],
     "choices": [
       "checkoutTime",
-      "currenciesAccepted",
-      "price",
-      "inventoryLevel"
+      "ratingValue",
+      "gtin14",
+      "saturatedFatContent"
     ],
     "rightIdx": 2
   },
   {
-    "table": "Book_knigalit.ru_September2020_CPA.json.gz",
+    "table": "Event_idate2012.com_September2020_CPA.json.gz",
     "columns": [
       0,
-      8
+      15
     ],
     "choices": [
-      "worstRating",
-      "familyName",
+      "ratingValue",
+      "about",
       "addressLocality",
-      "priceCurrency"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Recipe_calories-info.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      19
-    ],
-    "choices": [
-      "proteinContent",
-      "gtin8",
-      "description",
-      "byArtist"
+      "totalTime"
     ],
     "rightIdx": 0
   },
@@ -1210,66 +1280,24 @@
       15
     ],
     "choices": [
-      "additionalName",
-      "acceptedPaymentmethod",
-      "validFrom",
-      "sodiumContent"
+      "track",
+      "givenName",
+      "sodiumContent",
+      "availableLanguage"
     ],
-    "rightIdx": 3
+    "rightIdx": 2
   },
   {
-    "table": "Recipe_artofnaturalliving.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      17
-    ],
-    "choices": [
-      "amenityFeature",
-      "transFatContent",
-      "knowsLanguage",
-      "bestRating"
-    ],
-    "rightIdx": 1
-  },
-  {
-    "table": "CreativeWork_caminodesantiago.me_September2020_CPA.json.gz",
+    "table": "Recipe_whatscookingindia.com_September2020_CPA.json.gz",
     "columns": [
       0,
       6
     ],
     "choices": [
-      "priceCurrency",
-      "track",
-      "material",
-      "description"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "Product_catholicspringtime.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "itemReviewed",
-      "gtin13",
-      "gender",
-      "offers"
-    ],
-    "rightIdx": 3
-  },
-  {
-    "table": "CreativeWork_cal-pools.com_September2020_CPA.json.gz",
-    "columns": [
-      0,
-      1
-    ],
-    "choices": [
-      "image",
-      "headline",
-      "depth",
-      "priceRange"
+      "birthPlace",
+      "recipeCategory",
+      "fiberContent",
+      "cholesterolContent"
     ],
     "rightIdx": 1
   },
@@ -1280,38 +1308,3132 @@
       8
     ],
     "choices": [
-      "genre",
-      "employmentType",
+      "acceptedPaymentmethod",
+      "inventoryLevel",
       "review",
-      "paymentAccepted"
+      "material"
     ],
     "rightIdx": 2
   },
   {
-    "table": "JobPosting_environmentjobs.co.uk_September2020_CPA.json.gz",
+    "table": "Hotel_costarica.org_September2020_CPA.json.gz",
     "columns": [
       0,
-      1
+      5
     ],
     "choices": [
-      "datePosted",
-      "address",
-      "founder",
-      "copyrightYear"
+      "logo",
+      "faxNumber",
+      "unitCode",
+      "ratingValue"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_atlantaparent.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "priceCurrency",
+      "recipeYield",
+      "dateCreated",
+      "url"
     ],
     "rightIdx": 0
   },
   {
-    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "table": "Product_goatmilkstuff.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "weight",
+      "gtin",
+      "gtin14",
+      "sugarContent"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Place_beverly-hanks.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "longitude",
+      "datePublished",
+      "organizer",
+      "gtin8"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "homeTeam",
+      "worstRating",
+      "productID",
+      "serialNumber"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_amcanchamber.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "about",
+      "numTracks",
+      "manufacturer",
+      "cookTime"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "width",
+      "identifier",
+      "availability",
+      "homeLocation"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      13
+    ],
+    "choices": [
+      "nationality",
+      "servingSize",
+      "review",
+      "description"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_aelight.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "alumniOf",
+      "awayTeam",
+      "text",
+      "releaseDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_kanarrafalls.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "areaServed",
+      "price",
+      "latitude",
+      "category"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_fmechamber.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "addressRegion",
+      "fatContent",
+      "byArtist",
+      "checkInTime"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_mommafitlyndsey.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "price",
+      "award",
+      "unitText",
+      "calories"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_communityvision.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "streetAddress",
+      "knowsLanguage",
+      "sameAs",
+      "address"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_jeyashriskitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "honorificSuffix",
+      "productionCompany",
+      "datePublished",
+      "alternateName"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_maibaum-ries.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "cookingMethod",
+      "bookFormat",
+      "color",
+      "birthDate"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_merrickforachange.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "offers",
+      "recipeIngredient",
+      "productionCompany",
+      "photo"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Movie_24x7fullmovie.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "datePublished",
+      "contactType",
+      "competitor",
+      "availableDeliveryMethod"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "opens",
+      "transFatContent",
+      "keywords",
+      "priceCurrency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_f3toledo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "text",
+      "closes",
+      "gtin13",
+      "familyName"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "genre",
+      "priceValidUntil",
+      "proteinContent",
+      "itemCondition"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_whatscookingindia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "totalTime",
+      "inAlbum",
+      "bestRating",
+      "carboHydrateContent"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_hahnplastics.com_September2020_CPA.json.gz",
     "columns": [
       0,
       4
     ],
     "choices": [
+      "unsaturatedFatContent",
+      "telephone",
+      "height",
+      "longitude"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_sacristy.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "price",
+      "prepTime",
+      "weight",
+      "creator"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_jerseycityculture.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "organizer",
+      "inLanguage",
+      "datePosted",
+      "isbn"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "author",
+      "amenityFeature",
+      "height",
+      "copyrightYear"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_sandiego.edu_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "alternativeHeadline",
+      "workLocation",
+      "productionDate",
+      "paymentAccepted"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_edseditions.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "mpn",
+      "availabilityStarts",
+      "employmentType",
+      "description"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_ausmed.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "price",
+      "postalCode",
+      "gtin12",
+      "partOfSeries"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_getpoolparts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "manufacturer",
+      "dateModified",
+      "warranty",
+      "eventAttendanceMode"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_bellinghamtheatreguild.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "deliveryLeadTime",
+      "disambiguatingDescription",
+      "validFrom",
+      "startDate"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_nastylifestyle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "interactionType",
+      "gtin",
+      "userInteractionCount",
+      "title"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_avf.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "sku",
+      "founder",
+      "location",
+      "dateModified"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_straitsroadkitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "sodiumContent",
+      "recipeCategory",
+      "image",
+      "contentRating"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_apeloigcollection.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "worstRating",
+      "productID",
+      "affiliation",
+      "brand"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_saintlary.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "bookEdition",
+      "worksFor",
+      "paymentAccepted",
+      "recipeCategory"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "makesOffer",
+      "validFrom",
+      "priceCurrency",
+      "author"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_uslawns.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "director",
+      "addressRegion",
+      "hiringOrganization",
+      "publisher"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_anisetozaatar.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "episodeNumber",
+      "itemReviewed",
       "datePublished",
+      "performer"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_amandamansell.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "currenciesAccepted",
+      "offers",
+      "bookFormat",
+      "doorTime"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "openingHours",
+      "reviewCount",
+      "validThrough",
+      "copyrightHolder"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "MusicAlbum_som13.com.br_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "numTracks",
+      "numberOfPages",
+      "actor",
+      "servesCuisine"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_hahnplastics.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "width",
+      "calories",
+      "typicalAgeRange",
+      "itemCondition"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_prowebtechnos.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "email",
+      "eventStatus",
+      "priceValidUntil",
+      "author"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_fansignstime.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "duration",
+      "addressRegion",
+      "countryOfOrigin",
+      "mpn"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_hforhistory.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "datePublished",
+      "endDate",
+      "memberOf",
+      "alternativeHeadline"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_000123movies.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "actor",
+      "recipeCuisine",
+      "hasMap",
+      "suitableForDiet"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_edseditions.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "model",
+      "dayOfWeek",
+      "isAccessibleForFree",
+      "price"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_dickinsonsfamily.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "carboHydrateContent",
       "employee",
+      "depth",
+      "validThrough"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_bozzanivw.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "serialNumber",
+      "performTime",
+      "addressCountry",
+      "additionalName"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_bit-o-heaven.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "gender",
+      "legalName",
+      "category",
+      "eligibleQuantity"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "MusicRecording_chartoo.ch_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "releaseDate",
+      "byArtist",
+      "streetAddress",
+      "review"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_tinderpress.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "priceRange",
+      "deathDate",
+      "ratingCount",
+      "genre"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_deadseaproducts.shop_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "availability",
+      "inventoryLevel",
       "audienceType",
+      "recipeInstructions"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_progresstimes.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "saturatedFatContent",
+      "headline",
+      "endDate",
+      "jobTitle"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "CreativeWork_desertdiamondsireland.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "totalTime",
+      "dateModified",
+      "ratingValue",
+      "checkoutTime"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_polish-porn.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "addressLocality",
+      "givenName",
+      "actor",
       "about"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "track",
+      "bestRating",
+      "availableLanguage",
+      "birthPlace"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_cinemarumah21.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "duration",
+      "fiberContent",
+      "cholesterolContent",
+      "acceptedPaymentmethod"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_edseditions.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "material",
+      "availability",
+      "faxNumber",
+      "inventoryLevel"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_villeinitalia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "unitCode",
+      "logo",
+      "priceRange",
+      "dateCreated"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_candirect.eu_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "url",
+      "gtin",
+      "unitText",
+      "recipeYield"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "author",
+      "sugarContent",
+      "datePublished",
+      "gtin14"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_bayer04.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "homeTeam",
+      "organizer",
+      "material",
+      "gtin8"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_eskybird.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "serialNumber",
+      "manufacturer",
+      "itemReviewed",
+      "productID"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Person_growthmarketingconf.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "numTracks",
+      "identifier",
+      "jobTitle",
+      "cookTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_avirex.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "audienceType",
+      "width",
+      "homeLocation",
+      "servingSize"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_artofnaturalliving.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "description",
+      "nationality",
+      "prepTime",
+      "alumniOf"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      20
+    ],
+    "choices": [
+      "text",
+      "category",
+      "awayTeam",
+      "saturatedFatContent"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_marystestkitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      20
+    ],
+    "choices": [
+      "latitude",
+      "byArtist",
+      "areaServed",
+      "cholesterolContent"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_goodwear.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "checkInTime",
+      "gtin",
+      "fatContent",
+      "award"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_caminodesantiago.me_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "address",
+      "price",
+      "unitText",
+      "headline"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_aprilmayflower.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "knowsLanguage",
+      "productionCompany",
+      "sameAs",
+      "availableDeliveryMethod"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "alternateName",
+      "description",
+      "birthDate",
+      "honorificSuffix"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_dumpskey.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "color",
+      "offers",
+      "releaseDate",
+      "cookingMethod"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Movie_cinemarumah21.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "contactType",
+      "bestRating",
+      "photo",
+      "recipeIngredient"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_ditchthewheat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "keywords",
+      "availableDeliveryMethod",
+      "competitor",
+      "recipeCuisine"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_jerseycityculture.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "telephone",
+      "opens",
+      "closes",
+      "transFatContent"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_dickinsonsfamily.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "familyName",
+      "gtin13",
+      "genre",
+      "totalTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_myhenna.us_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "manufacturer",
+      "priceValidUntil",
+      "inAlbum",
+      "proteinContent"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_hydronalin.eu_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "serialNumber",
+      "carboHydrateContent",
+      "unsaturatedFatContent",
+      "bestRating"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "telephone",
+      "longitude",
+      "creator",
+      "author"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_maibaum-ries.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "prepTime",
+      "weight",
+      "isbn",
+      "datePosted"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_bocaratonobserver.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "copyrightYear",
+      "inLanguage",
+      "endDate",
+      "isbn"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_exploreshareinspire.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "totalTime",
+      "amenityFeature",
+      "height",
+      "workLocation"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_foodmates.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "paymentAccepted",
+      "availabilityStarts",
+      "productionDate",
+      "totalTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_az-reptec.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "gtin12",
+      "gtin13",
+      "employmentType",
+      "mpn"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_calabasassaddlery.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "dateModified",
+      "inventoryLevel",
+      "postalCode",
+      "partOfSeries"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_nastylifestyle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "eventAttendanceMode",
+      "warranty",
+      "gtin13",
+      "startDate"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_bocaratonobserver.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "disambiguatingDescription",
+      "deliveryLeadTime",
+      "userInteractionCount",
+      "startDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_blueplanetcycling.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "sku",
+      "interactionType",
+      "datePublished",
+      "title"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_burdevents.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "validFrom",
+      "image",
+      "location",
+      "founder"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_culinary-cool.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "totalTime",
+      "contentRating",
+      "brand",
+      "sodiumContent"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_crispyfoodidea.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "affiliation",
+      "worstRating",
+      "prepTime",
+      "bookEdition"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "worksFor",
+      "countryOfOrigin",
+      "priceCurrency",
+      "recipeCategory"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "director",
+      "validFrom",
+      "makesOffer",
+      "startDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "episodeNumber",
+      "telephone",
+      "hiringOrganization",
+      "publisher"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_ausmed.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "doorTime",
+      "performer",
+      "itemReviewed",
+      "validFrom"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_thatdeliciousdish.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "fiberContent",
+      "bookFormat",
+      "openingHours",
+      "currenciesAccepted"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_naturalchow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "proteinContent",
+      "actor",
+      "reviewCount",
+      "copyrightHolder"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_blakenblade.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "numberOfPages",
+      "servesCuisine",
+      "width",
+      "calories"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "TVEpisode_720zone.online_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "itemCondition",
+      "episodeNumber",
+      "typicalAgeRange",
+      "eventStatus"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_harddrivesdirect.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      13
+    ],
+    "choices": [
+      "author",
+      "email",
+      "duration",
+      "warranty"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_ausmed.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "countryOfOrigin",
+      "alternativeHeadline",
+      "addressRegion",
+      "duration"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "endDate",
+      "price",
+      "memberOf",
+      "suitableForDiet"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_ibfd.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "hasMap",
+      "recipeCuisine",
+      "isAccessibleForFree",
+      "disambiguatingDescription"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_cinemarumah21.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "dayOfWeek",
+      "model",
+      "depth",
+      "contentRating"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_lohudblogs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "additionalName",
+      "validThrough",
+      "employee",
+      "cookTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_thewatersal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "gender",
+      "addressCountry",
+      "telephone",
+      "performTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_adjstyle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "validThrough",
+      "legalName",
+      "eligibleQuantity",
+      "releaseDate"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_fansignstime.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "streetAddress",
+      "priceRange",
+      "review",
+      "productID"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "availability",
+      "deathDate",
+      "ratingCount",
+      "recipeInstructions"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_maratontravel.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "jobTitle",
+      "availability",
+      "ratingValue",
+      "audienceType"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "CreativeWork_avf.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "checkoutTime",
+      "publisher",
+      "saturatedFatContent",
+      "headline"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      27
+    ],
+    "choices": [
+      "about",
+      "unsaturatedFatContent",
+      "ratingValue",
+      "totalTime"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_f3toledo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "givenName",
+      "availableLanguage",
+      "dateModified",
+      "addressLocality"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_maratontravel.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "birthPlace",
+      "track",
+      "addressLocality",
+      "cholesterolContent"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "SportsEvent_cblhoops.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "startDate",
+      "fiberContent",
+      "inventoryLevel",
+      "acceptedPaymentmethod"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "postalCode",
+      "logo",
+      "material",
+      "faxNumber"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_ijrte.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "unitCode",
+      "author",
+      "recipeYield",
+      "dateCreated"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "url",
+      "sugarContent",
+      "gtin",
+      "validFrom"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_allseats.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "startDate",
+      "datePublished",
+      "gtin14",
+      "organizer"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_thatdeliciousdish.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      14
+    ],
+    "choices": [
+      "homeTeam",
+      "cookingMethod",
+      "gtin8",
+      "serialNumber"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_diyncrafts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      21
+    ],
+    "choices": [
+      "fatContent",
+      "productID",
+      "manufacturer",
+      "numTracks"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_cinemarumah21.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "cookTime",
+      "width",
+      "dateCreated",
+      "identifier"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      20
+    ],
+    "choices": [
+      "servingSize",
+      "homeLocation",
+      "nationality",
+      "fatContent"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_bcplaytherapy.ca_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "alumniOf",
+      "validThrough",
+      "description",
+      "awayTeam"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "category",
+      "isAccessibleForFree",
+      "latitude",
+      "text"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_whidbeylocal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "postalCode",
+      "byArtist",
+      "fatContent",
+      "areaServed"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_merrickforachange.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "unitText",
+      "checkInTime",
+      "award",
+      "ratingValue"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_cartographyassets.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "sameAs",
+      "address",
+      "dateModified",
+      "price"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_healthandsafetybc.ca_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "honorificSuffix",
+      "knowsLanguage",
+      "productionCompany",
+      "validThrough"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_mommafitlyndsey.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "birthDate",
+      "servingSize",
+      "cookingMethod",
+      "alternateName"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_cabinetknob.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "color",
+      "recipeIngredient",
+      "offers",
+      "model"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_ihomefinder.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "headline",
+      "photo",
+      "contactType",
+      "competitor"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Place_beverly-hanks.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "latitude",
+      "availableDeliveryMethod",
+      "keywords",
+      "opens"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_winescholarguild.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "gtin13",
+      "bestRating",
+      "closes",
+      "transFatContent"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_artest.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "proteinContent",
+      "availabilityStarts",
+      "familyName",
+      "genre"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_outwardbound.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "inAlbum",
+      "priceValidUntil",
+      "bestRating",
+      "url"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_kidega.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "longitude",
+      "unsaturatedFatContent",
+      "carboHydrateContent",
+      "numberOfPages"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_capitalsoftworks.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "interactionType",
+      "prepTime",
+      "creator",
+      "telephone"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_alibiwoodfire.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "weight",
+      "datePosted",
+      "validFrom",
+      "isbn"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_ilcorp.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "telephone",
+      "height",
+      "copyrightYear",
+      "inLanguage"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_getpoolparts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      14
+    ],
+    "choices": [
+      "unitText",
+      "productionDate",
+      "amenityFeature",
+      "workLocation"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_maibaum-ries.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "ratingValue",
+      "paymentAccepted",
+      "employmentType",
+      "availabilityStarts"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_probooking.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "gtin12",
+      "postalCode",
+      "ratingValue",
+      "mpn"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_livinglovingpaleo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "dateModified",
+      "partOfSeries",
+      "warranty",
+      "prepTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_autorenwelt.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "startDate",
+      "disambiguatingDescription",
+      "eventAttendanceMode",
+      "description"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_dimitrasdishes.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "interactionType",
+      "userInteractionCount",
+      "datePublished",
+      "deliveryLeadTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_az-reptec.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "model",
+      "sku",
+      "location",
+      "title"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_bootleg.clothing_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "image",
+      "founder",
+      "priceValidUntil",
+      "contentRating"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_celebrationsaunas.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "sodiumContent",
+      "worstRating",
+      "priceValidUntil",
+      "brand"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_allseats.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "affiliation",
+      "bookEdition",
+      "endDate",
+      "worksFor"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Person_growthmarketingconf.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "recipeCategory",
+      "priceCurrency",
+      "validFrom",
+      "description"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      17
+    ],
+    "choices": [
+      "director",
+      "publisher",
+      "review",
+      "makesOffer"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "CreativeWork_ihomefinder.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "episodeNumber",
+      "performer",
+      "datePublished",
+      "hiringOrganization"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_deescreativestudio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "doorTime",
+      "itemReviewed",
+      "bookFormat",
+      "releaseDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "reviewCount",
+      "description",
+      "openingHours",
+      "currenciesAccepted"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Place_kykart.ru_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "bestRating",
+      "copyrightHolder",
+      "actor",
+      "servesCuisine"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_costarica.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "photo",
+      "itemCondition",
+      "numberOfPages",
+      "calories"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_costarica.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "email",
+      "typicalAgeRange",
+      "priceRange",
+      "eventStatus"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_fmechamber.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "addressLocality",
+      "countryOfOrigin",
+      "duration",
+      "author"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "alternativeHeadline",
+      "memberOf",
+      "reviewCount",
+      "addressRegion"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "JobPosting_myjobseeker.co.za_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "endDate",
+      "suitableForDiet",
+      "hasMap",
+      "validThrough"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_swisshomegarden.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "model",
+      "totalTime",
+      "isAccessibleForFree",
+      "recipeCuisine"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_experienceautogroup.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "validThrough",
+      "color",
+      "dayOfWeek",
+      "depth"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_outwardbound.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "additionalName",
+      "employee",
+      "eventStatus",
+      "performTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_probooking.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "addressLocality",
+      "gender",
+      "eligibleQuantity",
+      "addressCountry"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_awesomewithsprinkles.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "streetAddress",
+      "legalName",
+      "prepTime",
+      "releaseDate"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_winescholarguild.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "review",
+      "ratingCount",
+      "priceRange",
+      "deathDate"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_lindeverlag.at_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "recipeInstructions",
+      "audienceType",
+      "alternativeHeadline",
+      "availability"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "jobTitle",
+      "saturatedFatContent",
+      "telephone",
+      "headline"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_bethlehemcolonial.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "validFrom",
+      "ratingValue",
+      "checkoutTime",
+      "totalTime"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_adventuresofb2.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "givenName",
+      "addressLocality",
+      "about",
+      "prepTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_staragile.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "streetAddress",
+      "track",
+      "availableLanguage",
+      "birthPlace"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_24x7fullmovie.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "cholesterolContent",
+      "genre",
+      "fiberContent",
+      "acceptedPaymentmethod"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_ilcorp.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "material",
+      "inventoryLevel",
+      "validFrom",
+      "faxNumber"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_whatscookingindia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "unitCode",
+      "recipeCuisine",
+      "dateCreated",
+      "logo"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_kanarrafalls.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "recipeYield",
+      "validThrough",
+      "gtin",
+      "url"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_luxurycrystal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "sugarContent",
+      "gtin14",
+      "datePublished",
+      "gtin12"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_blueplanetcycling.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "homeTeam",
+      "headline",
+      "organizer",
+      "gtin8"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_getpoolparts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      17
+    ],
+    "choices": [
+      "serialNumber",
+      "productID",
+      "manufacturer",
+      "depth"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_kidega.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "cookTime",
+      "numTracks",
+      "isbn",
+      "identifier"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_condonow.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      14
+    ],
+    "choices": [
+      "homeLocation",
+      "width",
+      "streetAddress",
+      "servingSize"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "CreativeWork_cal-pools.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "nationality",
+      "headline",
+      "description",
+      "alumniOf"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_myhenna.us_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "category",
+      "awayTeam",
+      "weight",
+      "text"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_diyncrafts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "latitude",
+      "areaServed",
+      "byArtist",
+      "datePublished"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Movie_000123movies.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "fatContent",
+      "award",
+      "bestRating",
+      "checkInTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "CreativeWork_caminodesantiago.me_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "price",
+      "unitText",
+      "alternativeHeadline",
+      "address"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_alibiwoodfire.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "location",
+      "productionCompany",
+      "knowsLanguage",
+      "sameAs"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_burdevents.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "honorificSuffix",
+      "category",
+      "alternateName",
+      "birthDate"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_utkilts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "ratingCount",
+      "color",
+      "offers",
+      "cookingMethod"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_harddrivesdirect.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "inventoryLevel",
+      "contactType",
+      "photo",
+      "recipeIngredient"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_marystestkitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "competitor",
+      "recipeIngredient",
+      "keywords",
+      "availableDeliveryMethod"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_jerseycityculture.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "closes",
+      "opens",
+      "transFatContent",
+      "priceCurrency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_bellinghamtheatreguild.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "gtin13",
+      "availability",
+      "familyName",
+      "genre"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_villeinitalia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "telephone",
+      "inAlbum",
+      "proteinContent",
+      "priceValidUntil"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_culinary-cool.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "carboHydrateContent",
+      "unsaturatedFatContent",
+      "bestRating",
+      "recipeYield"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_thatdeliciousdish.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      16
+    ],
+    "choices": [
+      "creator",
+      "proteinContent",
+      "telephone",
+      "longitude"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_costarica.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "prepTime",
+      "telephone",
+      "weight",
+      "datePosted"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_prowebtechnos.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "inLanguage",
+      "ratingCount",
+      "copyrightYear",
+      "isbn"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_whidbeylocal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "addressCountry",
+      "height",
+      "workLocation",
+      "amenityFeature"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_nastylifestyle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "gtin13",
+      "availabilityStarts",
+      "productionDate",
+      "paymentAccepted"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "LocalBusiness_ejchamber.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "employmentType",
+      "gtin12",
+      "mpn",
+      "ratingValue"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_livinglovingpaleo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "recipeYield",
+      "dateModified",
+      "partOfSeries",
+      "postalCode"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "MusicRecording_acerting.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "eventAttendanceMode",
+      "warranty",
+      "startDate",
+      "duration"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "userInteractionCount",
+      "disambiguatingDescription",
+      "image",
+      "deliveryLeadTime"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_blakenblade.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "sku",
+      "title",
+      "interactionType",
+      "unitCode"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_apartamentoselbarrio.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "location",
+      "image",
+      "founder",
+      "addressLocality"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_communityvision.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "contentRating",
+      "sodiumContent",
+      "addressLocality",
+      "brand"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_southamericaodyssey.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "bookEdition",
+      "affiliation",
+      "worstRating",
+      "address"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_exploreshareinspire.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "cookTime",
+      "recipeCategory",
+      "worksFor",
+      "priceCurrency"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "makesOffer",
+      "director",
+      "publisher",
+      "validFrom"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_localboysgigharbor.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "description",
+      "episodeNumber",
+      "performer",
+      "hiringOrganization"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "doorTime",
+      "itemReviewed",
+      "bookFormat",
+      "creator"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_adventuresofb2.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "reviewCount",
+      "currenciesAccepted",
+      "recipeCategory",
+      "openingHours"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "actor",
+      "worstRating",
+      "copyrightHolder",
+      "servesCuisine"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Movie_000123movies.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "calories",
+      "contentRating",
+      "itemCondition",
+      "numberOfPages"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Place_beverly-hanks.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "email",
+      "url",
+      "typicalAgeRange",
+      "eventStatus"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_marystestkitchen.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "countryOfOrigin",
+      "performTime",
+      "author",
+      "duration"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_double8cattle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "alternativeHeadline",
+      "addressRegion",
+      "priceValidUntil",
+      "memberOf"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Person_bain.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "endDate",
+      "suitableForDiet",
+      "hasMap",
+      "worksFor"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_allbiz.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "addressLocality",
+      "isAccessibleForFree",
+      "recipeCuisine",
+      "model"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_valais.ch_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "addressLocality",
+      "dayOfWeek",
+      "depth",
+      "validThrough"
     ],
     "rightIdx": 0
   },
@@ -1319,27 +4441,909 @@
     "table": "Event_feeder.ro_September2020_CPA.json.gz",
     "columns": [
       0,
-      11
+      6
     ],
     "choices": [
-      "productionDate",
-      "prepTime",
-      "price",
-      "weight"
+      "employee",
+      "performTime",
+      "priceCurrency",
+      "additionalName"
     ],
     "rightIdx": 2
   },
   {
-    "table": "CreativeWork_heidelberger-fruehling.de_September2020_CPA.json.gz",
+    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "eligibleQuantity",
+      "addressCountry",
+      "fiberContent",
+      "gender"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_anshost.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "releaseDate",
+      "legalName",
+      "streetAddress",
+      "review"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_ihomefinder.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "dateModified",
+      "ratingCount",
+      "deathDate",
+      "priceRange"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_foodmates.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "availability",
+      "cookTime",
+      "audienceType",
+      "recipeInstructions"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_ausmed.com.au_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "location",
+      "saturatedFatContent",
+      "jobTitle",
+      "headline"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Hotel_villeinitalia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "totalTime",
+      "longitude",
+      "checkoutTime",
+      "ratingValue"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Restaurant_marriott.com_September2020_CPA.json.gz",
     "columns": [
       0,
       1
     ],
     "choices": [
-      "sodiumContent",
+      "givenName",
+      "telephone",
+      "addressLocality",
+      "about"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Person_bain.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "birthPlace",
+      "availableLanguage",
+      "jobTitle",
+      "track"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Recipe_whatscookingindia.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "cholesterolContent",
+      "fiberContent",
+      "recipeIngredient",
+      "acceptedPaymentmethod"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_armynavymarinestore.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "material",
+      "faxNumber",
+      "inventoryLevel",
+      "depth"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_diyncrafts.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      24
+    ],
+    "choices": [
+      "logo",
+      "dateCreated",
+      "unitCode",
+      "sodiumContent"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_format-favourites.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "recipeYield",
+      "gtin",
+      "url",
+      "inventoryLevel"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_cal-pools.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "gtin14",
+      "text",
+      "sugarContent",
+      "datePublished"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_alibiwoodfire.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "homeTeam",
+      "organizer",
+      "gtin8",
+      "priceCurrency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "manufacturer",
       "productID",
-      "datePublished",
+      "sodiumContent",
+      "serialNumber"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Hotel_emco-holiday.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "identifier",
+      "addressCountry",
+      "cookTime",
+      "numTracks"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_chronoclass.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "width",
+      "homeLocation",
+      "warranty",
+      "servingSize"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_saintlary.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "nationality",
+      "bestRating",
+      "alumniOf",
+      "description"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Person_tofler.in_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "awayTeam",
+      "text",
+      "jobTitle",
+      "category"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_progresstimes.net_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "byArtist",
+      "latitude",
+      "areaServed",
+      "description"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_alphaglobalsearch.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "checkInTime",
+      "text",
+      "award",
+      "fatContent"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_blakenblade.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "price",
+      "releaseDate",
+      "unitText",
+      "address"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_alphaglobalsearch.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "knowsLanguage",
+      "productionCompany",
+      "sameAs",
       "headline"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_boxeddeal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "identifier",
+      "birthDate",
+      "honorificSuffix",
+      "alternateName"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Event_adjstyle.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "validFrom",
+      "offers",
+      "cookingMethod",
+      "color"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_sacristy.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "photo",
+      "recipeIngredient",
+      "publisher",
+      "contactType"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "keywords",
+      "availableDeliveryMethod",
+      "duration",
+      "competitor"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_esteamlearninglabs.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "closes",
+      "transFatContent",
+      "opens",
+      "endDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_adventuresofb2.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "gtin13",
+      "familyName",
+      "genre",
+      "ratingCount"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_ukhaulier.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "priceValidUntil",
+      "proteinContent",
+      "addressCountry",
+      "inAlbum"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_plusbok.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "carboHydrateContent",
+      "availability",
+      "bestRating",
+      "unsaturatedFatContent"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_uslawns.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "longitude",
+      "telephone",
+      "creator",
+      "employee"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_idonthavetimeforthat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      16
+    ],
+    "choices": [
+      "servingSize",
+      "weight",
+      "datePosted",
+      "prepTime"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_blakenblade.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "copyrightYear",
+      "inLanguage",
+      "isbn",
+      "depth"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_attorneylombardo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "height",
+      "review",
+      "amenityFeature",
+      "workLocation"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "CreativeWork_blueplanetcycling.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "productionDate",
+      "availabilityStarts",
+      "author",
+      "paymentAccepted"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_glamitt.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "ratingCount",
+      "gtin12",
+      "employmentType",
+      "mpn"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_calories-info.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      15
+    ],
+    "choices": [
+      "dateModified",
+      "fatContent",
+      "postalCode",
+      "partOfSeries"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_livinglovingpaleo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "recipeCuisine",
+      "warranty",
+      "eventAttendanceMode",
+      "startDate"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Movie_anilist.co_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "deliveryLeadTime",
+      "disambiguatingDescription",
+      "bestRating",
+      "userInteractionCount"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_attorneylombardo.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "sku",
+      "interactionType",
+      "title",
+      "reviewCount"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_communityvision.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "founder",
+      "addressRegion",
+      "image",
+      "location"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_ditchthewheat.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "cookTime",
+      "sodiumContent",
+      "brand",
+      "contentRating"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_balugar.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "bookEdition",
+      "unitText",
+      "affiliation",
+      "worstRating"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_awesomewithsprinkles.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "worksFor",
+      "priceCurrency",
+      "cookTime",
+      "recipeCategory"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Product_ecobutterfly.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "director",
+      "width",
+      "makesOffer",
+      "validFrom"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Person_hittahem.se_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "publisher",
+      "hiringOrganization",
+      "telephone",
+      "episodeNumber"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "performer",
+      "doorTime",
+      "addressLocality",
+      "itemReviewed"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Book_ljochtleeuwarden.nl_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "currenciesAccepted",
+      "openingHours",
+      "bookFormat",
+      "price"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "CreativeWork_avf.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "datePublished",
+      "actor",
+      "copyrightHolder",
+      "reviewCount"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_blueplanetcycling.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "calories",
+      "text",
+      "servesCuisine",
+      "numberOfPages"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Event_compostcollective.org.nz_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "typicalAgeRange",
+      "eventAttendanceMode",
+      "itemCondition",
+      "eventStatus"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_alexandriacars.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "author",
+      "email",
+      "duration",
+      "color"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_dunedinfl.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "countryOfOrigin",
+      "alternativeHeadline",
+      "addressRegion",
+      "faxNumber"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_edwinpelser.nl_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "endDate",
+      "inventoryLevel",
+      "memberOf",
+      "suitableForDiet"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Hotel_valais.ch_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      9
+    ],
+    "choices": [
+      "longitude",
+      "hasMap",
+      "recipeCuisine",
+      "isAccessibleForFree"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Recipe_artofnaturalliving.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      21
+    ],
+    "choices": [
+      "unsaturatedFatContent",
+      "dayOfWeek",
+      "depth",
+      "model"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "CreativeWork_ijrte.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "employee",
+      "additionalName",
+      "validThrough",
+      "datePublished"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_sprinklesomefun.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "gender",
+      "description",
+      "performTime",
+      "addressCountry"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Recipe_awesomewithsprinkles.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      3
+    ],
+    "choices": [
+      "eligibleQuantity",
+      "legalName",
+      "releaseDate",
+      "recipeYield"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_sparklesurfacecare.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      12
+    ],
+    "choices": [
+      "priceRange",
+      "review",
+      "ratingValue",
+      "streetAddress"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_cbclr.org_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "recipeInstructions",
+      "ratingCount",
+      "deathDate",
+      "endDate"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_babysavers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "jobTitle",
+      "availability",
+      "audienceType",
+      "performTime"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Hotel_probooking.ro_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      1
+    ],
+    "choices": [
+      "saturatedFatContent",
+      "checkoutTime",
+      "headline",
+      "description"
     ],
     "rightIdx": 3
   },
@@ -1347,55 +5351,251 @@
     "table": "Event_idate2012.com_September2020_CPA.json.gz",
     "columns": [
       0,
-      10
+      11
     ],
     "choices": [
-      "text",
-      "location",
-      "disambiguatingDescription",
-      "opens"
+      "availability",
+      "totalTime",
+      "about",
+      "ratingValue"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Book_novelstoday.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "availableLanguage",
+      "ratingValue",
+      "givenName",
+      "addressLocality"
     ],
     "rightIdx": 1
   },
   {
-    "table": "LocalBusiness_communityvision.org_September2020_CPA.json.gz",
+    "table": "Product_tog.ae_September2020_CPA.json.gz",
     "columns": [
       0,
-      3
+      8
     ],
     "choices": [
-      "creator",
-      "startDate",
-      "addressCountry",
-      "unsaturatedFatContent"
+      "cholesterolContent",
+      "track",
+      "birthPlace",
+      "acceptedPaymentmethod"
     ],
-    "rightIdx": 2
+    "rightIdx": 3
   },
   {
-    "table": "Book_nudelmanbooks.com_September2020_CPA.json.gz",
+    "table": "Product_cavalordirect.co.uk_September2020_CPA.json.gz",
     "columns": [
       0,
-      1
+      9
     ],
     "choices": [
+      "inventoryLevel",
+      "fiberContent",
+      "acceptedPaymentmethod",
+      "gtin13"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Product_beardbrand.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "faxNumber",
+      "logo",
+      "material",
+      "gtin12"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Book_autorenwelt.de_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "unitCode",
       "dateCreated",
-      "actor",
-      "description",
-      "category"
+      "recipeYield",
+      "priceCurrency"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Event_idate2012.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "duration",
+      "gtin",
+      "sugarContent",
+      "url"
+    ],
+    "rightIdx": 0
+  },
+  {
+    "table": "Product_oneblockdown.it_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      11
+    ],
+    "choices": [
+      "datePublished",
+      "weight",
+      "gtin14",
+      "organizer"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_allbiz.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      7
+    ],
+    "choices": [
+      "serialNumber",
+      "faxNumber",
+      "gtin8",
+      "homeTeam"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Book_openbookpublishers.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      10
+    ],
+    "choices": [
+      "numTracks",
+      "priceCurrency",
+      "manufacturer",
+      "productID"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "LocalBusiness_thewatersal.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      6
+    ],
+    "choices": [
+      "width",
+      "identifier",
+      "cookTime",
+      "priceRange"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "Recipe_foodmates.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      2
+    ],
+    "choices": [
+      "homeLocation",
+      "recipeIngredient",
+      "nationality",
+      "servingSize"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_localboysgigharbor.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      8
+    ],
+    "choices": [
+      "alumniOf",
+      "awayTeam",
+      "logo",
+      "description"
     ],
     "rightIdx": 2
   },
   {
-    "table": "Product_fantasytoystore.de_September2020_CPA.json.gz",
+    "table": "Hotel_southamericaodyssey.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
+      "category",
+      "image",
+      "text",
+      "latitude"
+    ],
+    "rightIdx": 1
+  },
+  {
+    "table": "Product_dog-leash-store.com_September2020_CPA.json.gz",
     "columns": [
       0,
       5
     ],
     "choices": [
+      "areaServed",
+      "byArtist",
+      "fatContent",
+      "sku"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "JobPosting_environmentjobs.co.uk_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "unitText",
+      "checkInTime",
+      "description",
+      "award"
+    ],
+    "rightIdx": 2
+  },
+  {
+    "table": "Event_newyorksocialdiary.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      5
+    ],
+    "choices": [
+      "sameAs",
+      "address",
+      "price",
+      "telephone"
+    ],
+    "rightIdx": 3
+  },
+  {
+    "table": "LocalBusiness_staragile.com_September2020_CPA.json.gz",
+    "columns": [
+      0,
+      4
+    ],
+    "choices": [
       "productionCompany",
-      "availableDeliveryMethod",
-      "releaseDate",
-      "eligibleQuantity"
+      "honorificSuffix",
+      "addressLocality",
+      "knowsLanguage"
     ],
     "rightIdx": 2
   }
