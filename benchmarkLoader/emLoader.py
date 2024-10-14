@@ -25,6 +25,9 @@ class EMDataset(Dataset):
         totalQuestion = f'Please select entity matched pairs below.\n\n{choiceStr}\n{self.Echoice}'
         return totalQuestion, rightChoice
 
+    def __len__(self):
+        return len(self.taskList)
+
 if __name__ == '__main__':
     ds = EMDataset()
     for q, c in ds:

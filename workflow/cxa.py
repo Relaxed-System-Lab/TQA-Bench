@@ -80,7 +80,7 @@ def loadDataset(cxaRoot):
         os.makedirs(scaledJS, exist_ok=True)
 
         taskList = []
-        sampledData = random.sample(v, 100)
+        sampledData = random.sample(v, 400)
         for item in sampledData:
             print(item)
             csvName = item[0]

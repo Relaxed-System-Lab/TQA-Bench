@@ -13,11 +13,18 @@ if __name__ == '__main__':
     ctads = CTADataset('16k', True)
     emds = EMDataset()
 
-    for question, rightChoice in qads:
-        print(question)
-        print(rightChoice)
-        break
+    print('qads', len(qads))
+    print('fvds', len(fvds))
+    print('retds', len(retds))
+    print('cpads', len(cpads))
+    print('ctads', len(ctads))
+    print('emds', len(emds))
 
+    # for question, rightChoice in qads:
+    #     print(question)
+    #     print(rightChoice)
+    #     break
+    #
     # for question, rightChoice in fvds:
     #     print(question)
     #     print(rightChoice)
