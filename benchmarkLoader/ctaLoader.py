@@ -4,6 +4,7 @@ from torch.utils.data import Dataset
 
 import sys
 sys.path.append('.')
+from benchmarkLoader import singlePrompt
 from benchmarkUtils.jsTool import JS
 
 class CTADataset(Dataset):
@@ -33,6 +34,7 @@ class CTADataset(Dataset):
             choiceList.append(f'{self.maps[i]}) {choices[i]}')
         choiceStr = '\n'.join(choiceList)
         question = f'{dfStr}\n\nPlease select the type of the column {columns[0]}.\n\n{choiceStr}'
+        question = singlePrompt.format(question=question)
         return question, self.maps[rightIdx]
 
     def __len__(self):

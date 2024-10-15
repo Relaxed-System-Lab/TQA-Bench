@@ -1,0 +1,5 @@
+Please carefully analyze and answer the following multiple choice question step by step.
+
+{question}
+
+This question may have more than one correct answer. Please break down the question, evaluate each option, and explain why it is correct or incorrect. Conclude with your final choices on a new line formatted as `Answer: ABCDE` (if there are multiple answers, list them together without any spaces or separators).

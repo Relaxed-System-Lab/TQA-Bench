@@ -4,6 +4,7 @@ from torch.utils.data import Dataset
 
 import sys
 sys.path.append('.')
+from benchmarkLoader import singlePrompt
 from benchmarkUtils.jsTool import JS
 
 class CPADataset(Dataset):
@@ -33,6 +34,7 @@ class CPADataset(Dataset):
             choiceList.append(f'{self.maps[i]}) {choices[i]}')
         choiceStr = '\n'.join(choiceList)
         question = f'{dfStr}\n\nPlease select the relevance from column {columns[0]} to column {columns[1]}.\n\n{choiceStr}'
+        question = singlePrompt.format(question=question)
         return question, self.maps[rightIdx]
 
     def __len__(self):

@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from benchmarkLoader import BenchmarkDataset
+from benchmarkLoader import BenchmarkDataset, multiPrompt
 from benchmarkUtils.jsTool import JS
 
 class RetrievalDataset(BenchmarkDataset):
@@ -30,6 +30,7 @@ class RetrievalDataset(BenchmarkDataset):
         rightChoice = f'{rightChoice}E' if qa['needOther'] else rightChoice
 
         totalQuestion = f'# {qa["database"]}\n\n{tables}\n\nPlease select the table(s) that can be used to answer the following question.\nQuestion: {question}\n\n{choiceStr}\n{self.Echoice}'
+        totalQuestion = multiPrompt.format(question=totalQuestion)
         return totalQuestion, rightChoice
 
     def __len__(self):

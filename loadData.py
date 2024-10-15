@@ -5,6 +5,14 @@ from benchmarkLoader.cpaLoader import CPADataset
 from benchmarkLoader.ctaLoader import CTADataset
 from benchmarkLoader.emLoader import EMDataset
 
+import re
+def extractAnswer(text:str)->str:
+    patt = r'answer:\s*([A-F]+)'
+    grps = re.findall(patt, text, re.IGNORECASE)
+    if grps:
+        return grps[-1].upper()
+    return ''
+
 if __name__ == '__main__':
     qads = TableQADataset('16k', True)
     fvds = TableFVDataset('16k', True)
@@ -20,11 +28,11 @@ if __name__ == '__main__':
     print('ctads', len(ctads))
     print('emds', len(emds))
 
-    # for question, rightChoice in qads:
-    #     print(question)
-    #     print(rightChoice)
-    #     break
-    #
+    for question, rightChoice in qads:
+        print(question)
+        print(rightChoice)
+        break
+
     # for question, rightChoice in fvds:
     #     print(question)
     #     print(rightChoice)

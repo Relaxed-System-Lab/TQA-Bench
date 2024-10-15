@@ -3,6 +3,7 @@ from torch.utils.data import Dataset
 
 import sys
 sys.path.append('.')
+from benchmarkLoader import multiPrompt
 from benchmarkUtils.jsTool import JS
 
 class EMDataset(Dataset):
@@ -23,6 +24,7 @@ class EMDataset(Dataset):
         rightChoice = ''.join([self.maps[i] for i in item['rightIdx']])
         rightChoice = 'E' if rightChoice == '' else rightChoice
         totalQuestion = f'Please select entity matched pairs below.\n\n{choiceStr}\n{self.Echoice}'
+        totalQuestion = multiPrompt.format(question=totalQuestion)
         return totalQuestion, rightChoice
 
     def __len__(self):

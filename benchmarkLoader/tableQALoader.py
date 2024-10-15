@@ -1,8 +1,6 @@
-import os
-
 import sys
 sys.path.append('.')
-from benchmarkLoader import BenchmarkDataset
+from benchmarkLoader import BenchmarkDataset, singlePrompt
 from benchmarkUtils.jsTool import JS
 
 class TableQADataset(BenchmarkDataset):
@@ -23,6 +21,7 @@ class TableQADataset(BenchmarkDataset):
         rightChoice = self.maps[qa['rightIdx'][self.scale]]
 
         totalQuestion = f'# {qa["database"]}\n\n{tables}\n\n{question}\n\n{choiceStr}'
+        totalQuestion = singlePrompt.format(question=totalQuestion)
         return totalQuestion, rightChoice
 
     def __len__(self):

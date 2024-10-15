@@ -1,6 +1,6 @@
 import sys
 sys.path.append('.')
-from benchmarkLoader import BenchmarkDataset
+from benchmarkLoader import BenchmarkDataset, multiPrompt
 from benchmarkUtils.jsTool import JS
 
 class TableFVDataset(BenchmarkDataset):
@@ -22,6 +22,7 @@ class TableFVDataset(BenchmarkDataset):
         rightChoice = 'E' if rightChoice == '' else rightChoice
 
         totalQuestion = f'# {qa["database"]}\n\n{tables}\n\nPlease select the right statement(s).\n\n{choiceStr}\n{self.Echoice}'
+        totalQuestion = multiPrompt.format(question=totalQuestion)
         return totalQuestion, rightChoice
 
     def __len__(self):
