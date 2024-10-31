@@ -88,7 +88,6 @@ def evalAcc(ds, # dataset type above
         })
         JS(resultPath).newJS(saveList)
         idx += 1
-        break
 
     evalFile(resultPath)
 

@@ -14,7 +14,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 3
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "Which zip code has both the highest population and belongs to the CBSA with the largest population?",
@@ -31,7 +32,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "0 ambugous in question's \"population\" and row \"population_2020\""
   },
   {
     "question": "What is the total land area covered by the districts represented by Democrats?",
@@ -48,7 +50,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 2
-    }
+    },
+    "annotation": "sum"
   },
   {
     "question": "What was the average arrival delay for flights operated by Envoy Air?",
@@ -65,7 +68,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "What is the cancellation rate of flights for United Air Lines Inc.?",
@@ -82,7 +86,8 @@
       "64k": 1,
       "32k": 0,
       "16k": 3
-    }
+    },
+    "annotation": "0 not emphasize the average"
   },
   {
     "question": "What was the destination airport with the highest average arrival delay for United Air Lines Inc.?",
@@ -99,7 +104,8 @@
       "64k": 2,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which flight number had the largest difference in scheduled versus actual elapsed time?",
@@ -116,7 +122,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 1
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which airport had the highest number of flights arriving from Southwest Airlines Co. (code 19393)?",
@@ -133,7 +140,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 1
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "What is the average arrival delay for Delta Air Lines Inc. flights?",
@@ -150,7 +158,8 @@
       "64k": 1,
       "32k": 3,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "Which destination airport has the longest average arrival delay for flights operated by Envoy Air, and what is its description?",
@@ -167,7 +176,8 @@
       "64k": 2,
       "32k": 0,
       "16k": 1
-    }
+    },
+    "annotation": "0 2 questions hybird"
   },
   {
     "question": "How many unique apps are there in the \"playstore\" table that also have user reviews in the \"user_reviews\" table?",
@@ -184,7 +194,8 @@
       "64k": 2,
       "32k": 3,
       "16k": 0
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the average rating of apps in the \"playstore\" table that have positive reviews?",
@@ -201,7 +212,8 @@
       "64k": 3,
       "32k": 0,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "How many unique apps have reviews with a sentiment labeled as 'Positive'?",
@@ -218,7 +230,8 @@
       "64k": 1,
       "32k": 3,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the total number of reviews for free apps that have received at least one neutral review?",
@@ -235,7 +248,8 @@
       "64k": 1,
       "32k": 3,
       "16k": 0
-    }
+    },
+    "annotation": "sum"
   },
   {
     "question": "What is the average rating for apps that have at least one negative sentiment review?",
@@ -252,7 +266,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "What is the total number of reviews for apps in the 'BOOKS_AND_REFERENCE' category that have received positive sentiment reviews?",
@@ -269,7 +284,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "sum"
   },
   {
     "question": "What is the genre with the highest average rating among apps that have negative sentiment reviews?",
@@ -286,7 +302,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 3
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "How many unique affiliations have authors with papers listed in this dataset?",
@@ -303,7 +320,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 3
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many unique authors have published papers in journals?",
@@ -320,7 +338,8 @@
       "64k": 0,
       "32k": 3,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the name of the conference with the highest number of papers in the dataset?",
@@ -337,7 +356,8 @@
       "64k": 2,
       "32k": 0,
       "16k": 1
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "How many papers in the dataset are co-authored by authors with different affiliations?",
@@ -354,7 +374,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many active customers are there based on their address status?",
@@ -371,7 +392,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 3
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many customers have placed orders with 'Pending Delivery' status?",
@@ -388,7 +410,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 1
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the total number of books published by \"University of Chicago Press\"?",
@@ -405,7 +428,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many customers have an \"Active\" address status?",
@@ -422,7 +446,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 3
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "Which author has the most books in this dataset?",
@@ -439,7 +464,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which author has the most books written in English?",
@@ -456,7 +482,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 2
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "What is the average number of pages for books published by Del Rey Books?",
@@ -473,7 +500,8 @@
       "64k": 2,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "How many customers have an active address in Canada?",
@@ -490,7 +518,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "Which publisher has published the most books?",
@@ -507,7 +536,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "How many orders are currently in \"Pending Delivery\" status?",
@@ -524,7 +554,8 @@
       "64k": 0,
       "32k": 1,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many schools have both FRPM data and SAT scores data?",
@@ -541,7 +572,8 @@
       "64k": 1,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the average enrollment for schools that are listed in both the FRPM and school data?",
@@ -558,7 +590,8 @@
       "64k": 1,
       "32k": 3,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "What is the total enrollment for schools with more than 50% of students eligible for free or reduced-price meals located in Los Angeles County?",
@@ -575,7 +608,8 @@
       "64k": 3,
       "32k": 0,
       "16k": 1
-    }
+    },
+    "annotation": "sum"
   },
   {
     "question": "How many schools are directly funded charter schools?",
@@ -592,7 +626,8 @@
       "64k": 3,
       "32k": 0,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the total enrollment for all schools in Los Angeles County that have SAT scores?",
@@ -609,7 +644,8 @@
       "64k": 0,
       "32k": 0,
       "16k": 2
-    }
+    },
+    "annotation": "sum"
   },
   {
     "question": "What is the most common release date among the sets that have cards with the keyword \"Trample\"?",
@@ -626,7 +662,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "How many unique languages are there in which cards with the rarity \"rare\" have been translated?",
@@ -643,7 +680,8 @@
       "64k": 2,
       "32k": 0,
       "16k": 1
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the average converted mana cost of cards that have been printed in sets released in the year 2019?",
@@ -660,7 +698,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "How many cards share the same uuid across different formats specified in the legalities table?",
@@ -677,7 +716,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "What is the most common language for the foreign cards available in the dataset?",
@@ -694,7 +734,8 @@
       "64k": 2,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which is the earliest released set that contains cards with foreign translations?",
@@ -711,7 +752,8 @@
       "64k": 2,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "How many cards have foreign translations available in French according to the \"foreign_data\" table?",
@@ -728,7 +770,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "How many crimes were reported in the district with the district number 3?",
@@ -745,7 +788,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 1
-    }
+    },
+    "annotation": "count"
   },
   {
     "question": "Which neighborhood has the most crimes reported in it?",
@@ -762,7 +806,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "What is the email of the alderman for the ward where the most drug abuse crimes were reported?",
@@ -779,7 +824,8 @@
       "64k": 1,
       "32k": 1,
       "16k": 0
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which police district commander manages the largest population within their district?",
@@ -796,7 +842,8 @@
       "64k": 1,
       "32k": 2,
       "16k": 2
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "What is the name of the neighborhood with the most motor vehicle thefts?",
@@ -813,7 +860,8 @@
       "64k": 0,
       "32k": 0,
       "16k": 1
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "Which district has the highest number of reported crimes?",
@@ -830,7 +878,8 @@
       "64k": 0,
       "32k": 2,
       "16k": 1
-    }
+    },
+    "annotation": "item"
   },
   {
     "question": "What is the average population of the wards with reported vandalism crimes?",
@@ -847,7 +896,8 @@
       "64k": 1,
       "32k": 0,
       "16k": 2
-    }
+    },
+    "annotation": "average"
   },
   {
     "question": "How many neighborhoods have reported crimes categorized under \"Persons\" according to the FBI code description?",
