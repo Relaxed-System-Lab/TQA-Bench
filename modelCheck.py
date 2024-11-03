@@ -3,6 +3,7 @@ import os
 from tqdm import tqdm
 from datetime import datetime
 from uuid import uuid4
+import time
 
 from benchmarkUtils.LLM import gptCall
 from benchmarkUtils.jsTool import JS
@@ -12,6 +13,7 @@ from benchmarkLoader.retrievalLoader import RetrievalDataset
 from benchmarkLoader.cpaLoader import CPADataset
 from benchmarkLoader.ctaLoader import CTADataset
 from benchmarkLoader.emLoader import EMDataset
+from benchmarkLoader.batchedTableQALoader import BatchedTableQADataset
 
 dsDict = {
     'qa': TableQADataset,
@@ -19,11 +21,19 @@ dsDict = {
     'ret': RetrievalDataset,
     'cpa': CPADataset,
     'cta': CTADataset,
-    'em': EMDataset
+    'em': EMDataset,
+    'bqa': BatchedTableQADataset
 }
 
 def extractAnswer(text:str)->str:
     patt = r'answer:\s*([A-F]+)'
+    grps = re.findall(patt, text, re.IGNORECASE)
+    if grps:
+        return grps[-1].upper()
+    return ''
+
+def extractBatchedAnswer(idx:int, text:str)->str:
+    patt = rf'answer\s*{idx}:\s*([A-F]+)'
     grps = re.findall(patt, text, re.IGNORECASE)
     if grps:
         return grps[-1].upper()
@@ -61,44 +71,82 @@ def evalAcc(ds, # dataset type above
     dataset = None
     if ds == 'em':
         dataset = dsDict[ds]()
+    elif ds.startswith('b'):
+        # batch输入的情况
+        dataset = dsDict[ds](4, scale, markdown)
     else:
         dataset = dsDict[ds](scale, markdown)
 
     idx = 0
     saveList = []
-    for q, c in tqdm(dataset, ds):
-        pred = ''
-        err = None
-        try:
-            res = gptCall(
-                model,
-                q,
-                f'{ds}-{idx}',
-                logRoot
-            )
-            pred = extractAnswer(res)
-        except Exception as e:
-            err = str(e)
-        saveList.append({
-            'idx': idx,
-            'gt': c,
-            'pred': pred,
-            'right': c == pred,
-            'error': err
-        })
-        JS(resultPath).newJS(saveList)
-        idx += 1
+    if ds.startswith('b'):
+        for q, c in tqdm(dataset, ds):
+            pred = ['' for _ in range(len(c))]
+            err = None
+            try:
+                res = gptCall(
+                    model,
+                    q,
+                    f'{ds}-{idx}',
+                    logRoot
+                )
+                for i in range(len(c)):
+                    pred[i] = extractBatchedAnswer(i, res)
+            except Exception as e:
+                err = str(e)
+            for i in range(len(c)):
+                saveList.append({
+                    'idx': idx,
+                    'gt': c[i],
+                    'pred': pred[i],
+                    'right': c[i] == pred[i],
+                    'error': err
+                })
+                JS(resultPath).newJS(saveList)
+                idx += 1
+    else:
+        for q, c in tqdm(dataset, ds):
+            pred = ''
+            err = None
+            try:
+                res = gptCall(
+                    model,
+                    q,
+                    f'{ds}-{idx}',
+                    logRoot
+                )
+                pred = extractAnswer(res)
+            except Exception as e:
+                err = str(e)
+            saveList.append({
+                'idx': idx,
+                'gt': c,
+                'pred': pred,
+                'right': c == pred,
+                'error': err
+            })
+            JS(resultPath).newJS(saveList)
+            idx += 1
+            time.sleep(60)
 
     evalFile(resultPath)
 
 
 if __name__ == '__main__':
-    for ds in dsDict.keys():
-        evalAcc(
-            ds,
-            '16k',
-            True,
-            'gpt-4o-mini',
-            None,
-            None
-        )
+    # for ds in dsDict.keys():
+    #     evalAcc(
+    #         ds,
+    #         '16k',
+    #         True,
+    #         'gpt-4o-mini',
+    #         None,
+    #         None
+    #     )
+    evalAcc(
+        'qa',
+        '16k',
+        True,
+        'gpt-4o',
+        None,
+        None
+    )

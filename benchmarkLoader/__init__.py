@@ -13,6 +13,9 @@ with open('benchmarkLoader/prompts/singleChoicePrompt.txt', 'r') as f:
 with open('benchmarkLoader/prompts/multiChoicePrompt.txt', 'r') as f:
     multiPrompt = f.read()
 
+with open('benchmarkLoader/prompts/batchedSingleChoicePrompt.txt', 'r') as f:
+    batchedSinglePrompt = f.read()
+
 class BenchmarkDataset(Dataset):
     def __init__(self, scale, markdown=True):
         self.scale = scale

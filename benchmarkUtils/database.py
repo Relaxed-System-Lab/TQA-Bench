@@ -2,6 +2,7 @@ import os
 import pandas as pd
 import sqlite3
 from tqdm import tqdm
+from pprint import pprint
 
 class DB:
     def __init__(self, dbp, initTables=True):
@@ -14,8 +15,8 @@ class DB:
 
         self.conn = sqlite3.connect(self.dbp)
         # 牺牲一定的安全性大幅度提升性能
-        self.conn.execute('PRAGMA journal_mode=WAL;')
-        self.conn.commit()
+        # self.conn.execute('PRAGMA journal_mode=WAL;')
+        # self.conn.commit()
         self.conn.execute('PRAGMA synchronous=OFF;')
         self.conn.commit()
         self.conn.execute('PRAGMA cache_size=-16777216') # 设置4GB缓存
@@ -58,6 +59,9 @@ class DB:
         return '\n'.join(schemaList)
     
     def initDataFrame(self):
+        """
+        注意, 要从这个接口去读表格, 这样才会把表格名称中的white space都换成 '_'
+        """
         if len(self.tables) > 0:
             return self.tables
         tablesName = pd.read_sql("SELECT name FROM sqlite_master WHERE type='table' AND name NOT LIKE 'sqlite_%';", self.conn)
@@ -233,7 +237,7 @@ class DB:
                               WHERE {whereStmt};
                             """
                         self.curs.execute(cmd)
-                        whereStmt = [allRootKeys[tbn][artIdx]]
+                        whereList = [allRootKeys[tbn][artIdx]]
                     artIdx += 1
                 # 最后别忘了清空whereList中的剩余内容
                 if len(whereList) > 1:
@@ -277,6 +281,24 @@ class DB:
         """
         pass
 
+    @staticmethod
+    def foreignKeyCheck(dbp):
+        conn = sqlite3.connect(dbp)
+        cur = conn.cursor()
+        err = False
+        try:
+            cur.execute("PRAGMA foreign_keys = ON;")
+            cur.execute("PRAGMA foreign_key_check;")
+        except:
+            err = True
+        res = cur.fetchall()
+        cur.close()
+        conn.close()
+        if err:
+            return False
+        if not res:
+            return True
+        return False
 
 if __name__ == '__main__':
     dbRoot = '/home/zipengqiu/TableDatasetGeneration/dataset/workflowDB/'

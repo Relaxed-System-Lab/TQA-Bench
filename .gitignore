@@ -2,6 +2,7 @@
 /dataset/
 /tmp*
 /results/
+/additional/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

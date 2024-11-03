@@ -1,4 +1,5 @@
 import os
+from os.path import isfile
 import shutil
 import multiprocessing
 import sys
@@ -137,8 +138,11 @@ def multiProcessSample(dbRoot, sampRoot, minToken, maxToken, initRow=32, markdow
     # 对于采样失败的, 需要将其目录移除
     for dbn in dbNames:
         dbr = os.path.join(sampRoot, dbn)
+        dbp = os.path.join(sampRoot, dbn, f'{dbn}.sqlite')
         jsp = os.path.join(sampRoot, dbn, 'sampleInfo.json')
         if not os.path.isfile(jsp) and os.path.isdir(dbr):
+            shutil.rmtree(dbr)
+        if os.path.isfile(dbp) and not DB.foreignKeyCheck(dbp):
             shutil.rmtree(dbr)
 
 if __name__ == '__main__':

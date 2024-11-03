@@ -67,5 +67,5 @@ def scaledSample(
 if __name__ == '__main__':
     scaledSample(
         'dataset/workflowDB',
-        'dataset/scaledDB'
+        'dataset/optmizedScaledDB'
     )

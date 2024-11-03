@@ -1,0 +1,7 @@
+Please carefully analyze and answer the following single choice questions step by step.
+
+{database}
+
+{questions}
+
+These questions all have only one correct answer. Please break down the question, evaluate each option, and explain why it is correct or incorrect. Conclude with your final choice on a new line formatted as `Answer 0: A/B/C/D`, `Answer 1: A/B/C/D`...
