@@ -67,6 +67,52 @@ class University:
         question = template.format(university_name=university_name)
         return question, total
 
+    def q5(self):
+        template = 'How many students do {university_name} have in {year}?'
+        row = self.university_year.sample(1)
+        num_students = row['num_students'].iloc[0]
+        university_id = row['university_id'].iloc[0]
+        year = row['year'].iloc[0]
+        university_name = self.university[self.university['id'] == university_id]['university_name'].iloc[0]
+        question = template.format(university_name=university_name, year=year)
+        return question, num_students
+
+    def q6(self):
+        template = 'Which university get most students in {year}?'
+        year = self.university_year['year'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['year'] == year]
+        max_student = filted['num_students'].max()
+        filted = filted[filted['num_students'] == max_student]
+        university = self.university[self.university['id'].isin(filted['university_id'])]['university_name'].to_list()
+        question = template.format(year=year)
+        return question, university
+
+    def q7(self):
+        template = 'How many universities get over {num_students} students in {year}?'
+        year = self.university_year['year'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['year'] == year]
+        num_students = filted['num_students'].sample(1).iloc[0] - 1
+        filted = filted[filted['num_students'] > num_students]
+        count = len(filted)
+        question = template.format(num_students=num_students, year=year)
+        return question, count
+
+    def q8(self):
+        template = 'What is the average student number in all universities in {year}?'
+        year = self.university_year['year'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['year'] == year]
+        avg = filted['num_students'].mean()
+        question = template.format(year=year)
+        return question, avg
+
+    def q9(self):
+        template = 'What is the total student number in all universities in {year}?'
+        year = self.university_year['year'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['year'] == year]
+        total = filted['num_students'].sum()
+        question = template.format(year=year)
+        return question, total
+
 
 if __name__ == '__main__':
     dbRoot = 'dataset/optmizedScaledDB/8k/'
@@ -78,3 +124,8 @@ if __name__ == '__main__':
     print(fi.q2())
     print(fi.q3())
     print(fi.q4())
+    print(fi.q5())
+    print(fi.q6())
+    print(fi.q7())
+    print(fi.q8())
+    print(fi.q9())

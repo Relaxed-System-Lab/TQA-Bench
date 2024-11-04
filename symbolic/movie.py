@@ -1,4 +1,5 @@
 import os
+from re import template
 import pandas as pd
 
 import sys
@@ -62,6 +63,52 @@ class Movie:
         question = template.format(Genre=genre)
         return question, total
 
+    def q5(self):
+        template = 'When did the {Title} released?'
+        row = self.movie.sample(1)
+        Title = row['Title'].iloc[0]
+        release_date = row['Release Date'].iloc[0]
+        question = template.format(Title=Title)
+        return question, release_date
+
+    def q6(self):
+        template = 'Which {Genre} movie get the highest budget?'
+        genre = self.movie['Genre'].sample(1).iloc[0]
+        filted = self.movie[self.movie['Genre'] == genre]
+        max_budget = filted['Budget'].max()
+        max_filted = filted[filted['Budget'] == max_budget]
+        valid_movie = max_filted['Title'].to_list()
+        question = template.format(Genre=genre)
+        return question, valid_movie
+
+    def q7(self):
+        template = 'How many {Genre} movies get greater or equal to {INT} budget?'
+        genre = self.movie['Genre'].sample(1).iloc[0]
+        filted = self.movie[self.movie['Genre'] == genre]
+        INT = filted['Budget'].sample(1).iloc[0]
+        filted = filted[filted['Budget'] >= INT]
+        count = len(filted)
+        question = template.format(Genre=genre, INT=INT)
+        return question, count
+
+    def q8(self):
+        template = 'What is the average budget of {Genre} movies with greater or equal to {REAL} rating?'
+        genre = self.movie['Genre'].sample(1).iloc[0]
+        filted = self.movie[self.movie['Genre'] == genre]
+        REAL = filted['Rating'].sample(1).iloc[0]
+        filted = filted[filted['Rating'] >= REAL]
+        avg = filted['Budget'].mean()
+        question = template.format(Genre=genre, REAL=REAL)
+        return question, avg
+
+    def q9(self):
+        template = 'What is the total budget of moives that is greater or equal to {REAL} rating?'
+        REAL = self.movie['Rating'].sample(1).iloc[0]
+        filted = self.movie[self.movie['Rating'] >= REAL]
+        total = filted['Budget'].sum()
+        question = template.format(REAL=REAL)
+        return question, total
+
 
 if __name__ == '__main__':
     dbRoot = 'dataset/optmizedScaledDB/8k/'
@@ -73,3 +120,8 @@ if __name__ == '__main__':
     print(fi.q2())
     print(fi.q3())
     print(fi.q4())
+    print(fi.q5())
+    print(fi.q6())
+    print(fi.q7())
+    print(fi.q8())
+    print(fi.q9())
