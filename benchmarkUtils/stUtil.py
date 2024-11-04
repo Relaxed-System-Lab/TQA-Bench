@@ -68,7 +68,9 @@ def renderDataset(srcPath, selectedSC, selectedDS):
     sampInfo = JS(jsPath).loadJS()
     st.write(sampInfo)
     fed = FrontEndDataset(dsPath)
+    st.write(len(fed.tables))
     fed.renderDataset()
+    st.write(f'```sql\n{fed.schema()}\n```')
 
 def renderItems(dstPath, selectedDs, keyRenMap):
     return None
