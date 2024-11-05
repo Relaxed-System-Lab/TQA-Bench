@@ -1,10 +1,12 @@
 import os
+from random import choices
 from re import template
 import pandas as pd
 
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
+from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class Restaurant:
@@ -23,7 +25,11 @@ class Restaurant:
         street_name = row['street_name'].iloc[0]
         label = self.generalinfo[self.generalinfo['id_restaurant'] == id_restaurant]['label'].iloc[0]
         question = template.format(label=label)
-        return question, street_name
+
+        rightIdx, choices = choiceGen(street_name, self.location['street_name'])
+        stmts = stmtGen(choices,
+                        '{label} located in <unk>.'.format(label=label))
+        return question, street_name, rightIdx, choices, stmts
 
     def q1(self):
         template = 'Which county has the most {food_type} restaurant?'
@@ -34,7 +40,11 @@ class Restaurant:
         max_val = max_count.max()
         max_county = max_count[max_count == max_val].index.to_list()
         question = template.format(food_type=food_type)
-        return question, max_county
+
+        rightIdx, choices = choiceGen(max_county, self.geographic['county'])
+        stmts = stmtGen(choices,
+                        'The <unk> county has the most {food_type} restaurant.'.format(food_type=food_type))
+        return question, max_county, rightIdx, choices, stmts
 
     def q2(self):
         template = 'How many restaurants are reviewed more than {review:.2f}?'
@@ -42,7 +52,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['review'] > review]
         count = len(filted)
         question = template.format(review=review)
-        return question, count
+
+        rightIdx, choices = numericalGen(count)
+        stmts = stmtGen(choices,
+                        'There are <unk> restaurants are reviewed more than {review:.2f}.'.format(review=review))
+        return question, count, rightIdx, choices, stmts
 
     def q3(self):
         template = 'What is the average review of {food_type} restaurants?'
@@ -50,7 +64,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['food_type'] == food_type]
         avg = filted['review'].mean()
         question = template.format(food_type=food_type)
-        return question, avg
+
+        rightIdx, choices = numericalGen(avg)
+        stmts = stmtGen(choices,
+                        'The average review of {food_type} restaurants is <unk>.'.format(food_type=food_type))
+        return question, avg, rightIdx, choices, stmts
 
     def q4(self):
         template = 'What is the total review of {food_type} restaurants?'
@@ -58,7 +76,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['food_type'] == food_type]
         total = filted['review'].sum()
         question = template.format(food_type=food_type)
-        return question, total
+
+        rightIdx, choices = numericalGen(total)
+        stmts = stmtGen(choices,
+                        'The total review of {food_type} restaurants is <unk>'.format(food_type=food_type))
+        return question, total, rightIdx, choices, stmts
 
     def q5(self):
         template = 'Which county is {label} located in?'
@@ -67,7 +89,11 @@ class Restaurant:
         city = row['city'].iloc[0]
         county = self.geographic[self.geographic['city'] == city]['county'].iloc[0]
         question = template.format(label=label)
-        return question, county
+
+        rightIdx, choices = choiceGen(county, self.geographic['county'])
+        stmts = stmtGen(choices,
+                        '{label} is located in <unk>.'.format(label=label))
+        return question, county, rightIdx, choices, stmts
 
     def q6(self):
         template = 'In {county}, which food type restaurant is the most common?'
@@ -78,7 +104,11 @@ class Restaurant:
         max_val = max_count.max()
         food_type = max_count[max_count == max_val].index.to_list()
         question = template.format(county=county)
-        return question, food_type
+
+        rightIdx, choices = choiceGen(food_type, self.generalinfo['food_type'])
+        stmts = stmtGen(choices,
+                        'In {county}, the <unk> restaurant is the most common.'.format(county=county))
+        return question, food_type, rightIdx, choices, stmts
 
     def q7(self):
         template = 'How many restaurants are located in {county}?'
@@ -87,7 +117,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['city'].isin(cities)]
         count = len(filted)
         question = template.format(county=county)
-        return question, count
+
+        rightIdx, choices = numericalGen(count)
+        stmts = stmtGen(choices,
+                        'There are <unk> restaurants are located in {county}.'.format(county=county))
+        return question, count, rightIdx, choices, stmts
 
     def q8(self):
         template = 'What is the average review of restaurants in {county}?'
@@ -96,7 +130,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['city'].isin(cities)]
         avg = filted['review'].mean()
         question = template.format(county=county)
-        return question, avg
+
+        rightIdx, choices = numericalGen(avg)
+        stmts = stmtGen(choices,
+                        'The average review of restaurants in {county} is <unk>.'.format(county=county))
+        return question, avg, rightIdx, choices, stmts
 
     def q9(self):
         template = 'What is the total review of restaurants in {county}?'
@@ -105,7 +143,11 @@ class Restaurant:
         filted = self.generalinfo[self.generalinfo['city'].isin(cities)]
         total = filted['review'].sum()
         question = template.format(county=county)
-        return question, total
+
+        rightIdx, choices = numericalGen(total)
+        stmts = stmtGen(choices,
+                        'The total review of restaurants in {county} is <unk>.'.format(county=county))
+        return question, total, rightIdx, choices, stmts
 
 
 if __name__ == '__main__':

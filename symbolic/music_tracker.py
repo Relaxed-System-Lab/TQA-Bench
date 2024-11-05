@@ -5,6 +5,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
+from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class MusicTracker:
@@ -22,7 +23,11 @@ class MusicTracker:
         id = row['id'].iloc[0]
         release_type = row['releaseType'].iloc[0]
         question = template.format(id=id)
-        return question, release_type
+
+        rightIdx, choices = choiceGen(release_type, self.merged_df['releaseType'])
+        stmts = stmtGen(choices,
+                        'The release type of torrent id {id} is <unk>'.format(id=id))
+        return question, release_type, rightIdx, choices, stmts
 
     def q1(self):
         template = 'Which release type contains most {tag} tag?'
@@ -33,7 +38,11 @@ class MusicTracker:
         filted_series = max_count[max_count == max_val]
         items = filted_series.index.to_list()
         question = template.format(tag=tag)
-        return question, items
+
+        rightIdx, choices = choiceGen(items, self.merged_df['releaseType'])
+        stmts = stmtGen(choices,
+                        'The release type <unk> contains most {tag} tag.'.format(tag=tag))
+        return question, items, rightIdx, choices, stmts
 
     def q2(self):
         template = 'How many torrents are relesed in {releaseType} and with {tag} tag?'
@@ -43,7 +52,11 @@ class MusicTracker:
         filted = filted[filted['tag'] == tag]
         count = len(filted)
         question = template.format(releaseType=releaseType, tag=tag)
-        return question, count
+
+        rightIdx, choices = numericalGen(count)
+        stmts = stmtGen(choices,
+                        'There are <unk> torrents are relesed in {releaseType} and with {tag} tag.'.format(releaseType=releaseType, tag=tag))
+        return question, count, rightIdx, choices, stmts
 
     def q3(self):
         template = 'What is the average snatch of {releaseType}?'
@@ -51,7 +64,11 @@ class MusicTracker:
         filted = self.merged_df[self.merged_df['releaseType'] == releaseType]
         avg = filted['totalSnatched'].mean()
         question = template.format(releaseType=releaseType)
-        return question, avg
+
+        rightIdx, choices = numericalGen(avg)
+        stmts = stmtGen(choices,
+                        'The average snatch of {releaseType} is <unk>.'.format(releaseType=releaseType))
+        return question, avg, rightIdx, choices, stmts
 
     def q4(self):
         template = 'What is the total snatch with {tag} tag?'
@@ -59,7 +76,11 @@ class MusicTracker:
         filted = self.merged_df[self.merged_df['tag'] == tag]
         total = filted['totalSnatched'].sum()
         question = template.format(tag=tag)
-        return question, total
+
+        rightIdx, choices = numericalGen(total)
+        stmts = stmtGen(choices,
+                        'The total snatch with {tag} tag is <unk>.'.format(tag=tag))
+        return question, total, rightIdx, choices, stmts
 
     def q5(self):
         template = 'What is the tag of the id {id}?'
@@ -67,7 +88,11 @@ class MusicTracker:
         id = row['id'].iloc[0]
         tag = row['tag'].iloc[0]
         question = template.format(id=id)
-        return question, tag
+
+        rightIdx, choices = choiceGen(tag, self.tags['tag'])
+        stmts = stmtGen(choices,
+                        'The tag of the id {id} is <unk>.'.format(id=id))
+        return question, tag, rightIdx, choices, stmts
 
     def q6(self):
         template = 'Which tag contains most release type {releaseType}?'
@@ -78,7 +103,11 @@ class MusicTracker:
         filted_series = max_count[max_count == max_val]
         items = filted_series.index.to_list()
         question = template.format(releaseType=releaseType)
-        return question, items
+
+        rightIdx, choices = choiceGen(items, self.tags['tag'])
+        stmts = stmtGen(choices,
+                        'The tag <unk> contains most release type {releaseType}.'.format(releaseType=releaseType))
+        return question, items, rightIdx, choices, stmts
 
     def q7(self):
         template = 'How many torrents are in {tag} tag?'
@@ -86,7 +115,11 @@ class MusicTracker:
         filted = self.merged_df[self.merged_df['tag'] == tag]
         count = len(filted)
         question = template.format(tag=tag)
-        return question, count
+
+        rightIdx, choices = numericalGen(count)
+        stmts = stmtGen(choices,
+                        'There are <unk> torrents are in {tag} tag'.format(tag=tag))
+        return question, count, rightIdx, choices, stmts
 
     def q8(self):
         template = 'What is the average snatch of {tag}?'
@@ -94,7 +127,11 @@ class MusicTracker:
         filted = self.merged_df[self.merged_df['tag'] == tag]
         avg = filted['totalSnatched'].mean()
         question = template.format(tag=tag)
-        return question, avg
+
+        rightIdx, choices = numericalGen(avg)
+        stmts = stmtGen(choices,
+                        'The average snatch of {tag} is <unk>.'.format(tag=tag))
+        return question, avg, rightIdx, choices, stmts
 
     def q9(self):
         template = 'What is the total snatch with release type {releaseType}?'
@@ -102,7 +139,11 @@ class MusicTracker:
         filted = self.merged_df[self.merged_df['releaseType'] == releaseType]
         total = filted['totalSnatched'].sum()
         question = template.format(releaseType=releaseType)
-        return question, total
+
+        rightIdx, choices = numericalGen(total)
+        stmts = stmtGen(choices,
+                        'The total snatch with release type {releaseType} is <unk>.'.format(releaseType=releaseType))
+        return question, total, rightIdx, choices, stmts
 
 
 if __name__ == '__main__':
