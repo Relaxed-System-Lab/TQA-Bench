@@ -1,11 +1,15 @@
 import os
 import re
+from uuid import uuid4
 from tqdm import tqdm
+from time import sleep
+from pprint import pprint
 
 import sys
 sys.path.append('.')
 from benchmarkUtils.LLM import gptCall
 from benchmarkUtils.database import DB
+from benchmarkUtils.dbSample import tokenBasedSample
 from benchmarkUtils.jsTool import JS
 from symbolic.airline import Airline
 from symbolic.food_inspection import FoodInspection
@@ -58,98 +62,148 @@ def asmChoice(choices):
 def symLoad(symClass, dbp):
     sym = symClass(dbp)
     ret = []
-    ret.append(sym.q0())
-    ret.append(sym.q1())
-    ret.append(sym.q2())
-    ret.append(sym.q3())
-    ret.append(sym.q4())
-    ret.append(sym.q5())
-    ret.append(sym.q6())
-    ret.append(sym.q7())
-    ret.append(sym.q8())
-    ret.append(sym.q9())
+    ret.append(('row_match',) + sym.q0())
+    ret.append(('item_select',) + sym.q1())
+    ret.append(('count',) + sym.q2())
+    ret.append(('average',) + sym.q3())
+    ret.append(('sum',) + sym.q4())
+    ret.append(('row_match',) + sym.q5())
+    ret.append(('item_select',) + sym.q6())
+    ret.append(('count',) + sym.q7())
+    ret.append(('average',) + sym.q8())
+    ret.append(('sum',) + sym.q9())
     return ret
 
-class TableQA:
-    def __init__(self, dbRoot, jsPath, logRoot, dstJs):
-        self.dbr = dbRoot
-        self.jsp = jsPath
-        self.lr = logRoot
-        self.dstJs = dstJs
+class BenchmarkDB:
+    def __init__(self, dbRoot, dbn):
+        self.dbn = dbn
+        self.dbp = os.path.join(dbRoot, f'{dbn}.sqlite')
+        self.taskRoot = os.path.join(dbRoot, 'task')
+        self.resultRoot = os.path.join(dbRoot, 'result')
+        self.logRoot = os.path.join(dbRoot, 'log')
+        self.hashCode = str(uuid4())
 
-    def loadDB(self, dbn):
-        dbp = os.path.join(self.dbr, dbn, f'{dbn}.sqlite')
-        return dbp
+        os.makedirs(self.taskRoot, exist_ok=True)
+        os.makedirs(self.resultRoot, exist_ok=True)
+        os.makedirs(self.logRoot, exist_ok=True)
+
+        self.qaPath = os.path.join(self.taskRoot, f'TableQA_{self.hashCode}.json')
+        self.qaResult = os.path.join(self.resultRoot, f'TableQA_{self.hashCode}.json')
 
     def qaGen(self):
-        qaDataset = {}
-        for k, v in dataDict.items():
-            dbp = self.loadDB(k)
-            qas = symLoad(v, dbp)
-            qaList = []
-            for row in qas:
-                if len(row) < 4:
-                    continue
-                question, answer, rightIdx, choices = row[:4]
-                choices = [str(it) for it in choices]
-                item = {
-                    'question': question,
-                    'rightIdx': rightIdx,
-                    'choices': choices
-                }
-                qaList.append(item)
-            if len(qaList) == 0:
+        symRows = symLoad(dataDict[self.dbn], self.dbp)
+        qaList = []
+        for row in symRows:
+            if len(row) < 5:
                 continue
-            qaDataset[k] = {
-                'dbp': dbp,
-                'qas': qaList
+            qtype, question, answer, rightIdx, choices = row[:5]
+            choices = [str(it) for it in choices]
+            item = {
+                'qtype': qtype,
+                'question': question,
+                'rightIdx': rightIdx,
+                'choices': choices
             }
-        JS(self.jsp).newJS(qaDataset)
-        return qaDataset
+            qaList.append(item)
+        if len(qaList) != 10:
+            return False
+        JS(self.qaPath).newJS(qaList)
+        return True
 
     @staticmethod
     def formPrompt(item, dbp, markdown=True):
         choicesStr = asmChoice(item['choices'])
-        question = item['question']
         db = DB(dbp)
         dbStr = db.defaultSerialization(markdown=markdown)
-        totalQuestion = f'{dbStr}\n\n{question}\n\n{choicesStr}'
-        asmQuestion = singleChoicePrompt.format(question=totalQuestion)
-        return asmQuestion, choiceMap[item['rightIdx']]
+        return dbStr, choicesStr, choiceMap[item['rightIdx']]
 
-    def test(self, markdown=True):
-        if not os.path.isfile(self.jsp):
-            self.qaGen()
-        qaDataset = self.qaGen()
+    def qaTest(self, model, markdown=True, gapsec=0):
+        qaList = JS(self.qaPath).loadJS()
+        result = []
+        for qa in tqdm(qaList, f'{self.dbn} table QA testing...'):
+            dbStr, choicesStr, rightChoice = BenchmarkDB.formPrompt(qa, self.dbp, markdown)
+            question = qa['question']
+            fullQuestion = f'# {self.dbn}\n\n{dbStr}\n\n{question}\n\n{choicesStr}'
+            prompt = singleChoicePrompt.format(question=fullQuestion)
+            pred = ''
+            error = None
+            try:
+                res = gptCall(model, prompt, f'qa_{self.hashCode}', self.logRoot)
+                pred = extractAnswer(res)
+            except Exception as e:
+                error = str(e)
+            result.append({
+                'model': model,
+                'markdown': markdown,
+                'qtype': qa['qtype'],
+                'gt': rightChoice,
+                'pred': pred,
+                'error': error
+            })
+            sleep(gapsec)
+        JS(self.qaResult).newJS(result)
 
-        testset = []
-        for k, v in qaDataset.items():
-            dbp = v['dbp']
-            for item in v['qas']:
-                q, c = TableQA.formPrompt(item, dbp, markdown)
-                testset.append((q, c))
+    @staticmethod
+    def qaCount(dbRoot, model, markdown=True):
+        result = {
+            'row_match': [0, 0, 0],
+            'item_select': [0, 0, 0],
+            'count': [0, 0, 0],
+            'average': [0, 0, 0],
+            'sum': [0, 0, 0],
+            'total': [0, 0, 0]
+        }
+        hashNames = os.listdir(dbRoot)
+        for hn in hashNames:
+            resultPath = os.path.join(dbRoot, hn, 'result')
+            if not os.path.isdir(resultPath):
+                continue
+            jsNames = [item for item in os.listdir(resultPath) if item.startswith('TableQA')]
+            for jsn in jsNames:
+                jsp = os.path.join(resultPath, jsn)
+                lst = JS(jsp).loadJS()
+                for res in lst:
+                    if model != res['model'] or markdown != res['markdown']:
+                        continue
+                    if res['error'] is not None:
+                        result[res['qtype']][1] += 1
+                    if res['pred'] == res['gt']:
+                        result[res['qtype']][0] += 1
+                    result[res['qtype']][2] += 1
+        for k, v in result.items():
+            if k == 'total':
+                continue
+            result['total'][0] += v[0]
+            result['total'][1] += v[1]
+            result['total'][2] += v[2]
+        pprint(result)
 
-        if not os.path.isfile(self.dstJs):
-            result = []
-            for idx in tqdm(range(len(testset)), 'TableQA Testing...'):
-                q, c = testset[idx]
-                pred = ''
-                error = None
-                try:
-                    res = gptCall('gpt-4o-mini', q, 'tmp', self.lr)
-                    pred = extractAnswer(res)
-                except Exception as e:
-                    error = str(e)
-                result.append({
-                    'idx': idx,
-                    'pred': pred,
-                    'gt': c,
-                    'error': error
-                })
-            JS(self.dstJs).newJS(result)
-        cnt = acc(self.dstJs)
-        print(cnt)
 
 if __name__ == '__main__':
-    qa = TableQA('dataset/optmizedScaledDB/8k', 'tmp.json', 'tmp/symlog/test', 'dst.json')
-    qa.test()
+    dbRoot = 'dataset/symbolic'
+    dbn = 'restaurant'
+    models = ['gpt-4o-mini', 'gpt-4o']
+    markdown = True
+    srcRoot = os.path.join(dbRoot, 'csv128k', dbn)
+    dstRoot = os.path.join(dbRoot, '8k', dbn)
+    os.makedirs(dstRoot, exist_ok=True)
+    for i in range(10):
+        tokenBasedSample(
+            os.path.join(srcRoot, f'{dbn}.sqlite'),
+            dstRoot,
+            4 * 1024,
+            6 * 1024,
+            32,
+            markdown
+        )
+        newRoot = os.path.join(dstRoot, str(i))
+        os.rename(os.path.join(dstRoot, dbn), newRoot)
+        bdb = BenchmarkDB(newRoot, dbn)
+        bdb.qaGen()
+        for model in models:
+            if model.endswith('mini'):
+                bdb.qaTest(model, markdown, 0)
+            else:
+                bdb.qaTest(model, markdown, 30)
+    for model in models:
+        BenchmarkDB.qaCount(dstRoot, model, markdown)

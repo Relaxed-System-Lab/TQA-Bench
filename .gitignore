@@ -1,5 +1,6 @@
 # QZP
 /dataset/
+/symDataset/
 /tmp*
 /results/
 /additional/

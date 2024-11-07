@@ -55,8 +55,7 @@ def gptCall(model,
         msg = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=bodies, proxies=proxies).json()
         msg = msg['choices'][0]['message']['content']
     except Exception as e:
-        print(e)
-        msg = f'error: {e}\n' + str(msg)
+        raise Exception(str(msg))
     logInfo = {"model": model, "prompt": prompt, "message": msg}
     if delPrompt:
         del logInfo['prompt']
