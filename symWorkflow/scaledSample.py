@@ -49,7 +49,7 @@ def tokenBasedSample(
     tokenSize = 0
     while True:
         db.sample(dstDBPath, rp)
-        tokenSize = countDBToken(dstDBPath)
+        tokenSize = countDBToken(dstDBPath, markdown)
         if tokenSize < minToken:
             if tokenSize <= lastTokenSize:
                 # 当上一次采样甚至比这次要多的时候, 表明采样到了上限, 不会再增加了
@@ -71,7 +71,7 @@ def tokenBasedSample(
     while cp != (lp + rp) // 2:
         cp = (lp + rp) // 2
         db.sample(dstDBPath, cp)
-        tokenSize = countDBToken(dstDBPath)
+        tokenSize = countDBToken(dstDBPath, markdown)
         if tokenSize < minToken:
             lp = cp + 1
         elif tokenSize > maxToken:

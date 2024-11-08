@@ -40,14 +40,8 @@ INSERT OR IGNORE INTO {table_name}
 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 """
 
-def readItem(scale, dbn, markdown, dbIdx, sampleIdx, questionIdx, dbRoot='symDataset/scaledDB', taskRoot='symDataset/tasks/TableQA'):
-    taskJS = os.path.join(taskRoot, f'{dbn}.json')
-    taskDict = JS(taskJS).loadJS()
-    item = taskDict[scale][dbIdx][sampleIdx][questionIdx]
-    dbp = os.path.join(dbRoot, scale, dbn, f'{dbIdx}.sqlite')
-    return TableQA.loadItem(item, dbn, dbp, markdown)
-
-def test(model, scale, dbn, markdown, dbIdx, sampleIdx, questionIdx, dbRoot='symDataset/scaledDB', taskRoot='symDataset/tasks/TableQA', resultRoot='symDataset/results/TableQA'):
+def test(model, scale, dbn, markdown, dbIdx, sampleIdx, questionIdx,
+         dbRoot='symDataset/scaledDB', taskRoot='symDataset/tasks/TableQA', resultRoot='symDataset/results/TableQA'):
     logRoot = os.path.join(resultRoot, 'log')
     os.makedirs(logRoot, exist_ok=True)
     dbPath = os.path.join(resultRoot, 'result.sqlite')
@@ -63,7 +57,8 @@ def test(model, scale, dbn, markdown, dbIdx, sampleIdx, questionIdx, dbRoot='sym
         conn.close()
         return False
 
-    prompt, gt = readItem(scale, dbn, markdown, dbIdx, sampleIdx, questionIdx, dbRoot, taskRoot)
+    datasetPath = os.path.join(taskRoot, 'dataset.sqlite')
+    prompt, gt = TableQA.loadItem(datasetPath, dbRoot, dbn, scale, dbIdx, sampleIdx, questionIdx, markdown)
 
     pred = ''
     error = ''

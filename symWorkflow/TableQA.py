@@ -92,14 +92,21 @@ class TableQA:
                             self.conn.commit()
 
     @staticmethod
-    def loadItem(item, dbn, dbp, markdown=True):
-        qtype = item['qtype']
-        question = item['question']
-        rightChoice = choiceMap[item['rightIdx']]
-        choicesStr = asmChoice(item['choices'])
-        dbStr = DB(dbp).defaultSerialization(markdown)
-        totalQuestion = f'# {dbn}\n\n{dbStr}\n\n{question}\n\n{choicesStr}'
-        return singleChoicePrompt.format(question=totalQuestion), rightChoice
+    def loadItem(datasetPath, dbRoot, dbn, scale, dbIdx, sampleIdx, questionIdx, markdown=True):
+        conn = sqlite3.connect(datasetPath)
+        cur = conn.cursor()
+        cur.execute('SELECT * FROM {dbn} WHERE scale=? AND dbIdx=? AND sampleIdx=? AND questionIdx=?;'.format(dbn=dbn),
+                    (scale, dbIdx, sampleIdx, questionIdx))
+        item = cur.fetchone()
+        dbp = os.path.join(dbRoot, scale, dbn, f'{dbIdx}.sqlite')
+        if item:
+            question = item[5]
+            rightChoice = choiceMap[item[6]]
+            choicesStr = asmChoice([item[7], item[8], item[9], item[10]])
+            dbStr = DB(dbp).defaultSerialization(markdown)
+            totalQuestion = f'# {dbn}\n\n{dbStr}\n\n{question}\n\n{choicesStr}'
+            return singleChoicePrompt.format(question=totalQuestion), rightChoice
+        return '', 'F'
 
 if __name__ == '__main__':
     tqa = TableQA('symDataset/scaledDB', 'symDataset/tasks/TableQA')

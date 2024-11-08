@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 import sys
 sys.path.append('.')
-from workflow import scaledDict, taskRoot
+from workflow import taskRoot, scaledDict
 from benchmarkUtils.LLM import countDFToken
 from benchmarkUtils.jsTool import JS
 

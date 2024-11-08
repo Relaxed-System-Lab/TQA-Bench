@@ -1,7 +1,4 @@
 import os
-from random import choices
-from re import template
-import pandas as pd
 
 import sys
 sys.path.append('.')
