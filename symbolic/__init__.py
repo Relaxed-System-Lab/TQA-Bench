@@ -11,12 +11,17 @@ from benchmarkUtils.LLM import gptCall
 from benchmarkUtils.database import DB
 from benchmarkUtils.dbSample import tokenBasedSample
 from benchmarkUtils.jsTool import JS
+
 from symbolic.airline import Airline
 from symbolic.food_inspection import FoodInspection
 from symbolic.movie import Movie
 from symbolic.music_tracker import MusicTracker
 from symbolic.restaurant import Restaurant
 from symbolic.university import University
+from symbolic.cookbook import Cookbook
+from symbolic.food_facility_inspections import FoodFacilityInspections
+from symbolic.water_quality import WaterQuality
+from symbolic.global_biodiversity import GlobalBiodiversity
 
 dataDict = {
     'airline': Airline,
@@ -24,7 +29,11 @@ dataDict = {
     'movie': Movie,
     'music_tracker': MusicTracker,
     'restaurant': Restaurant,
-    'university': University
+    'university': University,
+    'cookbook': Cookbook,
+    'food_facility_inspections': FoodFacilityInspections,
+    'water_quality': WaterQuality,
+    'global_biodiversity': GlobalBiodiversity
 }
 
 choiceMap = 'A B C D E'.split()

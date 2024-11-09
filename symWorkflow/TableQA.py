@@ -72,7 +72,10 @@ class TableQA:
                 scaledDBRoot = os.path.join(self.dbRoot, scale, dbn)
                 dbNames = os.listdir(scaledDBRoot)
                 for dbIdx in dbNames:
-                    idx = int(dbIdx.split('.')[0])
+                    try:
+                        idx = int(dbIdx.split('.')[0])
+                    except:
+                        continue
                     dbp = os.path.join(scaledDBRoot, dbIdx)
                     for sampleIdx in range(n):
                         qaList = TableQA.singleGen(dbn, dbp)

@@ -108,6 +108,7 @@ def scaledSample(
 
 scaleDict = {
     '8k': (4, 6),
+    '16k': (8, 12),
     '32k': (16, 24),
     '64k': (32, 48),
     '128k': (64, 96)
@@ -122,6 +123,6 @@ if __name__ == '__main__':
                         f'symDataset/scaledDB/{k}/{dbn}',
                         v[0] * 1024,
                         v[1] * 1024,
-                        32,
+                        1,
                         True
                         )
