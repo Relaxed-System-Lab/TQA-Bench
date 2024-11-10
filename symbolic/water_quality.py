@@ -22,6 +22,19 @@ class WaterQuality:
         self.stations['latitude'] = abs(self.stations['latitude'])
         self.stations['longitude'] = abs(self.stations['longitude'])
 
+        self.retrieval = [
+            ['stations'],
+            ['stations'],
+            ['stations', 'field_results'],
+            ['stations'],
+            ['stations'],
+            ['stations'],
+            ['stations'],
+            ['stations', 'lab_results'],
+            ['stations'],
+            ['stations']
+        ]
+
     def q0(self):
         template = 'Where is the {full_station_name}?'
         row = self.stations.sample(1)

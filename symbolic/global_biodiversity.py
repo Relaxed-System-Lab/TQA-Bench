@@ -23,7 +23,15 @@ class GlobalBiodiversity:
 
         self.retrieval = [
             ['global_biod_species_extinction_risks'],
-            ['']
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range']
         ]
 
     def q0(self):

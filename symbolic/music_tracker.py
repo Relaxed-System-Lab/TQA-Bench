@@ -17,6 +17,19 @@ class MusicTracker:
         self.tags = self.tables['tags']
         self.merged_df = pd.merge(self.torrents, self.tags, left_on='id', right_on='id')
 
+        self.retrieval = [
+            ['torrents'],
+            ['torrents', 'tags'],
+            ['torrents', 'tags'],
+            ['torrents'],
+            ['torrents', 'tags'],
+            ['tags'],
+            ['torrents', 'tags'],
+            ['tags'],
+            ['torrents', 'tags'],
+            ['torrents', 'tags']
+        ]
+
     def q0(self):
         template = 'What is the release type of torrent id {id}?'
         row = self.merged_df.sample(1)

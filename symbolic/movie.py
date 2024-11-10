@@ -16,6 +16,19 @@ class Movie:
         self.movie = self.tables['movie']
         self.characters = self.tables['characters']
 
+        self.retrieval = [
+            ['characters', 'movie', 'actor'],
+            ['movie'],
+            ['movie'],
+            ['actor'],
+            ['movie'],
+            ['movie'],
+            ['movie'],
+            ['movie'],
+            ['movie'],
+            ['movie']
+        ]
+
     def q0(self):
         template = 'What is the name of character played by {Name} in {Title}?'
         merged_df = pd.merge(self.characters, self.movie, left_on='MovieID', right_on='MovieID')
