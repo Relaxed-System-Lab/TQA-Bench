@@ -2,9 +2,13 @@ import streamlit as st
 import sys
 sys.path.append('.')
 
+integrationDataset = 'dataset/integration.zip'
 scaledDataset = 'symDataset/scaledDB/symDataset.zip'
 taskDataset = 'symDataset/tasks/tasks.zip'
 
+st.write('Download integration dataset.')
+with open(integrationDataset, 'rb') as f:
+    st.download_button('Download integration', f, file_name='integration.zip')
 st.write('Download symbolic dataset.')
 with open(scaledDataset, 'rb') as f:
     st.download_button('Download scaledDB', f, file_name='symDataset.zip')

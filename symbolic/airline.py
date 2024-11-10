@@ -17,6 +17,19 @@ class Airline:
         self.Airports = self.tables['Airports']
         self.Airlines = self.tables['Airlines']
 
+        self.retrieval = [
+            ['Airports'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports'],
+            ['Air_Carriers'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports'],
+            ['Airlines', 'Airports']
+        ]
+
     def q0(self):
         template = 'What is the description of airport {Code}?'
         row = self.Airports.sample(1)
@@ -52,7 +65,7 @@ class Airline:
         filted = self.Airlines[self.Airlines['DEST'] == DEST]
         land_airline = len(filted)
         question = template.format(DEST=dest_description)
-        
+
         rightIdx, choices = numericalGen(land_airline)
         stmts = stmtGen(choices,
                         'There are <unk> airlines land in {DEST}.'.format(DEST=dest_description))

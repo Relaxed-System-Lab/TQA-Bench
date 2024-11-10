@@ -14,10 +14,24 @@ class FoodInspection:
         self.tables = db.tables
 
         self.businesses = self.tables['businesses']
-        # 有时候会有CA, Ca的区别
-        self.businesses['owner_state'] = self.businesses['owner_state'].str.upper()
         self.inspections = self.tables['inspections']
         self.violations = self.tables['violations']
+
+        # 有时候会有CA, Ca的区别
+        self.businesses['owner_state'] = self.businesses['owner_state'].str.upper()
+
+        self.retrieval = [
+            ['businesses'],
+            ['violations', 'businesses'],
+            ['violations', 'businesses'],
+            ['inspections'],
+            ['businesses', 'inspections'],
+            ['violations'],
+            ['inspections', 'businesses'],
+            ['inspections'],
+            ['inspections', 'businesses'],
+            ['inspections', 'businesses']
+        ]
 
     def q0(self):
         template = 'What is the address of business_id {business_id}?'

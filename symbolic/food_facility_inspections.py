@@ -26,6 +26,19 @@ class FoodFacilityInspections:
         self.facilities['longitude'] = abs(self.facilities['longitude'])
         self.facilities['latitude'] = abs(self.facilities['latitude'])
 
+        self.retrieval = [
+            ['Food_Facility_Restaurant_Inspection_Violations', 'Geocoded_Food_Facilities'],
+            ['Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspection_Violations', 'Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspections', 'Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspections', 'Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspections', 'Geocoded_Food_Facilities'],
+            ['Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspection_Violations', 'Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspection_Violations', 'Geocoded_Food_Facilities'],
+            ['Food_Facility_Restaurant_Inspection_Violations', 'Geocoded_Food_Facilities']
+        ]
+
     def q0(self):
         template = 'Which facility does violation id {violation_id} belong to?'
         row = self.violations.sample(1)

@@ -21,6 +21,11 @@ class GlobalBiodiversity:
 
         self.merged_df = pd.merge(self.risks, self.occ, left_on='species', right_on='species')
 
+        self.retrieval = [
+            ['global_biod_species_extinction_risks'],
+            ['']
+        ]
+
     def q0(self):
         template = 'What is the lcat of {species}?'
         row = self.risks.sample(1)

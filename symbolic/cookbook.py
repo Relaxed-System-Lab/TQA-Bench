@@ -21,6 +21,19 @@ class Cookbook:
 
         self.merged_df = pd.merge(self.nutrition, self.recipe, left_on='recipe_id', right_on='recipe_id')
 
+        self.retrieval = [
+            ['Nutrition', 'Recipe'],
+            ['Nutrition', 'Recipe'],
+            ['Nutrition', 'Recipe'],
+            ['Nutrition'],
+            ['Nutrition'],
+            ['Nutrition', 'Recipe'],
+            ['Nutrition', 'Recipe'],
+            ['Nutrition', 'Recipe'],
+            ['Nutrition'],
+            ['Nutrition']
+        ]
+
     def q0(self):
         template = 'How many calories are there in the {title}?'
         row = self.nutrition.sample(1)
