@@ -49,6 +49,8 @@ class TaskCore:
         self.dbRoot = dbRoot
         self.taskPath = taskPath
         self.resultPath = resultPath
+        dirPath = os.path.dirname(self.resultPath)
+        os.makedirs(dirPath, exist_ok=True)
 
         self.taskConn = sqlite3.connect(self.taskPath)
         self.taskCur = self.taskConn.cursor()
@@ -94,13 +96,10 @@ class TaskCore:
     @staticmethod
     def getRightChoices(rightIdx:int):
         rightChoices = []
-        while rightIdx >= 0:
-            if rightIdx == 0:
-                rightChoices.append(TaskCore.choicesMap[rightIdx])
-                break
-            res = rightIdx % 10
-            rightChoices.append(TaskCore.choicesMap[res])
-            rightIdx = rightIdx // 10
+        idxStr = str(rightIdx)
+        for char in idxStr:
+            val = int(char)
+            rightChoices.append(TaskCore.choicesMap[val])
         rightChoices.sort()
         return ''.join(rightChoices)
 

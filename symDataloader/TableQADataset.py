@@ -13,7 +13,7 @@ def qaPrompt(dbStr, question, choices):
 
 def gpt4ominiCall(dbStr, question, choices):
     prompt = qaPrompt(dbStr, question, choices)
-    return gptCall('gpt-4o-mini', prompt, 'tmp', 'symDataset/TableQA/log')
+    return gptCall('gpt-4o-mini', prompt, 'tmp', 'symDataset/results/TableQA/log')
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB' # path to extract symDataset.zip
