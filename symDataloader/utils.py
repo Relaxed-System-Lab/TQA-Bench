@@ -94,7 +94,10 @@ class TaskCore:
     @staticmethod
     def getRightChoices(rightIdx:int):
         rightChoices = []
-        while rightIdx > 0:
+        while rightIdx >= 0:
+            if rightIdx == 0:
+                rightChoices.append(TaskCore.choicesMap[rightIdx])
+                break
             res = rightIdx % 10
             rightChoices.append(TaskCore.choicesMap[res])
             rightIdx = rightIdx // 10
