@@ -9,6 +9,18 @@ from benchmarkUtils.database import DB
 from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 class FoodInspection:
+    retrieval = [
+        ['businesses'],
+        ['violations', 'businesses'],
+        ['violations', 'businesses'],
+        ['inspections'],
+        ['businesses', 'inspections'],
+        ['violations'],
+        ['inspections', 'businesses'],
+        ['inspections'],
+        ['inspections', 'businesses'],
+        ['inspections', 'businesses']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -20,18 +32,6 @@ class FoodInspection:
         # 有时候会有CA, Ca的区别
         self.businesses['owner_state'] = self.businesses['owner_state'].str.upper()
 
-        self.retrieval = [
-            ['businesses'],
-            ['violations', 'businesses'],
-            ['violations', 'businesses'],
-            ['inspections'],
-            ['businesses', 'inspections'],
-            ['violations'],
-            ['inspections', 'businesses'],
-            ['inspections'],
-            ['inspections', 'businesses'],
-            ['inspections', 'businesses']
-        ]
 
     def q0(self):
         template = 'What is the address of business_id {business_id}?'

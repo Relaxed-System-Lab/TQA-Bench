@@ -11,6 +11,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class GlobalBiodiversity:
+    retrieval = [
+        ['global_biod_species_extinction_risks'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
+        ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -21,18 +33,6 @@ class GlobalBiodiversity:
 
         self.merged_df = pd.merge(self.risks, self.occ, left_on='species', right_on='species')
 
-        self.retrieval = [
-            ['global_biod_species_extinction_risks'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range'],
-            ['global_biod_species_extinction_risks', 'global_biod_species_occ_endemism_and_small_range']
-        ]
 
     def q0(self):
         template = 'What is the lcat of {species}?'

@@ -10,6 +10,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class WaterQuality:
+    retrieval = [
+        ['stations'],
+        ['stations'],
+        ['stations', 'field_results'],
+        ['stations'],
+        ['stations'],
+        ['stations'],
+        ['stations'],
+        ['stations', 'lab_results'],
+        ['stations'],
+        ['stations']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -22,18 +34,6 @@ class WaterQuality:
         self.stations['latitude'] = abs(self.stations['latitude'])
         self.stations['longitude'] = abs(self.stations['longitude'])
 
-        self.retrieval = [
-            ['stations'],
-            ['stations'],
-            ['stations', 'field_results'],
-            ['stations'],
-            ['stations'],
-            ['stations'],
-            ['stations'],
-            ['stations', 'lab_results'],
-            ['stations'],
-            ['stations']
-        ]
 
     def q0(self):
         template = 'Where is the {full_station_name}?'

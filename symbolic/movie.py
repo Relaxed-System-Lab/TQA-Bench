@@ -8,6 +8,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class Movie:
+    retrieval = [
+        ['characters', 'movie', 'actor'],
+        ['movie'],
+        ['movie'],
+        ['actor'],
+        ['movie'],
+        ['movie'],
+        ['movie'],
+        ['movie'],
+        ['movie'],
+        ['movie']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -16,18 +28,6 @@ class Movie:
         self.movie = self.tables['movie']
         self.characters = self.tables['characters']
 
-        self.retrieval = [
-            ['characters', 'movie', 'actor'],
-            ['movie'],
-            ['movie'],
-            ['actor'],
-            ['movie'],
-            ['movie'],
-            ['movie'],
-            ['movie'],
-            ['movie'],
-            ['movie']
-        ]
 
     def q0(self):
         template = 'What is the name of character played by {Name} in {Title}?'

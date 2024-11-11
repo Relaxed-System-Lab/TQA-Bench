@@ -7,6 +7,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class University:
+    retrieval = [
+        ['university_ranking_year', 'ranking_criteria', 'ranking_system', 'university'],
+        ['university_ranking_year', 'university'],
+        ['university_ranking_year'],
+        ['university_ranking_year', 'university'],
+        ['university_ranking_year', 'university'],
+        ['university_year', 'university'],
+        ['university_year', 'university'],
+        ['university_year'],
+        ['university_year'],
+        ['university_year']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -21,18 +33,6 @@ class University:
         self.totalScore = self.university_ranking_year.groupby(['university_id', 'year'])['score'].sum().reset_index()
         self.avgScore = self.university_ranking_year.groupby(['university_id', 'year'])['score'].mean().reset_index()
 
-        self.retrieval = [
-            ['university_ranking_year', 'ranking_criteria', 'ranking_system', 'university'],
-            ['university_ranking_year', 'university'],
-            ['university_ranking_year'],
-            ['university_ranking_year', 'university'],
-            ['university_ranking_year', 'university'],
-            ['university_year', 'university'],
-            ['university_year', 'university'],
-            ['university_year'],
-            ['university_year'],
-            ['university_year']
-        ]
 
     def q0(self):
         template = 'How many scores do {university_name} get in {year} in {criteria_name}({system_name})?'

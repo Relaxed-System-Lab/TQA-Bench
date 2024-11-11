@@ -9,6 +9,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class Airline:
+    retrieval = [
+        ['Airports'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports'],
+        ['Air_Carriers'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports'],
+        ['Airlines', 'Airports']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -16,19 +28,6 @@ class Airline:
         self.Air_Carriers = self.tables['Air_Carriers']
         self.Airports = self.tables['Airports']
         self.Airlines = self.tables['Airlines']
-
-        self.retrieval = [
-            ['Airports'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports'],
-            ['Air_Carriers'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports'],
-            ['Airlines', 'Airports']
-        ]
 
     def q0(self):
         template = 'What is the description of airport {Code}?'

@@ -10,6 +10,18 @@ from symbolic.utils import choiceGen, stmtGen, numericalGen
 
 
 class Restaurant:
+    retrieval = [
+        ['location', 'generalinfo'],
+        ['generalinfo', 'geographic'],
+        ['generalinfo'],
+        ['generalinfo'],
+        ['generalinfo'],
+        ['generalinfo', 'geographic'],
+        ['generalinfo', 'geographic'],
+        ['generalinfo', 'geographic'],
+        ['generalinfo', 'geographic'],
+        ['generalinfo', 'geographic']
+    ]
     def __init__(self, dbp) -> None:
         db = DB(dbp)
         self.tables = db.tables
@@ -18,18 +30,6 @@ class Restaurant:
         self.generalinfo = self.tables['generalinfo']
         self.location = self.tables['location']
 
-        self.retrieval = [
-            ['location', 'generalinfo'],
-            ['generalinfo', 'geographic'],
-            ['generalinfo'],
-            ['generalinfo'],
-            ['generalinfo'],
-            ['generalinfo', 'geographic'],
-            ['generalinfo', 'geographic'],
-            ['generalinfo', 'geographic'],
-            ['generalinfo', 'geographic'],
-            ['generalinfo', 'geographic']
-        ]
 
     def q0(self):
         template = 'Which street is {label} located in?'
