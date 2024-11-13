@@ -160,10 +160,36 @@ class FoodInspection:
                         'The total score of {owner_state} in inspections is <unk>.'.format(owner_state=owner_state))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many scores are {business0}({date0}) more than {business1}({date1})?'
+        rows = self.inspections[self.inspections['score'].notna()].sample(2)
+        bid0 = rows['business_id'].iloc[0]
+        date0 = rows['date'].iloc[0]
+        business0 = self.businesses[self.businesses['business_id'] == bid0]['name'].iloc[0]
+        bid1 = rows['business_id'].iloc[1]
+        date1 = rows['date'].iloc[1]
+        business1 = self.businesses[self.businesses['business_id'] == bid1]['name'].iloc[0]
+        diff = rows['score'].iloc[0] - rows['score'].iloc[1]
+        question = template.format(business0=business0, date0=date0, business1=business1, date1=date1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'What is the gap of latitude angle between {business0} and {business1}?'
+        rows = self.businesses[self.businesses['latitude'].notna()].sample(2)
+        business0 = rows['name'].iloc[0]
+        business1 = rows['name'].iloc[1]
+        diff = abs(rows['latitude'].iloc[0] - rows['latitude'].iloc[1])
+        question = template.format(business0=business0, business1=business1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'food_inspection'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = FoodInspection(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -175,3 +201,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

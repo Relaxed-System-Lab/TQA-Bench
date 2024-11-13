@@ -162,11 +162,33 @@ class Movie:
                         'The total budget of moives that is greater or equal to {REAL} rating is <unk>.'.format(REAL=REAL))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many inches are {name0} higher than {name1}?'
+        rows = self.actor[self.actor['Height (Inches)'].notna()].sample(2)
+        name0 = rows['Name'].iloc[0]
+        name1 = rows['Name'].iloc[1]
+        diff = rows['Height (Inches)'].iloc[0] - rows['Height (Inches)'].iloc[1]
+        question = template.format(name0=name0, name1=name1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many budgets are {title0} higher than {title1}?'
+        rows = self.movie[self.movie['Budget'].notna()].sample(2)
+        title0 = rows['Title'].iloc[0]
+        title1 = rows['Title'].iloc[1]
+        diff = rows['Budget'].iloc[0] - rows['Budget'].iloc[1]
+        question = template.format(title0=title0, title1=title1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'movie'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = Movie(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -178,3 +200,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

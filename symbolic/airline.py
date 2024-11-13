@@ -163,11 +163,33 @@ class Airline:
                         'The total flight delay (ARR_DELAY) that land in {DEST} is <unk>.'.format(DEST=dest_description))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'What is the average total delay (ARR_DELAY-DEP_DELAY) of {description}?'
+        id = self.Airlines.sample(1)['OP_CARRIER_AIRLINE_ID'].iloc[0]
+        description = self.Air_Carriers[self.Air_Carriers['Code'] == id]['Description'].iloc[0]
+        filted = self.Airlines[self.Airlines['OP_CARRIER_AIRLINE_ID'] == id]
+        avg = (filted['ARR_DELAY'] - filted['DEP_DELAY']).mean()
+        question = template.format(description=description)
+
+        rightIdx, choices = numericalGen(avg)
+        return question, avg, rightIdx, choices
+
+    def q11(self):
+        template = 'What is the average total fly time (ARR_TIME-DEP_TIME) of {description}?'
+        id = self.Airlines.sample(1)['OP_CARRIER_AIRLINE_ID'].iloc[0]
+        description = self.Air_Carriers[self.Air_Carriers['Code'] == id]['Description'].iloc[0]
+        filted = self.Airlines[self.Airlines['OP_CARRIER_AIRLINE_ID'] == id]
+        avg = (filted['ARR_TIME'] - filted['DEP_TIME']).mean()
+        question = template.format(description=description)
+
+        rightIdx, choices = numericalGen(avg)
+        return question, avg, rightIdx, choices
+
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'airline'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, f'0.sqlite')
     fi = Airline(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -179,3 +201,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

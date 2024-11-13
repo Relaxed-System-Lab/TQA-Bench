@@ -158,11 +158,33 @@ class MusicTracker:
                         'The total snatch with release type {releaseType} is <unk>.'.format(releaseType=releaseType))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many total snatched are id {id0} more than id {id1}?'
+        rows = self.torrents.sample(2)
+        id0 = rows['id'].iloc[0]
+        id1 = rows['id'].iloc[1]
+        diff = rows['totalSnatched'].iloc[0] - rows['totalSnatched'].iloc[1]
+        question = template.format(id0=id0, id1=id1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many average total snatched are releaseType {type0} more than {type1}?'
+        types = self.torrents['releaseType'].drop_duplicates().sample(2)
+        type0 = types.iloc[0]
+        type1 = types.iloc[1]
+        diff = self.torrents[self.torrents['releaseType'] == type0]['totalSnatched'].mean() - self.torrents[self.torrents['releaseType'] == type1]['totalSnatched'].mean()
+        question = template.format(type0=type0, type1=type1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'music_tracker'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = MusicTracker(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -174,3 +196,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

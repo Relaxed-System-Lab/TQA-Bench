@@ -157,12 +157,34 @@ class Cookbook:
                         'The total proteins of recipies that have greater or equal than {REAL} calories is <unk>.'.format(REAL=calories))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many preparation minutes are {title0} more than {title1}?'
+        rows = self.recipe.sample(2)
+        title0 = rows['title'].iloc[0]
+        title1 = rows['title'].iloc[1]
+        diff = rows['prep_min'].iloc[0] - rows['prep_min'].iloc[1]
+        question = template.format(title0=title0, title1=title1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many cook minutes are {title0} more than {title1}?'
+        rows = self.recipe.sample(2)
+        title0 = rows['title'].iloc[0]
+        title1 = rows['title'].iloc[1]
+        diff = rows['cook_min'].iloc[0] - rows['cook_min'].iloc[1]
+        question = template.format(title0=title0, title1=title1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'cookbook'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, f'0.sqlite')
     fi = Cookbook(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -174,3 +196,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

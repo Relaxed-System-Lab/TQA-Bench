@@ -160,11 +160,33 @@ class GlobalBiodiversity:
                         'The total population density of {order} order species is <unk>.'.format(order=order))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many pthreats are {species0} more than {species1}?'
+        rows = self.risks.sample(2)
+        species0 = rows['species'].iloc[0]
+        species1 = rows['species'].iloc[1]
+        diff = rows['pthreat'].iloc[0] - rows['pthreat'].iloc[1]
+        question = template.format(species0=species0, species1=species1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many population densities are {species0} more than {species1}?'
+        rows = self.risks[self.risks['popden'].notna()].sample(2)
+        species0 = rows['species'].iloc[0]
+        species1 = rows['species'].iloc[1]
+        diff = rows['popden'].iloc[0] - rows['popden'].iloc[1]
+        question = template.format(species0=species0, species1=species1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 
 if __name__ == '__main__':
-    dbRoot = 'symDataset/scaledDB/csv128k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'global_biodiversity'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = GlobalBiodiversity(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -176,3 +198,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

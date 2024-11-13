@@ -162,11 +162,32 @@ class Restaurant:
                         'The total review of restaurants in {county} is <unk>.'.format(county=county))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many review scores are {label0} more than {label1}?'
+        rows = self.generalinfo.sample(2)
+        label0 = rows['label'].iloc[0]
+        label1 = rows['label'].iloc[1]
+        diff = rows['review'].iloc[0] - rows['review'].iloc[1]
+        question = template.format(label0=label0, label1=label1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many average review scores are food type {food_type0} more than {food_type1}?'
+        food_types = self.generalinfo['food_type'].drop_duplicates().sample(2)
+        food_type0 = food_types.iloc[0]
+        food_type1 = food_types.iloc[1]
+        diff = self.generalinfo[self.generalinfo['food_type'] == food_type0]['review'].mean() - self.generalinfo[self.generalinfo['food_type'] == food_type1]['review'].mean()
+        question = template.format(food_type0=food_type0, food_type1=food_type1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'restaurant'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = Restaurant(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -178,3 +199,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())

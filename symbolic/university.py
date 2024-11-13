@@ -174,11 +174,37 @@ class University:
                         'The total student number in all universities in {year} is <unk>.'.format(year=year))
         return question, total, rightIdx, choices, stmts
 
+    def q10(self):
+        template = 'How many students are {university0}({year0}) more than {university1}({year1})?'
+        rows = self.university_year.sample(2)
+        year0 = rows['year'].iloc[0]
+        year1 = rows['year'].iloc[1]
+        university0 = self.university[self.university['id'] == rows['university_id'].iloc[0]]['university_name'].iloc[0]
+        university1 = self.university[self.university['id'] == rows['university_id'].iloc[1]]['university_name'].iloc[0]
+        diff = rows['num_students'].iloc[0] - rows['num_students'].iloc[1]
+        question = template.format(university0=university0, year0=year0, university1=university1, year1=year1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
+    def q11(self):
+        template = 'How many student staff ratio are {university0}({year0}) more than {university1}({year1})?'
+        rows = self.university_year.sample(2)
+        year0 = rows['year'].iloc[0]
+        year1 = rows['year'].iloc[1]
+        university0 = self.university[self.university['id'] == rows['university_id'].iloc[0]]['university_name'].iloc[0]
+        university1 = self.university[self.university['id'] == rows['university_id'].iloc[1]]['university_name'].iloc[0]
+        diff = rows['student_staff_ratio'].iloc[0] - rows['student_staff_ratio'].iloc[1]
+        question = template.format(university0=university0, year0=year0, university1=university1, year1=year1)
+
+        rightIdx, choices = numericalGen(diff)
+        return question, diff, rightIdx, choices
+
 
 if __name__ == '__main__':
-    dbRoot = 'dataset/optmizedScaledDB/8k/'
+    dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'university'
-    dbp = os.path.join(dbRoot, dbn, f'{dbn}.sqlite')
+    dbp = os.path.join(dbRoot, dbn, '0.sqlite')
     fi = University(dbp)
     print(fi.q0())
     print(fi.q1())
@@ -190,3 +216,5 @@ if __name__ == '__main__':
     print(fi.q7())
     print(fi.q8())
     print(fi.q9())
+    print(fi.q10())
+    print(fi.q11())
