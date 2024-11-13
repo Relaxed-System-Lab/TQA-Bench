@@ -3,7 +3,7 @@ import os
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, corrGen, stmtGen, numericalGen
 
 
 class University:
@@ -200,6 +200,26 @@ class University:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between international student percent and female student percent of university-year pairs that have greater or equal than {INT} students?'
+        INT = self.university_year['num_students'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['num_students'] >= INT]
+        corr = filted['pct_international_students'].corr(filted['pct_female_students'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between international student percent and female student percent of university-year pairs that have less or equal than {INT} students?'
+        INT = self.university_year['num_students'].sample(1).iloc[0]
+        filted = self.university_year[self.university_year['num_students'] <= INT]
+        corr = filted['pct_international_students'].corr(filted['pct_female_students'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -218,3 +238,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, corrGen, stmtGen, numericalGen
 
 
 class MusicTracker:
@@ -180,6 +180,27 @@ class MusicTracker:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between total snatched and group year of music that are {releaseType}?'
+        releaseType = self.torrents['releaseType'].sample(1).iloc[0]
+        filted = self.torrents[self.torrents['releaseType'] == releaseType]
+        corr = filted['totalSnatched'].corr(filted['groupYear'])
+        question = template.format(releaseType=releaseType)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between total snatched and group year of music that are with tag {tag}?'
+        tag = self.tags['tag'].sample(1).iloc[0]
+        ids = self.tags[self.tags['tag'] == tag]['id']
+        filted = self.torrents[self.torrents['id'].isin(ids)]
+        corr = filted['totalSnatched'].corr(filted['groupYear'])
+        question = template.format(tag=tag)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -198,3 +219,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

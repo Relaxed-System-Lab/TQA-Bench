@@ -1,6 +1,26 @@
 import random
 import pandas as pd
 
+def corrGen(corr):
+    if abs(corr) < 0.1:
+        choices = [-0.1, corr, 0.1, 0.2]
+        random.shuffle(choices)
+        return choices.index(corr), choices
+    a = []
+    if abs(corr) > 0.75:
+        a = [0.25, 0.5, 0.75]
+    elif abs(corr) > 0.5:
+        a = [0.33, 0.66, 1.32]
+    elif abs(corr) > 0.25:
+        a = [0.5, 1.5, 2]
+    else:
+        a = [2, 3, 4]
+    choices = [item * corr for item in a]
+    choices.append(corr)
+    random.shuffle(choices)
+    return choices.index(corr), choices
+
+
 def choiceGen(item, series):
     if type(series) is pd.Series:
         series = series.drop_duplicates().to_list()

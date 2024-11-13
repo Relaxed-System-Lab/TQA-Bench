@@ -6,7 +6,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, corrGen, stmtGen, numericalGen
 
 
 class Restaurant:
@@ -184,6 +184,29 @@ class Restaurant:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between restaurant id and street num of restaurants that are {food_type} type?'
+        food_type = self.generalinfo['food_type'].sample(1).iloc[0]
+        ids = self.generalinfo[self.generalinfo['food_type'] == food_type]['id_restaurant']
+        filted = self.location[self.location['id_restaurant'].isin(ids)]
+        corr = filted['id_restaurant'].corr(filted['street_num'])
+        question = template.format(food_type=food_type)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between restaurant id and street num of restaurants whose reviews are greater or equal than {INT}?'
+        INT = self.generalinfo['review'].sample(1).iloc[0]
+        ids = self.generalinfo[self.generalinfo['review'] >= INT]['id_restaurant']
+        filted = self.location[self.location['id_restaurant'].isin(ids)]
+        corr = filted['id_restaurant'].corr(filted['street_num'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
     dbn = 'restaurant'
@@ -201,3 +224,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

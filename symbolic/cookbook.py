@@ -6,7 +6,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, stmtGen, numericalGen, corrGen
 
 
 class Cookbook:
@@ -179,6 +179,26 @@ class Cookbook:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between total fat and sat fat of recipies that have greater or equal than {REAL:.2f} calories?'
+        calories = self.nutrition.sample(1)['calories'].iloc[0]
+        filted = self.nutrition[self.nutrition['calories'] >= calories]
+        corr = filted['total_fat'].corr(filted['sat_fat'])
+        question = template.format(REAL=calories)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between vitamin C and vitamin A of recipies that have greater or equal than {REAL:.2f} calories?'
+        calories = self.nutrition.sample(1)['calories'].iloc[0]
+        filted = self.nutrition[self.nutrition['calories'] >= calories]
+        corr = filted['vitamin_c'].corr(filted['vitamin_a'])
+        question = template.format(REAL=calories)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 
 if __name__ == '__main__':
@@ -198,3 +218,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

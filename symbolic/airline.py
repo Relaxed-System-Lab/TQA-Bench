@@ -5,7 +5,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, stmtGen, numericalGen, corrGen
 
 
 class Airline:
@@ -185,6 +185,28 @@ class Airline:
         rightIdx, choices = numericalGen(avg)
         return question, avg, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between department delay and arrive delay of air carrier {description}?'
+        aid = self.Airlines[self.Airlines['OP_CARRIER_AIRLINE_ID'].duplicated()].sample(1)['OP_CARRIER_AIRLINE_ID'].iloc[0]
+        # aid = self.Airlines.sample(1)['OP_CARRIER_AIRLINE_ID'].iloc[0]
+        description = self.Air_Carriers[self.Air_Carriers['Code'] == aid]['Description'].iloc[0]
+        filted = self.Airlines[self.Airlines['OP_CARRIER_AIRLINE_ID'] == aid]
+        corr = filted['ARR_DELAY'].corr(filted['DEP_DELAY'])
+        question = template.format(description=description)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between department delay and arrive delay of airlines whose depart delay are greater or equal than {INT}?'
+        dep_delay = self.Airlines[self.Airlines['DEP_DELAY'].notna()].sample(1)['DEP_DELAY'].iloc[0]
+        filted = self.Airlines[self.Airlines['DEP_DELAY'] >= dep_delay]
+        corr = filted['ARR_DELAY'].corr(filted['DEP_DELAY'])
+        question = template.format(INT=dep_delay)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -203,3 +225,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

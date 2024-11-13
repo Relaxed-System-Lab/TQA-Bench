@@ -7,7 +7,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, corrGen, stmtGen, numericalGen
 
 
 class FoodFacilityInspections:
@@ -193,6 +193,30 @@ class FoodFacilityInspections:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'Assume T is 1, F is 0, what is the correlation between low and medium that violation high is {high}?'
+        high = self.violations[self.violations['high'].notna()].sample(1)['high'].iloc[0]
+        filted = self.violations[self.violations['high'] == high]
+        low = filted['low'].apply(lambda x: 1 if x == 'T' else 0)
+        medium = filted['medium'].apply(lambda x: 1 if x == 'T' else 0)
+        corr = low.corr(medium)
+        question = template.format(high=high)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'Assume T is 1, F is 0, what is the correlation between medium and high that violation low is {low}?'
+        low = self.violations[self.violations['low'].notna()].sample(1)['low'].iloc[0]
+        filted = self.violations[self.violations['low'] == low]
+        high = filted['high'].apply(lambda x: 1 if x == 'T' else 0)
+        medium = filted['medium'].apply(lambda x: 1 if x == 'T' else 0)
+        corr = high.corr(medium)
+        question = template.format(low=low)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -211,3 +235,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

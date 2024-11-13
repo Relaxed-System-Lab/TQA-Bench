@@ -6,7 +6,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, corrGen, stmtGen, numericalGen
 
 
 class WaterQuality:
@@ -181,6 +181,26 @@ class WaterQuality:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between station id and sample count of stations whose type is {station_type}?'
+        station_type = self.stations['station_type'].sample(1).iloc[0]
+        filted = self.stations[self.stations['station_type'] == station_type]
+        corr = filted['station_id'].corr(filted['sample_count'])
+        question = template.format(station_type=station_type)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between station id and sample count of stations whose sample count are greater or equal than {INT}?'
+        INT = self.stations['sample_count'].sample(1).iloc[0]
+        filted = self.stations[self.stations['sample_count'] >= INT]
+        corr = filted['station_id'].corr(filted['sample_count'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -199,3 +219,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())

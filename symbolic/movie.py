@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
-from symbolic.utils import choiceGen, stmtGen, numericalGen
+from symbolic.utils import choiceGen, stmtGen, numericalGen, corrGen
 
 
 class Movie:
@@ -184,6 +184,26 @@ class Movie:
         rightIdx, choices = numericalGen(diff)
         return question, diff, rightIdx, choices
 
+    def q12(self):
+        template = 'What is the correlation between Runtime and Rating of movies that budget is greater or equal than {INT}?'
+        INT = self.movie['Budget'].dropna().sample(1).iloc[0]
+        filted = self.movie[self.movie['Budget'] >= INT]
+        corr = filted['Runtime'].corr(filted['Rating'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
+    def q13(self):
+        template = 'What is the correlation between Rating and Rating Count of movies that budget is greater or equal than {INT}?'
+        INT = self.movie['Budget'].dropna().sample(1).iloc[0]
+        filted = self.movie[self.movie['Budget'] >= INT]
+        corr = filted['Rating Count'].corr(filted['Rating'])
+        question = template.format(INT=INT)
+
+        rightIdx, choices = corrGen(corr)
+        return question, corr, rightIdx, choices
+
 
 if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB/8k/'
@@ -202,3 +222,5 @@ if __name__ == '__main__':
     print(fi.q9())
     print(fi.q10())
     print(fi.q11())
+    print(fi.q12())
+    print(fi.q13())
