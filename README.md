@@ -2,13 +2,17 @@
 
 ## Data Download
 
-Download following files
+Task file download
 
-- [cpa, cta, em](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/ETGGRYGbmGxDo-nxJzOY0FQBHMqFx83va1mWAw1zVvG3eg?e=JukoyQ): extract to `dataset/`
+- Download from [task link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/EWAnhWoIhJpIgkkge1ZoBoYB7eF1AgJbcfV4nDfpFLua4A?e=727pOz) .
 
-- [scaled database](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/ESGMS0lh1l9MirS9SvS7_E0BSpBXpml7OsCdc0oLx70b_A?e=AgHy9i): Extract to `symDataset/scaledDB`
+- Put the downloaded file into `symDataset/tasks/TableQA`
 
-- [tasks](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/Eby_BkHerYZLtfkPoCnfwVYB7cII0_w9KM0haUAv6a5mrA?e=5dNAJo): Extract to `symDataset/tasks/` (currently only have tableQA)
+Download scaled database files
+
+- Download from [scaled database link](https://hkustconnect-my.sharepoint.com/:u:/g/personal/zqiuao_connect_ust_hk/ESGMS0lh1l9MirS9SvS7_E0BSpBXpml7OsCdc0oLx70b_A?e=AgHy9i) .
+
+- Put the downloaded file into `symDataset/scaledDB`
 
 ## Run
 
