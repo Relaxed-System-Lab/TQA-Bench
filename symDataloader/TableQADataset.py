@@ -23,8 +23,6 @@ if __name__ == '__main__':
     resultPath = 'symDataset/results/TableQA/result.sqlite' # result sqlite
     tc = TaskCore(dbRoot, taskPath, resultPath)
     for k in dataDict.keys():
-        if k == 'university':
-            continue
         for scale in ['8k', '32k', '64k']:
             timeSleep = 0
             if scale == '64k':
@@ -32,7 +30,7 @@ if __name__ == '__main__':
             tc.testAll('gpt-4o-mini', # The model name saved in taskPath
                     k, # dataset
                     scale, # 8k, 16k, 32k, 64k, 128k
-                    True, # if use markdown
+                    False, # if use markdown
                     5, # dbLimit, 10 is ok
                     1, # sampleLimit, 1 is ok
                     10, # questionLimit, 10 is ok

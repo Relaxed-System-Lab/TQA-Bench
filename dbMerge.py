@@ -1,26 +1,95 @@
+from collections import defaultdict
 import sqlite3
 import argparse
+from typing import DefaultDict
 
-def merge(dst, src):
-    dstConn = sqlite3.connect(dst)
-    srcConn = sqlite3.connect(src)
-    dstCur = dstConn.cursor()
-    srcCur = srcConn.cursor()
-    srcCur.execute("SELECT name FROM sqlite_master WHERE type='table';")
-    tableNames = srcCur.fetchall()
-    if tableNames:
-        tableNames = [item[0] for item in tableNames]
-    else:
-        return False
-    srcCur.execute("SELECT sql FROM sqlite_master WHERE type='table';")
-    sqls = srcCur.fetchall()
-    if sqls:
-        sqls = [item[0] for item in sqls]
-    else:
-        return False
-    for s in sqls:
-        dstCur.execute(s)
-        dstConn.commit()
+import sys
+sys.path.append('.')
+from symDataloader.utils import TaskCore
+
+questionTypes = {
+    'row_match': [0, 5],
+    'item_select': [1, 6],
+    'count': [2, 7],
+    'average': [3, 8],
+    'sum': [4, 9],
+    # 'difference': [10, 11],
+    # 'correlation': [12, 13]
+}
+
+class ResultAnalysis:
+    tableNameQuery = "SELECT name FROM sqlite_master WHERE type='table';"
+    allRowsQueryTemplate = "SELECT * FROM {tn} WHERE message<>'';"
+    def __init__(self, dst):
+        self.conn = sqlite3.connect(dst)
+        self.cur = self.conn.cursor()
+
+    def mergeTables(self, src):
+        conn = sqlite3.connect(src)
+        cur = conn.cursor()
+        cur.execute(ResultAnalysis.tableNameQuery)
+        tableNames = cur.fetchall()
+        if tableNames:
+            tableNames = [item[0] for item in tableNames]
+        else:
+            return False
+        for tn in tableNames:
+            self.cur.execute(TaskCore.createresulttemplate.format(table_name=tn))
+            cur.execute(ResultAnalysis.allRowsQueryTemplate.format(tn=tn))
+            rows = cur.fetchall()
+            self.cur.executemany(TaskCore.inserttemplate.format(table_name=tn), rows)
+            self.conn.commit()
+        return True
+
+    @staticmethod
+    def removeEmptyMessage(dbp):
+        conn = sqlite3.connect(dbp)
+        cur = conn.cursor()
+        cur.execute(ResultAnalysis.tableNameQuery)
+        tableNames = cur.fetchall()
+        if tableNames:
+            tableNames = [item[0] for item in tableNames]
+        else:
+            return False
+        for tn in tableNames:
+            cur.execute("DELETE FROM {tn} WHERE message='';".format(tn=tn))
+            conn.commit()
+        return True
+
+    def count(self, dbLimit, questionLimit):
+        self.cur.execute(ResultAnalysis.tableNameQuery)
+        tableNames = self.cur.fetchall()
+        if tableNames:
+            tableNames = [item[0] for item in tableNames]
+        else:
+            return False
+
+        mergeInstructList = []
+        for tn in tableNames:
+            mergeInstructList.append("SELECT '{tn}', model, scale, markdown, dbIdx, sampleIdx, questionIdx, gt, pred, correct, error, message FROM {tn} WHERE message<>''".format(tn=tn))
+        mergeInstruct = ' UNION ALL '.join(mergeInstructList)
+        self.cur.execute("CREATE TEMP TABLE merged AS {mergeInstruct};".format(mergeInstruct=mergeInstruct))
+        self.conn.commit()
+        self.cur.execute("SELECT model, scale, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
+        FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} GROUP BY model, scale;"
+                         .format(dbLimit=dbLimit, questionLimit=questionLimit))
+        res = self.cur.fetchall()
+        print(res)
+        for k, v in questionTypes.items():
+            print(k)
+            self.cur.execute("SELECT model, scale, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
+            FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} AND questionIdx in ({qIdx}) GROUP BY model, scale;"
+                             .format(dbLimit=dbLimit, questionLimit=questionLimit, qIdx=", ".join([str(it) for it in v])))
+            res = self.cur.fetchall()
+            print(res)
+
+        # for tn in tableNames:
+        #     self.cur.execute("SELECT model, scale, SUM(correct), COUNT(correct) FROM {tn} WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} GROUP BY model, scale;".format(
+        #         tn=tn, dbLimit=dbLimit, questionLimit=questionLimit))
+        #     result = self.cur.fetchall()
+        #     print(tn)
+        #     print(result)
+
 
 
 if __name__ == '__main__':
@@ -28,5 +97,7 @@ if __name__ == '__main__':
     parser.add_argument('--dst', type=str, help='The destination sqlite to save all results.')
     parser.add_argument('--src', type=str, nargs='+', help='The list of result sqlite to combine.')
     args = parser.parse_args()
+    ra = ResultAnalysis(args.dst)
     for src in args.src:
-        merge(args.dst, src)
+        ra.mergeTables(src)
+    ra.count(dbLimit=5, questionLimit=10)
