@@ -41,7 +41,7 @@ dbn = st.selectbox('Select a dataset', dbNames)
 sc = st.selectbox('Select a scale', scale)
 dbIdx = st.selectbox('Select dbIdx', list(range(10)))
 sampleIdx = st.selectbox('Select sampleIdx', list(range(10)))
-questionIdx = st.selectbox('Select questionIdx', list(range(10)))
+questionIdx = st.selectbox('Select questionIdx', list(range(14)))
 
 item = dtst.fetchItem(dbn, sc, dbIdx, sampleIdx, questionIdx)
 

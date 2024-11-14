@@ -53,6 +53,7 @@ def gptCall(model,
     msg = None
     try:
         msg = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=bodies, proxies=proxies).json()
+        # msg = requests.post('https://api.openai.com/v1/chat/completions', headers=headers, json=bodies).json()
         msg = msg['choices'][0]['message']['content']
     except Exception as e:
         raise Exception(str(msg))
@@ -90,10 +91,12 @@ def countDFToken(df, markdown=False):
     return len(tkTool.encode(dfStr))
 
 if __name__ == '__main__':
-    dbp = 'dataset/sampleDB/movie/movie.sqlite'
-    logPath = 'dataset/log/tmp/'
-    db = DB(dbp)
-    dbStr = db.defaultSerialization(markdown=True)
-    prompt = f'Please summarize the important information in the following tables.\n\n{dbStr}'
-    res = gptCall('gpt-4o-mini', prompt, logPath=logPath)
+    # dbp = 'dataset/sampleDB/movie/movie.sqlite'
+    # logPath = 'dataset/log/tmp/'
+    # db = DB(dbp)
+    # dbStr = db.defaultSerialization(markdown=True)
+    # prompt = f'Please summarize the important information in the following tables.\n\n{dbStr}'
+    # res = gptCall('gpt-4o-mini', prompt, logPath=logPath)
+    # print(res)
+    res = gptCall('gpt-4o-mini', 'I love you.', 'adsfa', 'tmp')
     print(res)

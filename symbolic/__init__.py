@@ -81,6 +81,10 @@ def symLoad(symClass, dbp):
     ret.append(('count',) + sym.q7())
     ret.append(('average',) + sym.q8())
     ret.append(('sum',) + sym.q9())
+    ret.append(('difference',) + sym.q10())
+    ret.append(('difference',) + sym.q11())
+    ret.append(('correlation',) + sym.q12())
+    ret.append(('correlation',) + sym.q13())
     return ret
 
 class BenchmarkDB:

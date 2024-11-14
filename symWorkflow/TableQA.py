@@ -50,7 +50,7 @@ class TableQA:
     @staticmethod
     def singleGen(dbn, dbp):
         dbClass = dataDict[dbn]
-        rows = symLoad(dbClass, dbp)[:10]
+        rows = symLoad(dbClass, dbp)[:14]
         qaList = []
         for item in rows:
             if len(item) < 5:
@@ -79,7 +79,7 @@ class TableQA:
                     dbp = os.path.join(scaledDBRoot, dbIdx)
                     for sampleIdx in range(n):
                         qaList = TableQA.singleGen(dbn, dbp)
-                        for questionIdx in range(10):
+                        for questionIdx in range(14):
                             item = qaList[questionIdx]
                             self.cur.execute(primaryKeyCheck.format(table_name=dbn), (scale, idx, sampleIdx, questionIdx))
                             if self.cur.fetchone():
