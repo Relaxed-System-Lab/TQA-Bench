@@ -137,6 +137,7 @@ class TaskCore:
                     res = ''
                     try:
                         res = func(dbStr, question, choicesStr)
+                        print(f"{questionIdx}: partial response = {res[:100]}...")
                         pred = extractAnswer(res)
                         time.sleep(timeSleep)
                     except Exception as e:
