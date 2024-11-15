@@ -5,6 +5,10 @@ import sqlite3
 import sys
 sys.path.append('.')
 from benchmarkUtils.database import DB
+from benchmarkUtils.frontend import check_password
+
+if not check_password():
+    st.stop()
 
 dbRoot = 'symDataset/scaledDB'
 taskPath = 'symDataset/tasks/TableQA/dataset.sqlite'
