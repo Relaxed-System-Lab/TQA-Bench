@@ -6,6 +6,9 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import argparse
 from datetime import datetime
+# import warnings
+
+# warnings.filterwarnings('ignore')
 
 sys.path.append('..')
 from symDataloader.utils import TaskCore
@@ -66,27 +69,29 @@ def qaPrompt(dbStr, question, choices):
 def single_inference(dbStr, question, choices):
     prompt = qaPrompt(dbStr, question, choices)
     messages = [
-        {"role": "system", "content": "You are Qwen, created by Alibaba Cloud. You are a helpful assistant."},
+        {"role": "system", "content": "You are a helpful assistant."},
         {"role": "user", "content": prompt}
     ]
-    try:
-        text = tokenizer.apply_chat_template(
-            messages,
-            tokenize=False,
-            add_generation_prompt=True
-        )
-        model_inputs = tokenizer([text], return_tensors="pt").to('cuda')
-        with torch.no_grad():
-            generated_ids = model.generate(**model_inputs, max_new_tokens=3000)
-            generated_ids = [
-                output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-            ]
-        response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    except torch.cuda.OutOfMemoryError:
-        response = f"Out of memory error"
-        torch.cuda.empty_cache()
-    except Exception as e:
-        response = f"Unexpected error"
+    # try:
+    text = tokenizer.apply_chat_template(
+        messages,
+        tokenize=False,
+        add_generation_prompt=True
+    )
+    model_inputs = tokenizer([text], return_tensors="pt").to('cuda')
+    with torch.no_grad():
+        generated_ids = model.generate(**model_inputs, max_new_tokens=800)
+        generated_ids = [
+            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
+        ]
+    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+    # print(len(generated_ids[0]))
+    # except torch.cuda.OutOfMemoryError:
+    #     response = f"Out of memory error"
+    #     torch.cuda.empty_cache()
+    # except Exception as e:
+    #     print(e)
+    #     response = f"Unexpected error"
     return response
 
 if __name__ == '__main__':
@@ -112,10 +117,10 @@ if __name__ == '__main__':
             tc.testAll(args.model_name, # The model name saved in taskPath
                 dataset, # dataset
                 test_scale, # 8k, 16k, 32k, 64k
-                True, # if use markdown
+                False, # if use markdown
                 5, # dbLimit, 5 is ok
                 1, # sampleLimit, 1 is ok
-                10, # questionLimit, 14 is ok
+                14, # questionLimit, 14 is ok
                 single_inference)
     end_time = datetime.now()
     print('Duration: {}'.format(end_time - start_time))

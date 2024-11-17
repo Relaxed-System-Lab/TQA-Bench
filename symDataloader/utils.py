@@ -40,6 +40,11 @@ class TaskCore:
     where model = ? and scale = ? and markdown = ? and dbidx = ? and sampleidx = ? and questionidx = ?;
     """
 
+    deletetemplate = """
+    DELETE FROM {table_name}
+    WHERE message LIKE ?;
+    """
+
     inserttemplate = """
     insert or ignore into {table_name}
     (model, scale, markdown, dbidx, sampleidx, questionidx, gt, pred, correct, error, message)
@@ -109,6 +114,12 @@ class TaskCore:
         """
         self.resultCur.execute(TaskCore.primarykeycheck.format(table_name=dbn),
                                (model, scale, markdown, dbIdx, sampleIdx, questionIdx))
+        # row = self.resultCur.fetchone()
+        # if row is None:
+        #     return False
+        # elif "Out of memory error" in row[-1]:
+        #     return False
+        # return True
         if self.resultCur.fetchone():
             return True
         return False
@@ -117,6 +128,10 @@ class TaskCore:
         """
         func need to be a call function have 3 arguments -- dbStr, question, choicesStr
         """
+        formatted_query = TaskCore.deletetemplate.format(table_name=dbn)
+        # Execute the delete query with a wildcard match for the message
+        self.resultCur.execute(formatted_query, ('%Out of memory error%',))
+        self.resultConn.commit()
         for dbIdx in tqdm(range(dbLimit)):
             for sampleIdx in range(sampleLimit):
                 for questionIdx in range(questionLimit):
