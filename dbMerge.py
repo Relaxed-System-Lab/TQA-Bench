@@ -12,8 +12,8 @@ questionTypes = {
     'count': [2, 7],
     'average': [3, 8],
     'sum': [4, 9],
-    # 'difference': [10, 11],
-    # 'correlation': [12, 13]
+    'difference': [10, 11],
+    'correlation': [12, 13]
 }
 
 class ResultAnalysis:
@@ -106,8 +106,12 @@ if __name__ == '__main__':
     parser.add_argument('--dst', type=str, help='The destination sqlite to save all results.')
     parser.add_argument('--src', type=str, nargs='+', help='The list of result sqlite to combine.')
     args = parser.parse_args()
-    ra = ResultAnalysis(args.dst)
-    for src in args.src:
-        ra.mergeTables(src)
-    cnt = ra.count(dbLimit=5, questionLimit=10)
-    print(cnt)
+    if args.dst:
+        ra = ResultAnalysis(args.dst)
+        for src in args.src:
+            ra.mergeTables(src)
+    else:
+        for src in args.src:
+            ResultAnalysis.removeEmptyMessage(src)
+    # cnt = ra.count(dbLimit=5, questionLimit=10)
+    # print(cnt)

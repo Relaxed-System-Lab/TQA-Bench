@@ -140,6 +140,7 @@ class TaskCore:
                         pred = extractAnswer(res)
                         time.sleep(timeSleep)
                     except Exception as e:
+                        print(e)
                         error = str(e)
                     self.resultCur.execute(TaskCore.inserttemplate.format(table_name=dbn),
                                             (model, scale, markdown, dbIdx, sampleIdx,

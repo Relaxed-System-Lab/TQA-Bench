@@ -8,7 +8,7 @@ if not st.session_state.get("password_correct", False):
     st.switch_page('server.py')
 
 ra = ResultAnalysis('tmp.sqlite')
-tables = ra.count(5, 10)
+tables = ra.count(5, 14)
 
 if st.button('Update Data'):
     ra.mergeTables('symDataset/results/TableQA/result.sqlite')
