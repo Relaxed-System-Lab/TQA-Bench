@@ -3,6 +3,7 @@ import re
 import sqlite3
 import time
 from tqdm import tqdm
+import pandas as pd
 
 import sys
 sys.path.append('.')
@@ -113,6 +114,20 @@ class TaskCore:
             return True
         return False
 
+    @staticmethod
+    def tableLlamaSerialize(tbn:str, df:pd.DataFrame):
+        cols = df.columns.to_list()
+        colStr = '| '+' | '.join([str(it) for it in cols])+' |'
+        sz = len(df)
+        rows = []
+        for i in range(sz):
+            row = df.iloc[i].to_list()
+            row = [str(it) for it in row]
+            rows.append('| '+' | '.join(row)+' |')
+        rowsStr = ' [SEP] '.join(rows)
+        totalStr = f'[TLE] The table title is {tbn} . [TAB] {colStr} [SEP] {rowsStr}'
+        return totalStr
+
     def testAll(self, model, dbn, scale, markdown, dbLimit, sampleLimit, questionLimit, func, timeSleep=0):
         """
         func need to be a call function have 3 arguments -- dbStr, question, choicesStr
@@ -127,7 +142,14 @@ class TaskCore:
                         continue
                     dbp = os.path.join(self.dbRoot, scale, dbn, f'{dbIdx}.sqlite')
                     db = DB(dbp)
-                    dbStr = f'#{dbn}\n\n{db.defaultSerialization(markdown)}'
+                    dbStr = ''
+                    if markdown is None:
+                        dbStrList = []
+                        for tbn, df in db.tables:
+                            dbStrList.append(TaskCore.tableLlamaSerialize(tbn, df))
+                        dbStr = ' '.join(dbStrList)
+                    else:
+                        dbStr = f'#{dbn}\n\n{db.defaultSerialization(markdown)}'
                     choicesStr = TaskCore.generateChoices(item[-4:])
                     gt = TaskCore.getRightChoices(item[-5])
                     question = item[-6]
@@ -146,3 +168,9 @@ class TaskCore:
                                             (model, scale, markdown, dbIdx, sampleIdx,
                                             questionIdx, gt, pred, gt==pred, error, res))
                     self.resultConn.commit()
+
+if __name__ == '__main__':
+    data = {'A': [1, 2, 3], 'B': [4, 5, 6], 'C': [7, 8, 9]}
+    df = pd.DataFrame(data)
+    res = TaskCore.tableLlamaSerialize('tbn', df)
+    print(res)
