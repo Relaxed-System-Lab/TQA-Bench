@@ -11,7 +11,7 @@ ra = ResultAnalysis('tmp.sqlite')
 tables = ra.count(5, 14)
 
 if st.button('Update Data'):
-    ra.mergeTables('symDataset/results/TableQA/result.sqlite')
+    ra.mergeTables('symDataset/results/TableQA/4o.sqlite')
 
 if tables:
     for k, v in tables.items():

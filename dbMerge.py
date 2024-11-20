@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import argparse
 import pandas as pd
@@ -24,6 +25,12 @@ class ResultAnalysis:
         self.cur = self.conn.cursor()
 
     def mergeTables(self, src):
+        if os.path.isdir(src):
+            dbNames = [item for item in os.listdir(src) if item.endswith('.sqlite')]
+            for dbn in dbNames:
+                dbp = os.path.join(src, dbn)
+                self.mergeTables(dbp)
+            return True
         conn = sqlite3.connect(src)
         cur = conn.cursor()
         cur.execute(ResultAnalysis.tableNameQuery)
