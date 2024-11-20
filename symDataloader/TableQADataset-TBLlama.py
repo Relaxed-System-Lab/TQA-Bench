@@ -57,6 +57,19 @@ os.environ["HF_HOME"] = args.model_name_or_path
 os.environ["HF_HUB_CACHE"] = args.model_name_or_path
 os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda_visible
 
+PROMPT_DICT = {
+    "prompt_input": (
+        "Below is an instruction that describes a task, paired with an input that provides further context. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n{instruction}\n\n### Input:\n{input_seg}\n\n### Question:\n{question}\n\n### Response:"
+    ),
+    "prompt_no_input": (
+        "Below is an instruction that describes a task. "
+        "Write a response that appropriately completes the request.\n\n"
+        "### Instruction:\n{instruction}\n\n### Response:"
+    ),
+}
+
 test_scales = args.test_scales
 tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False, trust_remote_code=True)
 model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, device_map="auto", torch_dtype="auto", low_cpu_mem_usage=True, trust_remote_code=True).eval()
@@ -66,33 +79,28 @@ def qaPrompt(dbStr, question, choices):
     prompt = singlePrompt.format(question=totalQuestion)
     return prompt
 
+def generate_prompt(instruction, question, input_seg=None):
+  if input:
+    return PROMPT_DICT["prompt_input"].format(instruction=instruction, input_seg=input_seg, question=question)
+  else:
+    return PROMPT_DICT["prompt_no_input"].format(instruction=instruction)
+
 def single_inference(dbStr, question, choices):
-    prompt = qaPrompt(dbStr, question, choices)
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
-    # try:
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
+    instruction = "Please carefully analyze and answer the following single choice question step by step. This question has only one correct answer. Please break down the question, evaluate each option, and explain why it is correct or incorrect. Conclude with your final choice on a new line formatted as `Answer: A/B/C/D`."
+    prompt = generate_prompt(instruction, question+"\n\n"+choices, dbStr)     
+    inputs = tokenizer(prompt, return_tensors="pt").to('cuda')
+
+    output = model.generate(
+        **inputs,
+        max_new_tokens=1000,
+        temperature=0.6,
+        top_p=0.9,
+        use_cache=True
     )
-    model_inputs = tokenizer([text], return_tensors="pt").to('cuda')
-    with torch.no_grad():
-        generated_ids = model.generate(**model_inputs, max_new_tokens=800)
-        generated_ids = [
-            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-        ]
-    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    # print(len(generated_ids[0]))
-    # except torch.cuda.OutOfMemoryError:
-    #     response = f"Out of memory error"
-    #     torch.cuda.empty_cache()
-    # except Exception as e:
-    #     print(e)
-    #     response = f"Unexpected error"
-    return response
+    out = tokenizer.decode(output[0], skip_special_tokens=False, clean_up_tokenization_spaces=False)
+    out = out.split(prompt)[1].strip()
+
+    return out
 
 if __name__ == '__main__':
     dbRoot = '/app/TableBenchmark/symDataset/scaledDB' # path to extract symDataset.zip

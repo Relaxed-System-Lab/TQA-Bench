@@ -3,6 +3,7 @@ import sys
 import re
 import os
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers.generation.utils import GenerationConfig
 import torch
 import argparse
 from datetime import datetime
@@ -58,8 +59,16 @@ os.environ["HF_HUB_CACHE"] = args.model_name_or_path
 os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda_visible
 
 test_scales = args.test_scales
-tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, device_map="auto", torch_dtype="auto", low_cpu_mem_usage=True, trust_remote_code=True).eval()
+tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path,
+    revision="v2.0",
+    use_fast=False,
+    trust_remote_code=True)
+model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path,
+    revision="v2.0",
+    device_map="auto",
+    torch_dtype=torch.bfloat16,
+    trust_remote_code=True)
+model.generation_config = GenerationConfig.from_pretrained(args.model_name_or_path, revision="v2.0")
 
 def qaPrompt(dbStr, question, choices):
     totalQuestion = f'{dbStr}\n\n{question}\n\n{choices}'
@@ -68,23 +77,9 @@ def qaPrompt(dbStr, question, choices):
 
 def single_inference(dbStr, question, choices):
     prompt = qaPrompt(dbStr, question, choices)
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
+    messages = [{"role": "user", "content": prompt}]
     # try:
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
-    )
-    model_inputs = tokenizer([text], return_tensors="pt").to('cuda')
-    with torch.no_grad():
-        generated_ids = model.generate(**model_inputs, max_new_tokens=800)
-        generated_ids = [
-            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-        ]
-    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
+    response = model.chat(tokenizer, messages)
     # print(len(generated_ids[0]))
     # except torch.cuda.OutOfMemoryError:
     #     response = f"Out of memory error"

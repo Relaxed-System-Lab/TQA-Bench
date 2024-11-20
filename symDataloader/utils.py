@@ -5,6 +5,10 @@ import time
 from tqdm import tqdm
 
 import sys
+import json
+def append_into_jsonl_file(file_path, data_to_append):
+    with open(file_path, 'a', encoding='utf-8') as f:
+        f.write(json.dumps(data_to_append, ensure_ascii=False) + '\n')
 sys.path.append('.')
 from benchmarkUtils.database import DB
 
@@ -42,9 +46,9 @@ class TaskCore:
 
     deletetemplate = """
     DELETE FROM {table_name}
-    WHERE message LIKE ?;
+    WHERE message LIKE ? or error LIKE ?;
     """
-
+    
     inserttemplate = """
     insert or ignore into {table_name}
     (model, scale, markdown, dbidx, sampleidx, questionidx, gt, pred, correct, error, message)
@@ -114,12 +118,6 @@ class TaskCore:
         """
         self.resultCur.execute(TaskCore.primarykeycheck.format(table_name=dbn),
                                (model, scale, markdown, dbIdx, sampleIdx, questionIdx))
-        # row = self.resultCur.fetchone()
-        # if row is None:
-        #     return False
-        # elif "Out of memory error" in row[-1]:
-        #     return False
-        # return True
         if self.resultCur.fetchone():
             return True
         return False
@@ -130,7 +128,7 @@ class TaskCore:
         """
         formatted_query = TaskCore.deletetemplate.format(table_name=dbn)
         # Execute the delete query with a wildcard match for the message
-        self.resultCur.execute(formatted_query, ('%Out of memory error%',))
+        self.resultCur.execute(formatted_query, ('%CUDA out of memory%','%CUDA out of memory%'))
         self.resultConn.commit()
         for dbIdx in tqdm(range(dbLimit)):
             for sampleIdx in range(sampleLimit):
@@ -154,9 +152,13 @@ class TaskCore:
                         res = func(dbStr, question, choicesStr)
                         print(f"{questionIdx}: partial response = {res[:100]}...")
                         pred = extractAnswer(res)
-                        time.sleep(timeSleep)
                     except Exception as e:
                         error = str(e)
+                        print(error)
+                    # jsonl_data = {
+                    # "result": res,
+                    # }
+                    # append_into_jsonl_file('fred-result.jsonl', jsonl_data)
                     self.resultCur.execute(TaskCore.inserttemplate.format(table_name=dbn),
                                             (model, scale, markdown, dbIdx, sampleIdx,
                                             questionIdx, gt, pred, gt==pred, error, res))

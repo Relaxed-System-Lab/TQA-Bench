@@ -112,15 +112,13 @@ if __name__ == '__main__':
         'global_biodiversity'
     ]
     tc = TaskCore(dbRoot, taskPath, resultPath)
-    for dataset in data_lst:
-        for test_scale in test_scales:
-            tc.testAll(args.model_name, # The model name saved in taskPath
-                dataset, # dataset
-                test_scale, # 8k, 16k, 32k, 64k
-                True, # if use markdown
-                5, # dbLimit, 5 is ok
-                1, # sampleLimit, 1 is ok
-                14, # questionLimit, 14 is ok
-                single_inference)
+    tc.testAll(args.model_name, # The model name saved in taskPath
+        'airline', # dataset
+        '8k', # 8k, 16k, 32k, 64k
+        True, # if use markdown
+        10, # dbLimit, 5 is ok
+        10, # sampleLimit, 1 is ok
+        14, # questionLimit, 14 is ok
+        single_inference)
     end_time = datetime.now()
     print('Duration: {}'.format(end_time - start_time))

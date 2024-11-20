@@ -2,12 +2,11 @@ import random
 import sys
 import re
 import os
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from fastchat.model import load_model, get_conversation_template, add_model_args
 import torch
 import argparse
 from datetime import datetime
 # import warnings
-
 # warnings.filterwarnings('ignore')
 
 sys.path.append('..')
@@ -20,6 +19,11 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description=
         "Test with local inference")
+    add_model_args(parser)
+    parser.add_argument("--temperature", type=float, default=0.7)
+    parser.add_argument("--repetition_penalty", type=float, default=1.0)
+    parser.add_argument("--max-new-tokens", type=int, default=1024)
+    parser.add_argument("--debug", action="store_true")
     parser.add_argument(
         "--model_name_or_path",
         type=str,
@@ -56,43 +60,54 @@ os.environ["HF_DATASETS_CACHE"] = args.model_name_or_path
 os.environ["HF_HOME"] = args.model_name_or_path
 os.environ["HF_HUB_CACHE"] = args.model_name_or_path
 os.environ["CUDA_VISIBLE_DEVICES"] = args.cuda_visible
+# Reset default repetition penalty for T5 models.
+if "t5" in args.model_name_or_path and args.repetition_penalty == 1.0:
+    args.repetition_penalty = 1.2
 
 test_scales = args.test_scales
-tokenizer = AutoTokenizer.from_pretrained(args.model_name_or_path, use_fast=False, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(args.model_name_or_path, device_map="auto", torch_dtype="auto", low_cpu_mem_usage=True, trust_remote_code=True).eval()
+model, tokenizer = load_model(
+    args.model_name_or_path,
+    device='cuda',
+    num_gpus=3,
+    max_gpu_memory=args.max_gpu_memory,
+    load_8bit=False,
+    cpu_offloading=args.cpu_offloading,
+    revision=args.revision,
+    debug=args.debug,
+)
+model = model.bfloat16()
 
 def qaPrompt(dbStr, question, choices):
     totalQuestion = f'{dbStr}\n\n{question}\n\n{choices}'
     prompt = singlePrompt.format(question=totalQuestion)
     return prompt
 
+@torch.inference_mode()
 def single_inference(dbStr, question, choices):
-    prompt = qaPrompt(dbStr, question, choices)
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": prompt}
-    ]
-    # try:
-    text = tokenizer.apply_chat_template(
-        messages,
-        tokenize=False,
-        add_generation_prompt=True
+    msg = qaPrompt(dbStr, question, choices)
+    conv = get_conversation_template(args.model_name_or_path)
+    conv.append_message(conv.roles[0], msg)
+    conv.append_message(conv.roles[1], None)
+    prompt = conv.get_prompt()
+    # Run inference
+    inputs = tokenizer([prompt], return_tensors="pt").to('cuda')
+    output_ids = model.generate(
+        **inputs,
+        do_sample=True if args.temperature > 1e-5 else False,
+        temperature=args.temperature,
+        repetition_penalty=args.repetition_penalty,
+        max_new_tokens=args.max_new_tokens,
     )
-    model_inputs = tokenizer([text], return_tensors="pt").to('cuda')
-    with torch.no_grad():
-        generated_ids = model.generate(**model_inputs, max_new_tokens=800)
-        generated_ids = [
-            output_ids[len(input_ids):] for input_ids, output_ids in zip(model_inputs.input_ids, generated_ids)
-        ]
-    response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
-    # print(len(generated_ids[0]))
-    # except torch.cuda.OutOfMemoryError:
-    #     response = f"Out of memory error"
-    #     torch.cuda.empty_cache()
-    # except Exception as e:
-    #     print(e)
-    #     response = f"Unexpected error"
-    return response
+
+    if model.config.is_encoder_decoder:
+        output_ids = output_ids[0]
+    else:
+        output_ids = output_ids[0][len(inputs["input_ids"][0]) :]
+    outputs = tokenizer.decode(
+        output_ids, skip_special_tokens=True, spaces_between_special_tokens=False
+    )
+
+    return outputs
 
 if __name__ == '__main__':
     dbRoot = '/app/TableBenchmark/symDataset/scaledDB' # path to extract symDataset.zip
