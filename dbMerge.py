@@ -79,32 +79,22 @@ class ResultAnalysis:
 
         dfs = {}
         tab = pd.read_sql("SELECT markdown, model, scale, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
-        FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} GROUP BY model, scale, markdown ORDER BY markdown, model, CAST(REPLACE(scale, 'k', '') AS INTEGER);"
+        FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND sampleIdx=0 AND questionIdx<{questionLimit} GROUP BY model, scale, markdown ORDER BY markdown, model, CAST(REPLACE(scale, 'k', '') AS INTEGER);"
                          .format(dbLimit=dbLimit, questionLimit=questionLimit), self.conn)
         dfs['overview'] = tab
-        # self.cur.execute("SELECT model, scale, markdown, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
-        # FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} GROUP BY model, scale, markdown ORDER BY markdown, scale, model;"
-        #                  .format(dbLimit=dbLimit, questionLimit=questionLimit))
-        # res = self.cur.fetchall()
-        # print(res)
+
         for k, v in questionTypes.items():
             tab = pd.read_sql("SELECT markdown, model, scale, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
-            FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} AND questionIdx in ({qIdx}) GROUP BY model, scale, markdown ORDER BY markdown, model, CAST(REPLACE(scale, 'k', '') AS INTEGER);"
+            FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND sampleIdx=0 AND questionIdx<{questionLimit} AND questionIdx in ({qIdx}) GROUP BY model, scale, markdown ORDER BY markdown, model, CAST(REPLACE(scale, 'k', '') AS INTEGER);"
                              .format(dbLimit=dbLimit, questionLimit=questionLimit, qIdx=", ".join([str(it) for it in v])), self.conn)
             dfs[k] = tab
-            # self.cur.execute("SELECT model, scale, markdown, SUM(correct), COUNT(correct), SUM(correct) * 1.0 / COUNT(correct) \
-            # FROM merged WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} AND questionIdx in ({qIdx}) GROUP BY model, scale, markdown ORDER BY markdown, scale, model;"
-            #                  .format(dbLimit=dbLimit, questionLimit=questionLimit, qIdx=", ".join([str(it) for it in v])))
-            # res = self.cur.fetchall()
-            # print(res)
 
-        # for tn in tableNames:
-        #     self.cur.execute("SELECT model, scale, SUM(correct), COUNT(correct) FROM {tn} WHERE message<>'' AND dbIdx<{dbLimit} AND questionIdx<{questionLimit} GROUP BY model, scale;".format(
-        #         tn=tn, dbLimit=dbLimit, questionLimit=questionLimit))
-        #     result = self.cur.fetchall()
-        #     print(tn)
-        #     print(result)
         return dfs
+
+    def latexTableGen(self, dbLimit, questionLimit):
+        dfs = self.count(dbLimit, questionLimit)
+        for k, v in dbs.items():
+            pass
 
 
 

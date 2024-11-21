@@ -22,26 +22,28 @@ if __name__ == '__main__':
     taskPath = 'symDataset/tasks/TableQA/dataset.sqlite' # TableQA's dataset.sqlite
     resultPath = 'symDataset/results/TableQA/result.sqlite' # result sqlite
     tc = TaskCore(dbRoot, taskPath, resultPath)
-    for k in dataDict.keys():
-        for scale in ['8k', '16k', '32k', '64k']:
+    # for k in dataDict.keys():
+    for k in ['airline']:
+        # for scale in ['8k', '16k', '32k', '64k']:
+        for scale in ['8k']:
             timeSleep = 0
             if scale == '64k':
                 timeSleep = 30
-            tc.testAll('gpt-4o-mini', # The model name saved in taskPath
-                    k, # dataset
-                    scale, # 8k, 16k, 32k, 64k, 128k
-                    False, # if use markdown
-                    5, # dbLimit, 10 is ok
-                    1, # sampleLimit, 1 is ok
-                    14, # questionLimit, 14 is ok
-                    gpt4ominiCall,
-                    timeSleep)
+            # tc.testAll('gpt-4o-mini', # The model name saved in taskPath
+            #         k, # dataset
+            #         scale, # 8k, 16k, 32k, 64k, 128k
+            #         False, # if use markdown
+            #         5, # dbLimit, 10 is ok
+            #         1, # sampleLimit, 1 is ok
+            #         14, # questionLimit, 14 is ok
+            #         gpt4ominiCall,
+            #         timeSleep)
             tc.testAll('gpt-4o-mini', # The model name saved in taskPath
                     k, # dataset
                     scale, # 8k, 16k, 32k, 64k, 128k
                     True, # if use markdown
-                    5, # dbLimit, 10 is ok
-                    1, # sampleLimit, 1 is ok
+                    10, # dbLimit, 10 is ok
+                    10, # sampleLimit, 1 is ok
                     14, # questionLimit, 14 is ok
                     gpt4ominiCall,
                     timeSleep)

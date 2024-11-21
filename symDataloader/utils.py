@@ -145,7 +145,7 @@ class TaskCore:
                     dbStr = ''
                     if markdown is None:
                         dbStrList = []
-                        for tbn, df in db.tables:
+                        for tbn, df in db.tables.items():
                             dbStrList.append(TaskCore.tableLlamaSerialize(tbn, df))
                         dbStr = ' '.join(dbStrList)
                     else:
