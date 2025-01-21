@@ -23,7 +23,7 @@ if __name__ == '__main__':
     resultPath = 'symDataset/results/TableQA/4o.sqlite' # result sqlite
     tc = TaskCore(dbRoot, taskPath, resultPath)
     for k in dataDict.keys():
-        for scale in ['8k', '16k', '32k']:
+        for scale in ['8k', '16k', '32k', '64k']:
             timeSleep = 0
             if scale == '16k':
                 timeSleep = 30

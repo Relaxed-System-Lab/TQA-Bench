@@ -65,10 +65,14 @@ class TableQA:
             })
         return qaList
 
-    def qaGen(self, n):
-        for dbn in dataDict.keys():
+    def qaGen(self, n, dataList=None, scaleList=None):
+        if dataList is None:
+            dataList = dataDict.keys()
+        if scaleList is None:
+            scaleList = scaleDict.keys()
+        for dbn in dataList:
             self.cur.execute(createDatasetTemplate.format(table_name=dbn))
-            for scale in scaleDict.keys():
+            for scale in scaleList:
                 scaledDBRoot = os.path.join(self.dbRoot, scale, dbn)
                 dbNames = os.listdir(scaledDBRoot)
                 for dbIdx in dbNames:
@@ -113,6 +117,7 @@ class TableQA:
 
 if __name__ == '__main__':
     tqa = TableQA('symDataset/scaledDB', 'symDataset/tasks/TableQA')
+    # tqa.qaGen(10, ['airline'], ['8k'])
     tqa.qaGen(10)
     # taskRoot = 'symDataset/tasks/TableQA'
     # dbp = os.path.join(taskRoot, 'dataset.sqlite')

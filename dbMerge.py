@@ -11,8 +11,8 @@ questionTypes = {
     'row_match': [0, 5],
     'item_select': [1, 6],
     'count': [2, 7],
-    'average': [3, 8],
     'sum': [4, 9],
+    'average': [3, 8],
     'difference': [10, 11],
     'correlation': [12, 13]
 }
@@ -93,8 +93,104 @@ class ResultAnalysis:
 
     def latexTableGen(self, dbLimit, questionLimit):
         dfs = self.count(dbLimit, questionLimit)
-        for k, v in dbs.items():
-            pass
+        if dfs == False:
+            return False
+        modelList = dfs['overview']['model'].unique().tolist()
+        modelList.sort()
+        print(modelList)
+        print(len(modelList))
+        modelList = 'glm-4-9b-chat DeepSeek-V2-Lite-Chat Baichuan2-7B-Chat Baichuan2-13B-Chat vicuna-7b-v1.5-16k vicuna-13b-v1.5-16k Mistral-7B-Instruct Mistral-Nemo-Instruct Llama3.1-8B-Instruct Llama-3.1-70B-Instruct Qwen2.5-3B-Instruct Qwen2.5-7B-Instruct Qwen2.5-Coder-7B-Instruct Qwen2.5-14B-Instruct Qwen2.5-72B-Instruct gemma-2-2b-it gemma-2-9b-it gemma-2-27b-it TableGPT2-7B TableLlama gpt-4o-mini gpt-4o'.split()
+        modelNames = 'GLM-4-9B-Chat DeepSeek-V2-Lite-Chat Baichuan2-7B-Chat Baichuan2-13B-Chat Vicuna-7B-V1.5-16K Vicuna-13B-V1.5-16K Mistral-7B-Instruct Mistral-Nemo-Instruct Llama3.1-8B-Instruct Llama3.1-70B-Instruct Qwen2.5-3B-Instruct Qwen2.5-7B-Instruct Qwen2.5-Coder-7B-Instruct Qwen2.5-14B-Instruct Qwen2.5-72B-Instruct Gemma2-2B-It Gemma2-9B-It Gemma2-27B-It TableGPT2-7B TableLlama GPT-4o-mini GPT-4o'.split()
+        print(len(modelList))
+        qt = list(questionTypes.keys()) + ['overview']
+
+        print('#---8k,16k---#')
+        ovo = {}
+        for idx in range(len(modelList)):
+            model = modelList[idx]
+            vals = []
+            ovo[model] = []
+            for sc in ['8k', '16k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 1)]
+                    if len(row) == 0:
+                        vals.append('OOC')
+                    else:
+                        if q == 'overview':
+                            ovo[model].append(row.iloc[0].tolist()[-1] * 100)
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            lineStr = f'{modelNames[idx]} & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+        print('#---32k,64k---#')
+        for idx in range(len(modelList)):
+            model = modelList[idx]
+            vals = []
+            for sc in ['32k', '64k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 1)]
+                    if len(row) == 0:
+                        vals.append('OOC')
+                    else:
+                        if q == 'overview':
+                            ovo[model].append(row.iloc[0].tolist()[-1] * 100)
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            scAvg = '%.2f' % (sum(ovo[model]) / len(ovo[model]))
+            lineStr = f'{modelNames[idx]} & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+
+        mdModels = ['gpt-4o', 'gpt-4o-mini', 'Qwen2.5-7B-Instruct', 'Qwen2.5-Coder-7B-Instruct', 'Llama3.1-8B-Instruct']
+        print('#---8k,16k---#')
+        for model in mdModels:
+            vals = []
+            for sc in ['8k', '16k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 1)]
+                    if len(row) == 0:
+                        vals.append('-')
+                    else:
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            lineStr = f'{model} & MD & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+            vals = []
+            for sc in ['8k', '16k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 0)]
+                    if len(row) == 0:
+                        vals.append('-')
+                    else:
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            lineStr = f'{model} & CSV & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+            print('\\hline')
+        print('#---32k,64k---#')
+        for model in mdModels:
+            vals = []
+            for sc in ['32k', '64k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 1)]
+                    if len(row) == 0:
+                        vals.append('-')
+                    else:
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            lineStr = f'{model} & MD & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+            vals = []
+            for sc in ['32k', '64k']:
+                for q in qt:
+                    tab = dfs[q]
+                    row = tab[(tab['model'] == model) & (tab['scale'] == sc) & (tab['markdown'] == 0)]
+                    if len(row) == 0:
+                        vals.append('-')
+                    else:
+                        vals.append('%.2f' % (row.iloc[0].tolist()[-1] * 100))
+            lineStr = f'{model} & CSV & '+ ' & '.join(vals) + ' \\\\'
+            print(lineStr)
+            print('\\hline')
 
 
 
@@ -107,8 +203,11 @@ if __name__ == '__main__':
         ra = ResultAnalysis(args.dst)
         for src in args.src:
             ra.mergeTables(src)
-    else:
+    elif args.src:
         for src in args.src:
             ResultAnalysis.removeEmptyMessage(src)
+    else:
+        ra = ResultAnalysis('tmp.sqlite')
+        ra.latexTableGen(5, 14)
     # cnt = ra.count(dbLimit=5, questionLimit=10)
     # print(cnt)

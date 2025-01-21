@@ -18,10 +18,13 @@ if __name__ == '__main__':
         sz = len(db.tables)
         colCnt = 0
         rowCnt = 0
+        totCells = 0
         for k, v in db.tables.items():
             colCnt += len(v.columns)
             rowCnt += len(v)
-        print(' & '.join([dbn, str(sz), "{:.2f}".format(colCnt / sz), "{:.2f}".format(rowCnt / sz)]) + ' \\\\')
+            totCells += len(v.columns) * len(v)
+        print(' & '.join([dbn, ' ', str(sz), "{:.2f}".format(colCnt / sz), "{:.2f}".format(rowCnt / sz), str(totCells)]) + ' \\\\')
+        print(totCells)
         totSz += sz
         totCol += colCnt
         totRow += rowCnt
