@@ -48,10 +48,12 @@ def joinTables(dbp):
 
     fullTables = {}
     for tn in rootTables:
-        try:
-            fullTables[tn] = DF2List(dfs(tn, tables, foreignKeys))
-        except:
-            pass
+        fullTables[tn] = DF2List(dfs(tn, tables, foreignKeys))
+        # try:
+        #     fullTables[tn] = DF2List(dfs(tn, tables, foreignKeys))
+        # except Exception as e:
+        #     print(e)
+        #     pass
 
     return fullTables
 

@@ -29,6 +29,33 @@ class Airline:
         self.Airports = self.tables['Airports']
         self.Airlines = self.tables['Airlines']
 
+        mergedDF = pd.merge(left=self.Airlines, right=self.Air_Carriers, how='left', left_on='OP_CARRIER_AIRLINE_ID', right_on='Code')
+        mergedDF = mergedDF.drop('Code', axis=1)
+        mergedDF = mergedDF.rename(columns={'Description': 'OP_CARRIER_AIRLINE_ID_Description'})
+        mergedDF = pd.merge(left=mergedDF, right=self.Airports, how='left', left_on='ORIGIN', right_on='Code')
+        mergedDF = mergedDF.drop('Code', axis=1)
+        mergedDF = mergedDF.rename(columns={'Description': 'ORIGIN_Description'})
+        mergedDF = pd.merge(left=mergedDF, right=self.Airports, how='left', left_on='DEST', right_on='Code')
+        mergedDF = mergedDF.drop('Code', axis=1)
+        mergedDF = mergedDF.rename(columns={'Description': 'DEST_Description'})
+
+        self.singleTables = [
+            self.Airports.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            self.Air_Carriers.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            mergedDF.copy(),
+            self.Airlines.copy()
+        ]
+
     def q0(self):
         template = 'What is the description of airport {Code}?'
         row = self.Airports.sample(1)
