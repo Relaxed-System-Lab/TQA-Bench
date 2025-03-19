@@ -4,23 +4,43 @@ import sqlite3
 from symbolic import dataDict
 from symDataloader.TableQADataset import qaPrompt
 from benchmarkUtils.database import DB
-from symDataloader.utils import TaskCore
+from symDataloader.utils import TaskCore, extractAnswer
 import simplejson as json
 
+import sys
 
-def genBatch():
-    conn = sqlite3.connect('symDataset/tasks/TableQA/dataset.sqlite')
+sys.path.append(".")
+
+
+def genBatch(model, fileName):
+    conn = sqlite3.connect("symDataset/tasks/TableQA/dataset.sqlite")
     cur = conn.cursor()
     # jslf = open('symDataset/tasks/TableQA/batch.jsonl')
-    jslf = open('tmp.jsonl', 'w')
+    jslf = open(fileName, "w")
 
     for dbn in dataDict.keys():
-        cur.execute("SELECT * FROM {dbn} WHERE dbIdx<5 AND sampleIdx=1 AND questionIdx<13 AND scale in ('64k');".format(dbn=dbn))
+        cur.execute(
+            "SELECT * FROM {dbn} WHERE dbIdx<5 AND sampleIdx=0 AND questionIdx<14 AND scale in ('64k', '32k', '16k', '8k');".format(
+                dbn=dbn
+            )
+        )
         rows = cur.fetchall()
         for r in rows:
-            scale, dbIdx, sampleIdx, questionIdx, qtype, question, rightIdx, A, B, C, D = r
+            (
+                scale,
+                dbIdx,
+                sampleIdx,
+                questionIdx,
+                qtype,
+                question,
+                rightIdx,
+                A,
+                B,
+                C,
+                D,
+            ) = r
             choices = TaskCore.generateChoices([A, B, C, D])
-            dbp = os.path.join('symDataset/scaledDB', scale, dbn, f'{dbIdx}.sqlite')
+            dbp = os.path.join("symDataset/scaledDB", scale, dbn, f"{dbIdx}.sqlite")
             db = DB(dbp)
 
             # insert markdown
@@ -31,58 +51,126 @@ def genBatch():
                 "method": "POST",
                 "url": "/v1/chat/completions",
                 "body": {
-                    "model": "gpt-4o",
-                    "messages":
-                    [{"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": prompt}],
-                }
+                    "model": model,
+                    "messages": [
+                        {"role": "system", "content": "You are a helpful assistant."},
+                        {"role": "user", "content": prompt},
+                    ],
+                },
             }
-            jslf.write(json.dumps(dic) + '\n')
+            jslf.write(json.dumps(dic) + "\n")
 
             # insert csv
-            dbStr = db.defaultSerialization(False)
-            prompt = qaPrompt(dbStr, question, choices)
-            dic = {
-                "custom_id": f"{0}-{dbn}-{scale}-{dbIdx}-{sampleIdx}-{questionIdx}-{rightIdx}",
-                "method": "POST",
-                "url": "/v1/chat/completions",
-                "body": {
-                    "model": "gpt-4o",
-                    "messages":
-                    [{"role": "system", "content": "You are a helpful assistant."},
-                    {"role": "user", "content": prompt}],
-                }
-            }
-            jslf.write(json.dumps(dic) + '\n')
+            # dbStr = db.defaultSerialization(False)
+            # prompt = qaPrompt(dbStr, question, choices)
+            # dic = {
+            #     "custom_id": f"{0}-{dbn}-{scale}-{dbIdx}-{sampleIdx}-{questionIdx}-{rightIdx}",
+            #     "method": "POST",
+            #     "url": "/v1/chat/completions",
+            #     "body": {
+            #         "model": "gpt-4o",
+            #         "messages": [
+            #             {"role": "system", "content": "You are a helpful assistant."},
+            #             {"role": "user", "content": prompt},
+            #         ],
+            #     },
+            # }
+            # jslf.write(json.dumps(dic) + "\n")
 
     jslf.close()
 
+
 # file-SKLROSW6w5TKTdqPMyJBQxSI
-def batchTest():
-    client = OpenAI()
-    batch_input_file = client.files.create(
-        file=open("tmp.jsonl", "rb"),
-        purpose="batch"
-        )
+def batchTest(filePath):
+    print(filePath, "batch starting...")
+    client = OpenAI(
+        api_key=os.getenv("DASHSCOPE_API_KEY"),
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 百炼服务的base_url
+    )
+    batch_input_file = client.files.create(file=open(filePath, "rb"), purpose="batch")
     batch_input_file_id = batch_input_file.id
     print(batch_input_file_id)
 
-    client.batches.create(
+    batch = client.batches.create(
         input_file_id=batch_input_file_id,
         endpoint="/v1/chat/completions",
         completion_window="24h",
-        metadata={
-        "description": "gpt-4o 64k first 13 questions."
-        }
+        metadata={"description": "all questions."},
     )
+    print(batch.id)
+
 
 # batch_67373224f9f48190b9a145820c87006e
 def statusCheck(batch_id):
-    client = OpenAI()
+    client = OpenAI(
+        api_key=os.getenv("DASHSCOPE_API_KEY"),
+        base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",  # 百炼服务的base_url
+    )
     res = client.batches.retrieve(batch_id)
-    print(res)
+    err_content = client.files.content(res.error_file_id)
+    err_content.write_to_file("tmp-error.jsonl")
+    op_content = client.files.content(res.output_file_id)
+    op_content.write_to_file("tmp-op.jsonl")
 
 
-if __name__ == '__main__':
-    # batchTest()
-    statusCheck('batch_67373224f9f48190b9a145820c87006e')
+def stripInfo(text):
+    # {1}-{dbn}-{scale}-{dbIdx}-{sampleIdx}-{questionIdx}-{rightIdx}
+    _, dbn, scale, dbIdx, sampleIdx, questionIdx, rightIdx = text.split("-")
+    return dbn, scale, dbIdx, sampleIdx, questionIdx, rightIdx
+
+
+def resultWrite(jsonlFile, model, dstDBP):
+    tc = TaskCore("", "./symDataset/tasks/TableQA/dataset.sqlite", dstDBP)
+    markdown = True
+    choices = "A B C D".split()
+    error = ""
+    with open(jsonlFile, "r") as jsl:
+        for l in jsl:
+            dic = json.loads(l)
+            res = dic["response"]["body"]["choices"][0]["message"]["content"]
+            pred = extractAnswer(res)
+            lName = dic["custom_id"]
+            dbn, scale, dbIdx, sampleIdx, questionIdx, rightIdx = stripInfo(lName)
+            dbIdx = int(dbIdx)
+            sampleIdx = int(sampleIdx)
+            questionIdx = int(questionIdx)
+            rightIdx = int(rightIdx)
+            gt = choices[rightIdx]
+            tc.resultCur.execute(
+                TaskCore.inserttemplate.format(table_name=dbn),
+                (
+                    model,
+                    scale,
+                    markdown,
+                    dbIdx,
+                    sampleIdx,
+                    questionIdx,
+                    gt,
+                    pred,
+                    gt == pred,
+                    error,
+                    res,
+                ),
+            )
+            tc.resultConn.commit()
+
+
+if __name__ == "__main__":
+    model = "deepseek-r1"
+    filePath = f"tmp-{model}-multi.jsonl"
+    genBatch(model, filePath)
+    batchTest(filePath)
+    # batchTest("./tmp-deepseek-r1.jsonl")
+    # batchTest("./tmp-qwq-32b-preview.jsonl")
+    # hashValue = "batch_7213bef5-8281-4057-95cb-8721f2e83308"
+    # statusCheck(hashValue)
+    # resultWrite(
+    #     "./tmp-ds-result0.jsonl",
+    #     "deepseek-r1",
+    #     "./symDataset/results/TableQA/ds-result.sqlite",
+    # )
+    # resultWrite(
+    #     "./tmp-qwq-result.jsonl",
+    #     "qwq-32b-preview",
+    #     "./symDataset/results/TableQA/qwq-result.sqlite",
+    # )

@@ -94,7 +94,7 @@ def qaPrompt(dbStr, question, choices):
 
 def gpt4oCall(dbStr, question, choices):
     prompt = qaPrompt(dbStr, question, choices)
-    return gptCall('gpt-4o', prompt, 'tmp', 'symDataset/results/TableQA/log')
+    return gptCall('gpt-4o-mini', prompt, 'tmp', 'symDataset/results/TableQA/log')
 
 def resultAcc(dbp, cond=''):
     accStr = 'select sum(correct)*1.0/count(*) from airline;'
@@ -131,11 +131,11 @@ if __name__ == '__main__':
     dbRoot = 'symDataset/scaledDB' # path to extract symDataset.zip
     taskPath = 'symDataset/tasks/TableQA/dataset.sqlite' # TableQA's dataset.sqlite
     resultPath = 'symDataset/results/TableQA/singleTask.sqlite' # result sqlite
-    # stc = SinleTaskCore(dbRoot, taskPath, resultPath)
-    # stc.testAll('gpt-4o', 'airline', '8k', True, 10, 1, 14, gpt4oCall)
+    stc = SinleTaskCore(dbRoot, taskPath, resultPath)
+    stc.testAll('gpt-4o-mini', 'airline', '8k', True, 10, 10, 14, gpt4oCall)
     # resultAcc(resultPath, "scale='8k' and markdown=1 and sampleIdx=0 and dbidx < 5")
 
     multiPath = 'tmp.sqlite' # result sqlite
     # model|scale|markdown|dbidx|sampleidx|questionidx|gt|pred|correct|error|message
-    compResult(resultPath, multiPath, 'gpt-4o-mini', 5, 1, 14)
-    compResult(resultPath, multiPath, 'gpt-4o', 5, 1, 14)
+    # compResult(resultPath, multiPath, 'gpt-4o-mini', 5, 1, 14)
+    # compResult(resultPath, multiPath, 'gpt-4o', 5, 1, 14)
