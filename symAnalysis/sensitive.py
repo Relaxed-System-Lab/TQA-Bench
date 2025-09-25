@@ -8,17 +8,13 @@ if __name__ == "__main__":
     savePath = "symDataset/charts/"
     os.makedirs(savePath, exist_ok=True)
     plt.style.use("ggplot")
-    modelList = (
-        "glm-4-9b-chat Qwen2.5-7B-Instruct Llama3.1-8B-Instruct gpt-4o-mini".split()
-    )
-    nameList = (
-        "GLM-4-9B-Chat Qwen2.5-7B-Instruct Llama3.1-8B-Instruct GPT-4o-mini".split()
-    )
-    avgs = [0.3343, 0.4986, 0.4657, 0.6086]
+    modelList = "glm-4-9b-chat Qwen2.5-7B-Instruct Llama3.1-8B-Instruct gpt-4o-mini deepseek-r1".split()
+    nameList = "GLM-4-9B-Chat Qwen2.5-7B-Instruct Llama3.1-8B-Instruct GPT-4o-mini DeepSeek-R1".split()
+    avgs = [0.3343, 0.4986, 0.4657, 0.6086, 0.9438]
     msz = len(modelList)
     conn = sqlite3.connect("tmp.sqlite")
     cur = conn.cursor()
-    fig, axes = plt.subplots(2, msz, figsize=(18, 9))
+    fig, axes = plt.subplots(2, msz, figsize=(18, 5.5), height_ratios=[2, 1])
 
     hms = []
     for idx in range(msz):
@@ -44,7 +40,7 @@ if __name__ == "__main__":
         print(avgVal)
         ims = axes[0][idx].imshow(grid, cmap="viridis", vmin=0, vmax=1)
         hms.append(ims)
-        axes[0][idx].set_title(nameList[idx])
+        axes[0][idx].set_title(nameList[idx], fontsize=18)
         axes[0][idx].grid(False)
         if idx == 0:
             axes[0][idx].set_xlabel("database instance index")
@@ -67,4 +63,7 @@ if __name__ == "__main__":
         hms[0], ax=axes, orientation="vertical", fraction=0.02, pad=0.04
     )
     cbar.set_label("Accuracy")
-    plt.savefig(os.path.join(savePath, "sensitive.pdf"), bbox_inches="tight")
+    plt.savefig(
+        os.path.join(savePath, "sensitive-new-resize1.pdf"), bbox_inches="tight"
+    )
+    plt.show()

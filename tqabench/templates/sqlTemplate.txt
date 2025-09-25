@@ -1,0 +1,7 @@
+Please carefully analyze and translate the following natural-language request into a SQL query step by step.
+
+{question}
+
+This task requires generating a valid SQL statement. Please break down the request into its logical components—identify the relevant tables and columns, determine any filtering or join conditions—explaining your reasoning as you go. Conclude with your final SQL on a new line, enclosed within `<sql>` and `</sql>` tags:
+
+<sql> -- your query </sql>

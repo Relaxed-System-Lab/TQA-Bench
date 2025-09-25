@@ -155,22 +155,87 @@ def resultWrite(jsonlFile, model, dstDBP):
             tc.resultConn.commit()
 
 
+def singleMultiGen(model, fileName, single=True):
+    conn = sqlite3.connect("symDataset/tasks/TableQA/dataset.sqlite")
+    cur = conn.cursor()
+    jslf = open(fileName, "w")
+
+    dbn = "airline"
+    cur.execute(
+        "SELECT * FROM {dbn} WHERE dbIdx<10 AND sampleIdx<10 AND questionIdx<14 AND scale in ('8k');".format(
+            dbn=dbn
+        )
+    )
+    rows = cur.fetchall()
+    for r in rows:
+        (
+            scale,
+            dbIdx,
+            sampleIdx,
+            questionIdx,
+            qtype,
+            question,
+            rightIdx,
+            A,
+            B,
+            C,
+            D,
+        ) = r
+        choices = TaskCore.generateChoices([A, B, C, D])
+        dbp = os.path.join("symDataset/scaledDB", scale, dbn, f"{dbIdx}.sqlite")
+
+        if single:
+            db = dataDict[dbn](dbp).singleTables[questionIdx]
+            dbStr = db.to_markdown()
+        else:
+            db = DB(dbp)
+            dbStr = db.defaultSerialization(True)
+
+        prompt = qaPrompt(dbStr, question, choices)
+        prefixIdx = 1 if single else 0
+        dic = {
+            "custom_id": f"{prefixIdx}-{dbn}-{scale}-{dbIdx}-{sampleIdx}-{questionIdx}-{rightIdx}",
+            "method": "POST",
+            "url": "/v1/chat/completions",
+            "body": {
+                "model": model,
+                "messages": [
+                    {"role": "system", "content": "You are a helpful assistant."},
+                    {"role": "user", "content": prompt},
+                ],
+            },
+        }
+        jslf.write(json.dumps(dic) + "\n")
+
+    jslf.close()
+
+
+def accTest(filePath):
+    choices = "A B C D".split()
+    accList = []
+    with open(filePath, "r") as jsl:
+        for l in jsl:
+            dic = json.loads(l)
+            res = dic["response"]["body"]["choices"][0]["message"]["content"]
+            pred = extractAnswer(res)
+            lName = dic["custom_id"]
+            dbn, scale, dbIdx, sampleIdx, questionIdx, rightIdx = stripInfo(lName)
+
+            rightIdx = int(rightIdx)
+            gt = choices[rightIdx]
+            accList.append(1 if gt == pred else 0)
+    print(filePath, sum(accList) / len(accList))
+
+
 if __name__ == "__main__":
-    model = "deepseek-r1"
-    filePath = f"tmp-{model}-multi.jsonl"
-    genBatch(model, filePath)
-    batchTest(filePath)
-    # batchTest("./tmp-deepseek-r1.jsonl")
-    # batchTest("./tmp-qwq-32b-preview.jsonl")
-    # hashValue = "batch_7213bef5-8281-4057-95cb-8721f2e83308"
-    # statusCheck(hashValue)
-    # resultWrite(
-    #     "./tmp-ds-result0.jsonl",
-    #     "deepseek-r1",
-    #     "./symDataset/results/TableQA/ds-result.sqlite",
-    # )
-    # resultWrite(
-    #     "./tmp-qwq-result.jsonl",
-    #     "qwq-32b-preview",
-    #     "./symDataset/results/TableQA/qwq-result.sqlite",
-    # )
+    # model = "deepseek-r1"
+    # filePath = f"tmp-{model}-multi-result.jsonl"
+    # accTest(filePath)
+    # filePath = f"tmp-{model}-single-result.jsonl"
+    # accTest(filePath)
+    # batchTest(filePath)
+    resultWrite(
+        "./tmp-deepseek-r1-multi-result.jsonl",
+        "deepseek-r1",
+        "./symDataset/results/TableQA/ds-r1-multi-result.sqlite",
+    )

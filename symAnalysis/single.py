@@ -50,31 +50,31 @@ if __name__ == "__main__":
             totVals[x * 10 + y] = val
         print(model)
         avgVal = sum(vals) / len(vals)
+        print(avgVal)
         # print(vals, totVals)
         print(np.corrcoef(vals, totVals))
         ims = axes[0][idx].scatter(vals, totVals)
         hms.append(ims)
 
-    axes[0][idx].set_title(nameList[idx])
-    axes[0][idx].grid(False)
-    if idx == 0:
-        axes[0][idx].set_xlabel("database instance index")
-        axes[0][idx].set_ylabel("question instance batch index")
-    axes[1][idx].hist(vals, range=[0, 1], alpha=0.6)
-    # axes[1][idx].axvline(x=avg, color='gray', linestyle='--', linewidth=2, label=f'5 in airline')
-    axes[1][idx].axvline(
-        x=avgVal, color="black", linestyle="-.", linewidth=2, label="Single"
-    )
-    axes[1][idx].axvline(
-        x=avgs[idx], color="brown", linestyle=":", linewidth=2, label="Multiple"
-    )
-    if idx == 0:
-        axes[1][idx].set_xlabel("accuracy")
-        axes[1][idx].set_ylabel("count")
-        axes[1][idx].legend()
-    #  cbar = fig.colorbar(
-    # hms[0], ax=axes, orientation="vertical", fraction=0.02, pad=0.04
-    #  )
-    # cbar.set_label("Accuracy")
+        axes[0][idx].set_title(nameList[idx])
+        axes[0][idx].grid(False)
+        if idx == 0:
+            axes[0][idx].set_xlabel("database instance index")
+            axes[0][idx].set_ylabel("question instance batch index")
+        axes[1][idx].hist(vals, range=[0, 1], alpha=0.6)
+        # axes[1][idx].axvline(x=avg, color='gray', linestyle='--', linewidth=2, label=f'5 in airline')
+        axes[1][idx].axvline(
+            x=avgVal, color="black", linestyle="-.", linewidth=2, label="Single"
+        )
+        axes[1][idx].axvline(
+            x=avgs[idx], color="brown", linestyle=":", linewidth=2, label="Multiple"
+        )
+        if idx == 0:
+            axes[1][idx].set_xlabel("accuracy")
+            axes[1][idx].set_ylabel("count")
+            axes[1][idx].legend()
+        #  cbar = fig.colorbar(
+        # hms[0], ax=axes, orientation="vertical", fraction=0.02, pad=0.04
+        #  )
+        # cbar.set_label("Accuracy")
     plt.savefig(os.path.join(savePath, "single.pdf"), bbox_inches="tight")
-

@@ -8,7 +8,8 @@ from dbMerge import ResultAnalysis
 
 modelDict = {
     "glm-4-9b-chat": "GLM-4-9B-Chat",
-    "Llama-3.1-70B-Instruct": "Llama3.1-70B-Instruct",
+    # "Llama-3.1-70B-Instruct": "Llama3.1-70B-Instruct",
+    "deepseek-v3": "DeepSeek-V3",
     "TableGPT2-7B": "TableGPT2-7B",
     "o1-mini": "GPT-o1-mini",
     "deepseek-r1": "DeepSeek-R1",
@@ -25,7 +26,8 @@ if __name__ == "__main__":
     angles += angles[:1]
 
     plt.style.use("ggplot")
-    fig, axs = plt.subplots(1, 4, figsize=(24, 6), subplot_kw=dict(polar=True))
+    fig, axs = plt.subplots(1, 4, figsize=(24, 5), subplot_kw=dict(polar=True))
+    plt.subplots_adjust(wspace=10)
     idx = 0
     for scale in ["8k", "16k", "32k", "64k"]:
         saveDict = {}
@@ -67,5 +69,5 @@ if __name__ == "__main__":
 
         idx += 1
     plt.tight_layout()
-    plt.savefig("symDataset/charts/circle-new.pdf", bbox_inches="tight")
+    plt.savefig("symDataset/charts/circle-new-new-resize.pdf", bbox_inches="tight")
     plt.show()
