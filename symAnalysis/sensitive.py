@@ -47,7 +47,7 @@ if __name__ == "__main__":
             axes[0][idx].set_ylabel("question instance batch index")
         axes[1][idx].hist(vals, range=[0, 1], alpha=0.6)
         axes[1][idx].axvline(
-            x=avg, color="gray", linestyle="--", linewidth=2, label=f"5 in airline"
+            x=avg, color="gray", linestyle="--", linewidth=2, label="5 in airline"
         )
         axes[1][idx].axvline(
             x=avgVal, color="black", linestyle="-.", linewidth=2, label="all in airline"
