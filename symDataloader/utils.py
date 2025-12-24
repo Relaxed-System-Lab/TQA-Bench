@@ -157,6 +157,7 @@ class TaskCore:
         """
         for dbIdx in tqdm(range(dbLimit)):
             for sampleIdx in range(sampleLimit):
+                # for questionIdx in [12, 13]:
                 for questionIdx in range(questionLimit):
                     if self.resultCheck(
                         dbn, model, scale, markdown, dbIdx, sampleIdx, questionIdx
@@ -183,13 +184,13 @@ class TaskCore:
                     error = ""
                     res = ""
                     try:
-                        # res = func(dbStr, question, choicesStr)
-                        res = func(
-                            dbStr,
-                            question,
-                            choicesStr,
-                            (dbn, scale, dbIdx, sampleIdx, questionIdx, item[-5]),
-                        )
+                        res = func(dbStr, question, choicesStr)
+                        # res = func(
+                        #     dbStr,
+                        #     question,
+                        #     choicesStr,
+                        #     (dbn, scale, dbIdx, sampleIdx, questionIdx, item[-5]),
+                        # )
                         pred = extractAnswer(res)
                         time.sleep(timeSleep)
                     except Exception as e:

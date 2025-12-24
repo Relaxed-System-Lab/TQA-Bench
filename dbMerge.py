@@ -124,8 +124,10 @@ class ResultAnalysis:
         # modelNames = "GLM-4-9B-Chat DeepSeek-V2-Lite-Chat Baichuan2-7B-Chat Baichuan2-13B-Chat Vicuna-7B-V1.5-16K Vicuna-13B-V1.5-16K Mistral-7B-Instruct Mistral-Nemo-Instruct Llama3.1-8B-Instruct Llama3.1-70B-Instruct Qwen2.5-3B-Instruct Qwen2.5-7B-Instruct Qwen2.5-Coder-7B-Instruct Qwen2.5-14B-Instruct Qwen2.5-72B-Instruct Gemma2-2B-It Gemma2-9B-It Gemma2-27B-It TableGPT2-7B TableLlama GPT-4o-mini GPT-4o".split()
         # modelList = "o1-mini o3-mini deepseek-r1 qwq-32b-preview".split()
         # modelNames = "GPT-o1-mini GPT-o3-mini DeepSeek-R1 QwQ-32B-Preview".split()
-        modelList = ["deepseek-v3"]
-        modelNames = ["DeepSeek-V3"]
+        # modelList = ["deepseek-v3"]
+        # modelNames = ["DeepSeek-V3"]
+        modelList = ["gpt-5.1"]
+        modelNames = ["GPT-5.1"]
         print(len(modelList))
         qt = list(questionTypes.keys()) + ["overview"]
 
@@ -268,7 +270,11 @@ if __name__ == "__main__":
             ResultAnalysis.removeEmptyMessage(src)
     else:
         # ra = ResultAnalysis("tmp.sqlite")
-        ra = ResultAnalysis("./symDataset/results/TableQA/ds-v3-result.sqlite")
+        # ra = ResultAnalysis("./symDataset/results/TableQA/ds-v3-result.sqlite")
+        # ra.latexTableGen(5, 14)
+        # Direct prompting
+        ra = ResultAnalysis("./symDataset/results/TableQA/gpt_5-1.sqlite")
+        # ra = ResultAnalysis("./symDataset/results/TableQA/gpt_5-1-tool.sqlite")
         ra.latexTableGen(5, 14)
     # cnt = ra.count(dbLimit=5, questionLimit=10)
     # print(cnt)

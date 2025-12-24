@@ -43,6 +43,7 @@ if __name__ == "__main__":
                 tables[1][1] += curr_table[1][1]
             # print(tables)
             result = mcnemar(tables, exact=False, correction=True)
+            print(tables)
             print(
                 "model=",
                 model,
